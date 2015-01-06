@@ -125,7 +125,7 @@ class="current"
                 <td colspan="2"> 
                     <center>
                     <div class="btn-wrap">
-                        <a class="btn_3" href="#" data-type="reset">Reset</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <a class="btn_3" href="javascript:document.getElementById('regForm').reset();" data-type="reset">Reset</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <a class="btn_3" href="#" data-type="submit">Register</a>
                     </div>
                 </center>
