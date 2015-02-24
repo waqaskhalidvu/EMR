@@ -36,7 +36,7 @@ Lab Test Details
                 </tr>
               <tr>
                 <td width="272" height="55"><label> Test Fee:</label></td>
-                <td width="333"><label>{{{ $labtest->total_fee}}}</label> </td>
+                <td width="333"><label>{{{ $labtest->total_fee}}} -/Rs</label> </td>
                 </tr>
                
                 <tr>

@@ -62,6 +62,8 @@ class LabtestsController extends \BaseController {
 			$flag = Input::get('flag');
 			return View::make('labtests.show', compact('labtest', 'flag'));
 		}
+
+		return View::make('labtests.show', compact('labtest'));
 	}
 
 	/**
@@ -73,7 +75,12 @@ class LabtestsController extends \BaseController {
 	public function edit($id)
 	{
 		$labtest = Labtest::find($id);
-
+		
+		if(Input::get('flag') != null){
+			$flag = Input::get('flag');
+			return View::make('labtests.edit', compact('labtest', 'flag'));
+		}
+		
 		return View::make('labtests.edit', compact('labtest'));
 	}
 
@@ -95,8 +102,12 @@ class LabtestsController extends \BaseController {
 		}
 
         $data['patient_id'] = $labtest->patient_id;
-
         $labtest->update($data);
+		
+		if(Input::get('flag') != null){
+			$flag = Input::get('flag');
+			 return Redirect::to('labtests?id='.$data['appointment_id'], compact($flag));
+		}
 
         return Redirect::to('labtests?id='.$data['appointment_id']);
 	}

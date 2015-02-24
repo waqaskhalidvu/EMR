@@ -45,7 +45,11 @@ Edit Lab Test
                 <tr>
                 <td width="272" height="55"><label>Test Name:</label> </td>
                 <td width="333">
+                @if(isset($flag))
+                    {{ Form::input('text', 'test_name', null, array('required' => 'true', 'disabled' => 'true')) }}
+                @else
                     {{ Form::input('text', 'test_name', null, array('required' => 'true')) }}
+                @endif
                 </td>
                 </tr>
 
@@ -58,7 +62,13 @@ Edit Lab Test
 
                  <tr>
                 <td width="272"><label>Test Results:</label></td>
-                <td width="333" height="200">{{ Form::textarea('test_results', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
+                <td width="333" height="200">
+                @if(isset($flag))
+                    {{ Form::textarea('test_results', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;", 'disabled' => 'true') ) }}
+                @else
+                    {{ Form::textarea('test_results', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}
+                @endif
+                </td>
                 </tr>
              
 
@@ -68,6 +78,8 @@ Edit Lab Test
                 </tr>
                 <tr>
                     <input name="appointment_id" type="hidden" value="{{ $labtest->appointment->id }}">
+                    <input name="flag" type="hidden" value="{{ $flag }}">
+
                 <td colspan="2">
                     <center>
                     <div class="btn-wrap">
