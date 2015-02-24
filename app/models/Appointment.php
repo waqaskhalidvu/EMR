@@ -37,8 +37,19 @@ class Appointment extends \Eloquent {
         return $this->hasOne('Vitalsign');
     }
 
+    public function diagonosticprocedure()
+    {
+        return $this->hasOne('Diagonosticprocedure');
+    }
+
     public function labtests()
     {
         return $this->hasMany('Labtest');
     }
+
+    public function checkupfee()
+    {
+        return $this->hasOne('CheckupFee');
+    }
+
 }

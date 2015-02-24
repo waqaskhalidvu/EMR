@@ -180,12 +180,35 @@ Route::group(array('before' => 'auth'), function(){
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
     });
 
+    Route::get('app_proc', function(){
+        $appointments = Appointment::has('prescription', '=', 0)->get();
+        $flag = "proc";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::get('app_check_fee', function(){
+        $appointments = Appointment::has('checkupfee', '=', 0)->get();
+        $flag = "check_fee";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::get('app_test_fee', function(){
+       if(Input::get('id') !== null){
+            $appointments = Appointment::where('patient_id', Input::get('id'))->get();
+        }else{
+            $appointments = Appointment::all();
+        }
+        $flag = "test_fee";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::resource('checkupfees', 'CheckupfeesController');
+
+    Route::resource('testfees', 'TestfeesController');
+
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');
 //****************************************************************//
-    
-
-
     
 });
 

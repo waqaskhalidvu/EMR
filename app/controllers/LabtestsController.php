@@ -11,6 +11,11 @@ class LabtestsController extends \BaseController {
 	{
 		$appointment = Appointment::find(Input::get('id'));
 		
+		if(Input::get('flag') != null){
+			$flag = Input::get('flag');
+			return View::make('labtests.index', compact('appointment', 'flag'));
+		}
+		
         return View::make('labtests.index', compact('appointment'));
 	}
 
@@ -52,8 +57,11 @@ class LabtestsController extends \BaseController {
 	public function show($id)
 	{
 		$labtest = Labtest::findOrFail($id);
-
-		return View::make('labtests.show', compact('labtest'));
+		
+		if(Input::get('flag') != null){
+			$flag = Input::get('flag');
+			return View::make('labtests.show', compact('labtest', 'flag'));
+		}
 	}
 
 	/**

@@ -67,4 +67,9 @@ class Patient extends \Eloquent {
     {
         return $this->hasMany('Prescription');
     }
+
+    public function checkupfees()
+    {
+        return $this->hasMany('Checkupfee');
+    }
 }

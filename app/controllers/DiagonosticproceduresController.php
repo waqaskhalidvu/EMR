@@ -11,8 +11,8 @@ class DiagonosticproceduresController extends \BaseController {
 	{
 		$patient_id = Input::get('id');
         $patient = Patient::find($patient_id);
-
-		return View::make('diagonosticprocedures.index', compact('patient'));
+        $appointments = $patient->appointments()->has('diagonosticprocedure')->get();
+		return View::make('diagonosticprocedures.index', compact('appointments'));
 	}
 
 	/**
@@ -22,8 +22,10 @@ class DiagonosticproceduresController extends \BaseController {
 	 */
 	public function create()
 	{
+		$appointment = Appointment::find(Input::get('id'));
+        $patient_id = $appointment->patient->id;
 		$patient_id = Input::get('id');
-		return View::make('diagonosticprocedures.create', compact('patient_id'));
+		return View::make('diagonosticprocedures.create', compact('appointment', 'patient_id'));
 	}
 
 	/**
@@ -42,7 +44,7 @@ class DiagonosticproceduresController extends \BaseController {
 
 		Diagonosticprocedure::create($data);
 
-		return Redirect::to('diagonosticprocedures?id='.$data['patient_id']);
+		return Redirect::to('/app_proc');
 	}
 
 	/**
@@ -53,8 +55,8 @@ class DiagonosticproceduresController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$diagonosticprocedure = Diagonosticprocedure::findOrFail($id);
-
+		$diagonosticprocedure = Diagonosticprocedure::where('appointment_id', $id)->get()->first();
+		
 		return View::make('diagonosticprocedures.show', compact('diagonosticprocedure'));
 	}
 
@@ -66,7 +68,7 @@ class DiagonosticproceduresController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$diagonosticprocedure = Diagonosticprocedure::find($id);
+		$diagonosticprocedure = Diagonosticprocedure::where('appointment_id', $id)->get()->first();
 
 		return View::make('diagonosticprocedures.edit', compact('diagonosticprocedure'));
 	}

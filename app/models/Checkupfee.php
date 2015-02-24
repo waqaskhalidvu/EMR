@@ -1,6 +1,6 @@
 <?php
 
-class Diagonosticprocedure extends \Eloquent {
+class Checkupfee extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
@@ -8,16 +8,17 @@ class Diagonosticprocedure extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['procedure_note', 'patient_id', 'appointment_id'];
+	protected $fillable = ['checkup_fee', 'fee_note', 'patient_id', 'appointment_id'];
 
 	// Relationships
-	public function patient()
+    public function patient()
     {
         return $this->belongsTo('Patient');
     }
 
-    public function appointment()
+	public function appointment()
     {
         return $this->belongsTo('Appointment');
     }
+
 }

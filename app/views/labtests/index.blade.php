@@ -46,7 +46,14 @@
                             <td>{{{ $labtest->test_name }}}</td>                                                      
                             <td>{{{ ($labtest->total_fee != 0)? $labtest->total_fee : 'Unpaid' }}}</td>
                             <td>
-                            {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+                            
+                        
+                        @if($flag != null)
+                        {{ link_to_route('labtests.show', 'View', [$labtest->id, 'flag' => 'test_fee'], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+                        @else
+                        {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+                        @endif
+
                         @if(Auth::user()->role != 'Doctor') 
                             {{ link_to_route('labtests.edit', 'Edit', [$labtest->id], ['class' => 'data_table_btn'])}}
                         @endif

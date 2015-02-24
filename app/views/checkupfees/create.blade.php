@@ -1,9 +1,9 @@
-@extends('diagonosticprocedures.layouts.master')
+@extends('checkupfees.layouts.master')
 <!--========================================================
                           TITLE
 =========================================================-->
 @section('title')
-Create Diagonostic Procedures
+Create Checkup Fee
 @stop
 
 
@@ -15,7 +15,7 @@ Create Diagonostic Procedures
         
 		<div class = "user_logo">
 			<div class="header_1 wrap_3 color_3" style="color: #fff; padding-top: 20px">
-                        Create Diagonostic Procedures
+                        Create Checkup Fee
             </div>
 		</div>
 		<br><br><br>
@@ -23,7 +23,6 @@ Create Diagonostic Procedures
 
 
 @section('content2')
-
 
         @foreach($errors->all("<p class='error'>:message</p>") as $message)
 	    {{ $message }}
@@ -33,12 +32,18 @@ Create Diagonostic Procedures
 	   <center>
             <div style="border: 4px solid #129894; width: 800px; border-radius: 10px; background-color: #EBEBEB">
 
-            {{ Form::open(array('action' => 'DiagonosticproceduresController@store', 'style' => 'padding: 40px', 'id' => 'regForm')) }}
-                <table width="621" height="200" border="0">
-
+            {{ Form::open(array('action' => 'CheckupfeesController@store', 'style' => 'padding: 40px', 'id' => 'regForm')) }}
+                <table width="621" height="220" border="0">
+              <tr>
+                <td width="272" height="55"><label>Checkup Fee*</label> </td>
+                <td width="333">
+                    {{ Form::input('number', 'checkup_fee', null, array('required' => 'true')) }}
+                </td>
+                </tr>
+             
                 <tr>
-                <td width="272"><label>Diagonostic Procedure*</label></td>
-                <td width="333" height="350">{{ Form::textarea('procedure_note', null, array('rows' => '7', 'cols' => '20', 'required' => 'true', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
+                <td width="272"><label>Checkup Note:</label></td>
+                <td width="333" height="200">{{ Form::textarea('fee_note', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
                 </tr>
                 <tr> 
                 <input name="patient_id" type="hidden" value="{{ $appointment->patient->id }}">
@@ -59,5 +64,5 @@ Create Diagonostic Procedures
 		
 		<br><br>
 
-     
+      
 @stop

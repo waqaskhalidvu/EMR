@@ -51,12 +51,13 @@ class="current"
 					<a class="pink" href="search_pmr">Manage Medical Record</a>
 					<a class="green" href="app_vitals">Add Vital Signs</a>
 					<a class="ferozi" href="app_prescription">Prepare Prescription</a>
+					<a class="green" href="app_proc"> Diagnostic Procedures	</a>
 					<a class="blue" href="#" >Print Prescription </a>
 					<a class="purple" href="app_tests">Manage Test Reports</a>
 					<a class="orange" href="#">Print Test Report</a>
-  					<a class="pink" href="#">Manage Checkup Fee</a>
+  					<a class="pink" href="app_check_fee">Add Checkup Fee</a>
 					<a class="green" href="#">Print Checkup Bill</a>
-					<a class="ferozi" href="#" >Manage Lab Test Fee </a>
+					<a class="ferozi" href="app_test_fee" >Add Lab Test Fee </a>
 					<a class="blue" href="#">Print Test Bill</a>
 				</div>
 			</div>
