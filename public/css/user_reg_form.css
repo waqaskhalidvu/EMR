@@ -1,0 +1,84 @@
+
+#regForm input[type=text], input[type=password], input[type=date], input[type=time], input[type=number], input[type=tel]{
+    width: 95%;
+    height: 35px;
+    font: 300 18px/36px 'Open Sans', sans-serif;
+    margin-top: -4px;
+    border: 1px solid #129894;
+        }
+
+#regForm input[type=email]{
+    width: 97%;
+    height: 39px;
+    font: 300 18px/36px 'Open Sans', sans-serif;
+    margin-top: -4px;
+    border: 1px solid #129894;
+}
+
+#regForm input, textarea{
+    padding-left: 5px;
+}
+
+#regForm input:focus, textarea:focus{
+    border: 1px solid #129894;
+}
+
+#regForm input:hover, textarea:hover{
+    border: 1px solid #129894;
+}
+
+#regForm .pass{
+    width: 97%;
+    height: 40px;
+    border: 1px solid #129894; 
+}
+
+#regForm textarea{
+    width: 95%;
+    height: 80%;
+    font: 300 18px/36px 'Open Sans', sans-serif;
+    border: 1px solid #129894; 
+}
+
+#regForm select{
+    width: 70%;
+    height: 30px;
+    font: 300 18px/36px 'Open Sans', sans-serif;
+    border: 1px solid #129894; 
+}
+
+#regForm label:not(.radio){
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/********************* Submit Button CSS *************************/
+#regForm .submit{
+  display: inline-block;
+  padding: 4px 34px 3px 33px;
+  font: 400 24px/30px 'Marvel', sans-serif;
+  color: #413d3d;
+  background: #f1f045;
+  border: none;
+  cursor: pointer;
+  border: none;
+}
+
+#regForm .submit:hover {
+  color: #ffffff;
+  background: #249f9c;
+  text-decoration: none;
+  border: none;
+}
+
+#regForm .submit {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#regForm input[type="checkbox"]{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
