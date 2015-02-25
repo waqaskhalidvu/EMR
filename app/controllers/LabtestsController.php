@@ -106,7 +106,7 @@ class LabtestsController extends \BaseController {
 		
 		if(Input::get('flag') != null){
 			$flag = Input::get('flag');
-			 return Redirect::to('labtests?id='.$data['appointment_id'], compact($flag));
+			return Redirect::to('labtests?id='.$data['appointment_id']. '&flag='. $flag);
 		}
 
         return Redirect::to('labtests?id='.$data['appointment_id']);

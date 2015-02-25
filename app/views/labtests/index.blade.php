@@ -57,7 +57,7 @@
                         {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                         @endif
 
-                        @if(Auth::user()->role != 'Doctor' || !isset($flag)) 
+                        @if(Auth::user()->role != 'Doctor' && !isset($flag)) 
                             {{ link_to_route('labtests.edit', 'Edit', [$labtest->id], ['class' => 'data_table_btn'])}}
                         @endif
                             </td>

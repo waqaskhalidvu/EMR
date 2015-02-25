@@ -32,7 +32,7 @@ Edit Lab Test
 	   <center>
             <div style="border: 4px solid #129894; width: 800px; border-radius: 10px; background-color: #EBEBEB">
 
-            {{ Form::model($labtest, ['route' => ['labtests.update', $labtest->id], 'method' => 'put' ,'style' => 'padding: 40px', 'id' => 'regForm'])}}
+            {{ Form::model($labtest, ['route' => ['labtests.update', $labtest->id], 'method' => 'PUT' ,'style' => 'padding: 40px', 'id' => 'regForm'])}}
 
                 <table width="621" height="720" border="0">
               <tr>
@@ -78,8 +78,9 @@ Edit Lab Test
                 </tr>
                 <tr>
                     <input name="appointment_id" type="hidden" value="{{ $labtest->appointment->id }}">
+                    @if(isset($flag))
                     <input name="flag" type="hidden" value="{{ $flag }}">
-
+                    @endif
                 <td colspan="2">
                     <center>
                     <div class="btn-wrap">
