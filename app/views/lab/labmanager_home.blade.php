@@ -27,10 +27,11 @@ class="current"
 		<br><br>
 			<div>
 				<div class="menu" style="margin-left: 10%; margin-right: 10%">
-					<a class="ferozi" href="#">Add Test Results</a>
-					<a class="green" href="#">View Test Results</a>
-					<a class="pink" href="#">Update Test Results</a>
+				<center>
+					<a class="ferozi" href="app_tests">Manage Test Results</a>
+					
 					<a class="purple" href="#">Print Test Report</a>	
+				</center>
 				</div>
 			</div>
 		

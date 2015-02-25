@@ -187,7 +187,11 @@ Route::group(array('before' => 'auth'), function(){
     });
 
     Route::get('app_check_fee', function(){
-        $appointments = Appointment::has('checkupfee', '=', 0)->get();
+        if(Auth::user()->role == "Accountant"){
+            $appointments = Appointment::all();
+        }else{
+            $appointments = Appointment::has('checkupfee', '=', 0)->get();
+        }
         $flag = "check_fee";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
     });

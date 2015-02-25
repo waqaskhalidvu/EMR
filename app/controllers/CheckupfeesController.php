@@ -95,6 +95,10 @@ class CheckupfeesController extends \BaseController {
 
         $checkupfee->update($data);
 
+        if(Auth::user()->role == 'Accountant'){
+        	return Redirect::to('/app_check_fee');
+        }
+
         return Redirect::to('checkupfees?id='.$checkupfee->patient_id);
 	}
 

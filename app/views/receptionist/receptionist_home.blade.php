@@ -34,6 +34,7 @@ class="current"
 					<a class="blue" href="app_vitals">Add Vital Signs</a>
 					<a class="orange" href="app_prescription">Prepare Prescription</a>
 					<a class="ferozi" href="#">Print Prescription</a>	
+					<a class="purple" href="app_tests">Manage Test Reports</a>
 				</div>
 			</div>
 		

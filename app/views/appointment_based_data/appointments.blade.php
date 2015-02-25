@@ -33,6 +33,7 @@
                         <th>Doctor Name</th>
                         <th>Date</th>
                         <th>Time</th>
+                        <th>Checkup Fee</th>
                         <th style="width: 25%">Action</th>
                     </tr>
                 </thead>
@@ -45,6 +46,14 @@
                             <td>{{{ $appointment->employee->name }}}</td>
                             <td>{{{ $appointment->date }}}</td>
                             <td>{{{ $appointment->time }}} </td>
+
+                            <td>
+                                @if(($appointment->checkupfee) != null)
+                                    {{ $appointment->checkupfee->checkup_fee . '-/Rs'}} 
+                                @else
+                                    Unpaid
+                                @endif
+                            </td>
                             <td>
                             @if($flag == 'vitals')
                                 @if(Auth::user()->role == 'Administrator' || Auth::user()->role == 'Receptionist')
@@ -59,7 +68,16 @@
                             @elseif($flag == 'proc')
                                  {{ link_to_route('diagonosticprocedures.create', 'Add', ['id' => $appointment->id], ['class' => 'data_table_btn'])}} 
                             @elseif($flag == 'check_fee')
+                                @if(Auth::user()->role == "Accountant")
+                                    @if(($appointment->checkupfee) != null)
+                                        {{ link_to_route('checkupfees.show', 'View', ['id' => $appointment->id], ['class' => 'data_table_btn'])}}
+                                        {{ link_to_route('checkupfees.edit', 'Edit', ['id' => $appointment->id], ['class' => 'data_table_btn'])}}
+                                    @else
+                                        {{ link_to_route('checkupfees.create', 'Add', ['id' => $appointment->id], ['class' => 'data_table_btn'])}}
+                                    @endif
+                                @else
                                  {{ link_to_route('checkupfees.create', 'Add', ['id' => $appointment->id], ['class' => 'data_table_btn'])}}
+                                @endif
                             @elseif($flag == 'test_fee')
                                  {{ link_to_route('labtests.index', 'Select', ['id' => $appointment->id, 'flag' => 'test_fee'], ['class' => 'data_table_btn'])}}
                             @endif

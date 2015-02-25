@@ -27,14 +27,12 @@ class="current"
 		<br/>
 			<div>
 				<div class="menu" style="margin-left: 10%; margin-right: 10%">
-					<a class="ferozi" href="#">Add Checkup Fee</a>
-					<a class="green" href="#">Edit Checkup Fee</a>
-					<a class="pink" href="#">View Checkup Fee</a>
+					<a class="ferozi" href="app_check_fee">Manage Checkup Fee</a>
+
 					<a class="purple" href="#">Print Checkup Invoice</a>
-					<a class="blue" href="#">Add Lab Test Fee</a>
-					<a class="orange" href="#">Edit Lab Test Fee</a>
-					<a class="ferozi" href="#">View Lab Test Fee</a>
-					<a class="green" href="#">Print Test Invoice</a>	
+					<a class="blue" href="app_test_fee">Manage Test Fee</a>
+
+					<a class="pink" href="#">Print Test Invoice</a>	
 				</div>
 			</div>
 
