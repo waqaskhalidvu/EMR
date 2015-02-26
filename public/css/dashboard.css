@@ -1,5 +1,5 @@
 .emptyDiv {
-    width: 700px;
+    width: 70%;
     height: 550px;
     background: #f3f3f3;
 	border: 5px solid #129894;
@@ -16,20 +16,20 @@
 .emptyDiv {
 	  position: fixed;
 	  top: 10%;
-	  left: -710px;
+	  left: -71%;
 	  -webkit-transition-duration: 0.4s;
 	  -moz-transition-duration: 0.4s;
 	  -o-transition-duration: 0.4s;
 	  transition-duration: 0.4s;
 }
 .slideout:hover {
-	left: 710px;
+	left: 71%;
 }
 .slideout:hover .emptyDiv {
 	left: 0;
 }
 #dashboard {
-	transform: translate(-76px, 354px) rotate(90deg) ;	 	
+	transform: translate(-40%, 354px) rotate(90deg) ;	 	
 }
 #dashboard{
 	border-top: 1px solid #fff;

@@ -36,7 +36,8 @@ class HomeController extends BaseController {
 
 	public function showDoctor_home()
 	{
-		return View::make('doctor.doctor_home');
+		$appointments = Auth::user()->appointments()->get();
+		return View::make('doctor.doctor_home', compact('appointments'));
 	}
 
 	public function showReceptionist_home()

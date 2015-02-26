@@ -43,8 +43,51 @@ class="current"
 			<div class="slideout">
 				<input id="dashboard" type="button" value="Dashboard" />
 				<div class="emptyDiv">
-				<center><b> Hello Doctor to Dashboard!</b></center>
-				
+				<center><b style="font-weight: 800; color: #129894; font-size: 1.5em"> Your Appointments!</b></center><br/>
+				<table id="example" style=" border: 1px solid black" class="display" cellspacing="0" width="80%">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+               	<tbody>
+
+                    @foreach($appointments as $appointment)
+                        <tr>
+                            <td>{{{ $appointment->patient->name }}}</td>
+                            <td>{{{ $appointment->date }}}</td>
+                            <td>{{{ $appointment->time }}}</td>
+                            <td>
+                                @if($appointment->status == 0)
+                                Reserved
+                                @elseif($appointment->status == 1)
+                                    Waiting
+                                @elseif($appointment->status == 2)
+                                    Check-in
+                                @elseif($appointment->status == 3)
+                                    No Show
+                                @elseif($appointment->status == 4)
+                                    Cancelled
+                                @elseif($appointment->status == 5)
+                                    Closed
+                                @endif
+                            </td>
+                            <td>
+                            {{ link_to_route('appointments.show', 'View', [$appointment->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+
+                        @if(Auth::user()->role != 'Doctor')
+                            {{ link_to_route('appointments.edit', 'Edit', [$appointment->id], ['class' => 'data_table_btn'])}}
+                        @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
 				</div> 
             </div>
 			

@@ -50,7 +50,9 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-        $('#example').dataTable();
+        $('#example').dataTable({
+            "lengthMenu": [[5], [5]]
+        });
         } );
     </script>
     <!--------- End of Data Table files ------->
