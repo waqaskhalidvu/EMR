@@ -35,7 +35,7 @@ Create Lab Test
             {{ Form::open(array('action' => 'LabtestsController@store', 'style' => 'padding: 40px', 'id' => 'regForm')) }}
                 <table width="621" height="320" border="0">
               <tr>
-                <td width="272" height="55"><label>Test Name:</label> </td>
+                <td width="272" height="55"><label>Test Name*</label> </td>
                 <td width="333">
                     {{ Form::input('text', 'test_name', null, array('required' => 'true')) }}
                 </td>

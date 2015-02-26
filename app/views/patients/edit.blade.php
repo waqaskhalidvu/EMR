@@ -54,7 +54,7 @@ Edit Patient
                </td>
                 </tr>
               <tr>
-                <td width="272" height="55"><label>      Gender:</label></td>
+                <td width="272" height="55"><label>      Gender*</label></td>
                 <td width="333"><span>
                   <label class="radio">
                     <input style="width: 30px" type="radio" required="true" name="gender" @if($patient->gender == 'Male') checked="true" @endif value="Male" id="gender_0">

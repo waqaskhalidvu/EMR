@@ -4,7 +4,14 @@ class Vitalsign extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+
+		'weight' => 'required',
+		'height' => 'required',
+		'bp_systolic' => 'required',
+		'bp_diastolic' => 'required',
+		'pulse_rate' => 'required',
+		'respiration_rate' => 'required',
+		'temprature' => 'required'
 	];
 
 	// Don't forget to fill this array

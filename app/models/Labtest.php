@@ -4,7 +4,8 @@ class Labtest extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+
+		'test_name' => 'required'
 	];
 
 	// Don't forget to fill this array

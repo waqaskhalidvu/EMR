@@ -35,7 +35,7 @@ Create Appointment
             {{ Form::open(array('action' => 'AppointmentsController@store', 'style' => 'padding: 40px', 'id' => 'regForm')) }}
                 <table width="621" height="500" border="0">
               <tr>
-                <td width="272" height="55"><label>Select Doctor:</label> </td>
+                <td width="272" height="55"><label>Select Doctor*</label> </td>
                 <td width="333">
                     {{ Form::select('employee_id', $doctors->lists('name', 'id'), null, ['required' => 'true', 'id' => 'employee_id', 'style' => "width: 100%; height: 38px"] ); }}
                 </td>
@@ -48,21 +48,21 @@ Create Appointment
                    </td>
                 </tr>
                 <tr>
-                   <td width="272" height="55"><label>Select Time Slot:</label> </td>
+                   <td width="272" height="55"><label>Select Time Slot*</label> </td>
                    <td width="333">
                       {{ Form::select('timeslot_id', [], null, ['required' => 'true', 'id' => 'time_slot_id', 'style' => "width: 100%; height: 38px"] ); }}
 
                    </td>
                 </tr>
                 <tr>
-                   <td width="272" height="55"><label>Select Patient:</label> </td>
+                   <td width="272" height="55"><label>Select Patient*</label> </td>
                    <td width="333">
                       {{ Form::select('patient_id', $patients->lists('name', 'id'), null, ['required' => 'true', 'id' => 'patient_id', 'style' => "width: 100%; height: 38px"] ); }}
 
                    </td>
                 </tr>
                 <tr>
-                   <td width="272" height="55"><label>Status:</label> </td>
+                   <td width="272" height="55"><label>Status*</label> </td>
                    <td width="333">
                       {{ Form::select('status', ['0' => 'Reserved', '1' => 'Waiting',
                       '2' => 'Check-in', '3' => 'No Show', '4' => 'Cancelled', '5' => 'Closed'], null, ['required' => 'true', 'id' => 'patient_id', 'style' => "width: 100%; height: 38px"] ); }}

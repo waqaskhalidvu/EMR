@@ -4,7 +4,7 @@ class Diagonosticprocedure extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'procedure_note' => 'required'
 	];
 
 	// Don't forget to fill this array

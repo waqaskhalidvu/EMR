@@ -4,7 +4,7 @@ class Checkupfee extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'checkup_fee' => 'required'
 	];
 
 	// Don't forget to fill this array

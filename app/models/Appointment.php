@@ -4,7 +4,13 @@ class Appointment extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'employee_id' => 'required',
+        'timeslot_id' => 'required',
+        'patient_id' => 'required',
+        'status' => 'required'
+
+        
+
 	];
 
 	// Don't forget to fill this array

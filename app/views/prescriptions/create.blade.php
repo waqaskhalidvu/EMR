@@ -36,14 +36,14 @@ Create Prescriptions
                 <table width="621" height="720" border="0">
               
               <tr>
-                 <td width="272" height="55"><label>Current Visit Date:</label> </td>
+                 <td width="272" height="55"><label>Current Visit Date*</label> </td>
                  <td width="333">
                     <label> {{ $appointment->date }}</label>
                  </td>
               </tr>
 
               <tr>
-                <td width="272" height="55"><label>Doctor Name:</label> </td>
+                <td width="272" height="55"><label>Doctor Name*</label> </td>
                 <td width="333">
                 
                 	<label> {{ $appointment->employee->name }}</label>

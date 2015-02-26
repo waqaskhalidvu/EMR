@@ -43,7 +43,7 @@ Edit Lab Test
                 </tr>
 
                 <tr>
-                <td width="272" height="55"><label>Test Name:</label> </td>
+                <td width="272" height="55"><label>Test Name*</label> </td>
                 <td width="333">
                 @if(isset($flag) || Auth::user()->role == "Lab Manager")
                     {{ Form::input('text', 'test_name', null, array('required' => 'true', 'disabled' => 'true')) }}
