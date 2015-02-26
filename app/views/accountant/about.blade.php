@@ -11,7 +11,6 @@ About
                           CURRENT MENU
 =========================================================-->
 @section("current_about")
-{{-- This is the current page class --}}
 class="current"
 @stop
 
