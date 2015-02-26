@@ -8,7 +8,7 @@
     <section id="content">
 
 				<h1>Welcome {{ $name }} to Electronic Medical Records!</h1><br>
-                You are not registered in the Clinic.
+                You are now registered in the Clinic.
                 <br/><br/>
                 Regards!
                 EMR Team
