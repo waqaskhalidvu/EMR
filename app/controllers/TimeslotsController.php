@@ -120,7 +120,8 @@ class TimeslotsController extends \BaseController {
                                 $query->select()
                                     ->from('appointments')
                                     ->where('appointments.date', '!=', $date);
-                            })->get();
+                            })
+                            ->get();
             return JsonResponse::create($slot);
         }
         return 'false';

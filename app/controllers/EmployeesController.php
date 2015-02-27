@@ -157,13 +157,6 @@ class EmployeesController extends \BaseController {
 
 		$employee->update($data);
 
-        $data = ['link' => URL::to('login'), 'name' => Input::get('name')];
-//      Send email to employee
-        Mail::queue('emails.welcome', $data, function($message)
-        {
-            $message->to(Input::get('email'), Input::get('name'))->subject('Welcome to EMR!');
-        });
-
 		return Redirect::route('employees.index');
 	}
 

@@ -135,13 +135,6 @@ class PatientsController extends \BaseController {
 
 		$patient->update($data);
 
-        $data = ['name' => Input::get('name')];
-//      Send email to employee
-        Mail::queue('emails.patient_welcome', $data, function($message)
-        {
-            $message->to(Input::get('email'), Input::get('name'))->subject('Welcome to EMR!');
-        });
-
 		return Redirect::route('patients.index');
 	}
 
