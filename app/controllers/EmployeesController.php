@@ -9,7 +9,7 @@ class EmployeesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$employees = Employee::paginate(10);
+		$employees = Employee::all();
 
 		return View::make('employees.index', compact('employees'));
 	}

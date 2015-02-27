@@ -10067,7 +10067,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"bProcessing": false,
+		"bProcessing": true,
 	
 	
 		/**
@@ -11558,7 +11558,7 @@
 		 */
 		"sPaginationType": "simple_numbers",
 	
-	
+
 		/**
 		 * Enable horizontal scrolling. When a table is too wide to fit into a
 		 * certain layout, or you have a large number of columns in the table, you
@@ -12640,7 +12640,7 @@
 			 * set a default use {@link DataTable.defaults}.
 			 *  @type boolean
 			 */
-			"bServerSide": null,
+			"bServerSide": true,
 	
 			/**
 			 * Sorting enablement flag.
@@ -13943,7 +13943,7 @@
 		"sInfo": "dataTables_info",
 		"sPaging": "dataTables_paginate paging_", /* Note that the type is postfixed */
 		"sLength": "dataTables_length",
-		"sProcessing": "dataTables_processing",
+		"sProcessing": true,
 	
 		/* Sorting */
 		"sSortAsc": "sorting_asc",
