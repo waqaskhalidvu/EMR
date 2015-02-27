@@ -46,9 +46,9 @@ class DutydaysController extends \BaseController {
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id);
         }else{
-            $data['day'] = "";
-            $data['start'] = "";
-            $data['end'] = "";
+            $data['day'] = null;
+            $data['start'] = null;
+            $data['end'] = null;
             Dutyday::create($data);
         }
 
@@ -59,9 +59,9 @@ class DutydaysController extends \BaseController {
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id);
         }else{
-            $data['day'] = "";
-            $data['start'] = "";
-            $data['end'] = "";
+            $data['day'] = null;
+            $data['start'] = null;
+            $data['end'] = null;
             Dutyday::create($data);
         }
 
@@ -72,9 +72,9 @@ class DutydaysController extends \BaseController {
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id);
         }else{
-            $data['day'] = "";
-            $data['start'] = "";
-            $data['end'] = "";
+            $data['day'] = null;
+            $data['start'] = null;
+            $data['end'] = null;
             Dutyday::create($data);
         }
 
@@ -85,9 +85,9 @@ class DutydaysController extends \BaseController {
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id);
         }else{
-            $data['day'] = "";
-            $data['start'] = "";
-            $data['end'] = "";
+            $data['day'] = null;
+            $data['start'] = null;
+            $data['end'] = null;
             Dutyday::create($data);
         }
 
@@ -98,9 +98,9 @@ class DutydaysController extends \BaseController {
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id);
         }else{
-            $data['day'] = "";
-            $data['start'] = "";
-            $data['end'] = "";
+            $data['day'] = null;
+            $data['start'] = null;
+            $data['end'] = null;
             Dutyday::create($data);
         }
 
@@ -111,9 +111,9 @@ class DutydaysController extends \BaseController {
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id);
         }else{
-            $data['day'] = "";
-            $data['start'] = "";
-            $data['end'] = "";
+            $data['day'] = null;
+            $data['start'] = null;
+            $data['end'] = null;
             Dutyday::create($data);
         }
 
@@ -124,9 +124,9 @@ class DutydaysController extends \BaseController {
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id);
         }else{
-            $data['day'] = "";
-            $data['start'] = "";
-            $data['end'] = "";
+            $data['day'] = null;
+            $data['start'] = null;
+            $data['end'] = null;
             Dutyday::create($data);
         }
 
@@ -191,11 +191,11 @@ class DutydaysController extends \BaseController {
                 $dutydays[0]->update();
                 Dutyday::updateSlots($dutydays[0]->start, $dutydays[0]->end, $dutydays[0]->id);
             }else{
-                $dutydays[0]->day = "";
+                $dutydays[0]->day = null;
                 $dutydays[0]->update();
-                $dutydays[0]->start = "";
+                $dutydays[0]->start = null;
                 $dutydays[0]->update();
-                $dutydays[0]->end = "";
+                $dutydays[0]->end = null;
                 $dutydays[0]->update();
                 Timeslot::where('dutyday_id', '=', $dutydays[0]->id)->delete();
             }
@@ -209,11 +209,11 @@ class DutydaysController extends \BaseController {
                 $dutydays[1]->update();
                 Dutyday::updateSlots($dutydays[1]->start, $dutydays[1]->end, $dutydays[1]->id);
             }else{
-                $dutydays[1]->day = "";
+                $dutydays[1]->day = null;
                 $dutydays[1]->update();
-                $dutydays[1]->start = "";
+                $dutydays[1]->start = null;
                 $dutydays[1]->update();
-                $dutydays[1]->end = "";
+                $dutydays[1]->end = null;
                 $dutydays[1]->update();
                 Timeslot::where('dutyday_id', '=', $dutydays[1]->id)->delete();
             }
@@ -226,11 +226,11 @@ class DutydaysController extends \BaseController {
                 $dutydays[2]->update();
                 Dutyday::updateSlots($dutydays[2]->start, $dutydays[2]->end, $dutydays[2]->id);
             }else{
-                $dutydays[2]->day = "";
+                $dutydays[2]->day = null;
                 $dutydays[2]->update();
-                $dutydays[2]->start = "";
+                $dutydays[2]->start = null;
                 $dutydays[2]->update();
-                $dutydays[2]->end = "";
+                $dutydays[2]->end = null;
                 $dutydays[2]->update();
                 Timeslot::where('dutyday_id', '=', $dutydays[2]->id)->delete();
             }
@@ -243,11 +243,11 @@ class DutydaysController extends \BaseController {
                 $dutydays[3]->update();
                 Dutyday::updateSlots($dutydays[3]->start, $dutydays[3]->end, $dutydays[3]->id);
             }else{
-                $dutydays[3]->day = "";
+                $dutydays[3]->day = null;
                 $dutydays[3]->update();
-                $dutydays[3]->start = "";
+                $dutydays[3]->start = null;
                 $dutydays[3]->update();
-                $dutydays[3]->end = "";
+                $dutydays[3]->end = null;
                 $dutydays[3]->update();
                 Timeslot::where('dutyday_id', '=', $dutydays[3]->id)->delete();
             }
@@ -260,11 +260,11 @@ class DutydaysController extends \BaseController {
                 $dutydays[4]->update();
                 Dutyday::updateSlots($dutydays[4]->start, $dutydays[4]->end, $dutydays[4]->id);
             }else{
-                $dutydays[4]->day = "";
+                $dutydays[4]->day = null;
                 $dutydays[4]->update();
-                $dutydays[4]->start = "";
+                $dutydays[4]->start = null;
                 $dutydays[4]->update();
-                $dutydays[4]->end = "";
+                $dutydays[4]->end = null;
                 $dutydays[4]->update();
                 Timeslot::where('dutyday_id', '=', $dutydays[4]->id)->delete();
             }
@@ -278,11 +278,11 @@ class DutydaysController extends \BaseController {
                 Dutyday::updateSlots($dutydays[5]->start, $dutydays[5]->end, $dutydays[5]->id);
             }
             else{
-                $dutydays[5]->day = "";
+                $dutydays[5]->day = null;
                 $dutydays[5]->update();
-                $dutydays[5]->start = "";
+                $dutydays[5]->start = null;
                 $dutydays[5]->update();
-                $dutydays[5]->end = "";
+                $dutydays[5]->end = null;
                 $dutydays[5]->update();
                 Timeslot::where('dutyday_id', '=', $dutydays[5]->id)->delete();
             }
@@ -296,11 +296,11 @@ class DutydaysController extends \BaseController {
                 Dutyday::updateSlots($dutydays[6]->start, $dutydays[6]->end, $dutydays[6]->id);
             }
             else{
-                $dutydays[6]->day = "";
+                $dutydays[6]->day = null;
                 $dutydays[6]->update();
-                $dutydays[6]->start = "";
+                $dutydays[6]->start = null;
                 $dutydays[6]->update();
-                $dutydays[6]->end = "";
+                $dutydays[6]->end = null;
                 $dutydays[6]->update();
                 Timeslot::where('dutyday_id', '=', $dutydays[6]->id)->delete();
             }

@@ -15,9 +15,9 @@ class CreateDutydaysTable extends Migration {
 		Schema::create('dutydays', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('day');
-			$table->time('start');
-			$table->time('end');
+			$table->string('day')->nullable();
+			$table->time('start')->nullable();
+			$table->time('end')->nullable();
 			$table->integer('employee_id');
 			$table->timestamps();
 		});
