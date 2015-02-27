@@ -99,7 +99,7 @@
                     <nav class="nav put-right">
                         <ul class="sf-menu">
                             <li @yield('current_home')><a href="/">Home</a></li>
-                             <li @yield('current_login')><a href="login">Login</a></li>
+                             <li @yield('current_login')><a href="/login">Login</a></li>
                              <li @yield('current_services')><a href="services">Services</a></li>
                             <li @yield('current_about')>
                                 <a href="about">About</a>

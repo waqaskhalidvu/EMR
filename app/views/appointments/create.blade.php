@@ -42,9 +42,9 @@ Create Appointment
                 </tr>
 
                <tr>
-                   <td width="272" height="55"><label>Select Date:</label> </td>
+                   <td width="272" height="55"><label>Select Date*   </label> </td>
                    <td width="333">
-                      {{ Form::input('date', 'date', null, array('placeholder' => 'mm/dd/yyyy', 'id' => 'date', 'style' => "width: 98%; height: 38px")) }}
+                      {{ Form::input('date', 'date', null, array('required' => 'true', 'placeholder' => 'mm/dd/yyyy', 'id' => 'date', 'style' => "width: 98%; height: 38px")) }}
                    </td>
                 </tr>
                 <tr>

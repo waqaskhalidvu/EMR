@@ -23,8 +23,7 @@
 <!--========================================================
                           JS
 =========================================================-->
-
-    {{ HTML::script('js/user_validation.js') }}
+    
     {{ HTML::script('js/jquery.js') }}
     {{ HTML::script('js/jquery-migrate-1.2.1.js') }}
     {{ HTML::script('js/jquery.equalheights.js') }}
@@ -56,6 +55,56 @@
         $(document).ready(function() {
             $('#example').dataTable();
 //            $('.timepicker').timepicki('hh:mm');
+
+            $('#regForm').submit(function(e){
+               if($("#sunday").not(':checked') && $("#monday").not(':checked') && $("#tuesday").not(':checked') && $("#wednesday").not(':checked') && $("#thursday").not(':checked') && $("#friday").not(':checked') && $("#saturday").not(':checked')){
+                alert('Please Select at least one day!')
+                e.preventDefault();
+               }else{
+                    if($("#sunday").is(':checked')){
+                        $('#sun_start_time').prop('required',true);
+                        $('#sun_end_time').prop('required',true);
+                        e.preventDefault();
+                   }
+
+                   if($("#monday").is(':checked')){
+                        $('#mon_start_time').prop('required',true);
+                        $('#mon_end_time').prop('required',true);
+                        e.preventDefault();
+                   }
+
+                   if($("#tuesday").is(':checked')){
+                        $('#tue_start_time').prop('required',true);
+                        $('#tue_end_time').prop('required',true);
+                        e.preventDefault();
+                   }
+
+                   if($("#wednesday").is(':checked')){
+                        $('#wed_start_time').prop('required',true);
+                        $('#wed_end_time').prop('required',true);
+                        e.preventDefault();
+                   }
+
+                   if($("#thursday").is(':checked')){
+                        $('#thu_start_time').prop('required',true);
+                        $('#thu_end_time').prop('required',true);
+                        e.preventDefault();
+                   }
+
+                   if($("#friday").is(':checked')){
+                        $('#fri_start_time').prop('required',true);
+                        $('#fri_end_time').prop('required',true);
+                        e.preventDefault();
+                   }
+
+                   if($("#saturday").is(':checked')){
+                        $('#sat_start_time').prop('required',true);
+                        $('#sat_end_time').prop('required',true);
+                        e.preventDefault();
+                   }
+               }
+
+            });
         } );
     </script>
 

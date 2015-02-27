@@ -52,14 +52,14 @@ Create Schedule
                 <tr>
                    <td width="272" height="55"><label>Start Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'sun_start_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'sun_start_time', null, ['class' => 'timepicker', 'id' => 'sun_start_time']) }}
 
                    </td>
                 </tr>
                 <tr>
                    <td width="272" height="55"><label>End Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'sun_end_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'sun_end_time', null, ['class' => 'timepicker', 'id' => 'sun_end_time']) }}
                    </td>
                 </tr>
                  <tr><td><br></td><td></td></tr>
@@ -72,13 +72,13 @@ Create Schedule
                 <tr>
                    <td width="272" height="55"><label>Start Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'mon_start_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'mon_start_time', null, ['class' => 'timepicker', 'id' => 'mon_start_time']) }}
                    </td>
                 </tr>
                 <tr>
                    <td width="272" height="55"><label>End Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'mon_end_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'mon_end_time', null, ['class' => 'timepicker', 'id' => 'mon_end_time']) }}
                    </td>
                 </tr>
                  <tr><td><br></td><td></td></tr>
@@ -91,13 +91,13 @@ Create Schedule
                 <tr>
                    <td width="272" height="55"><label>Start Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'tue_start_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'tue_start_time', null, ['class' => 'timepicker', 'id' => 'tue_start_time']) }}
                    </td>
                 </tr>
                 <tr>
                    <td width="272" height="55"><label>End Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'tue_end_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'tue_end_time', null, ['class' => 'timepicker', 'id' => 'tue_end_time']) }}
                    </td>
                 </tr>
                  <tr><td><br></td><td></td></tr>
@@ -110,13 +110,13 @@ Create Schedule
                 <tr>
                    <td width="272" height="55"><label>Start Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'wed_start_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'wed_start_time', null, ['class' => 'timepicker', 'id' => 'wed_start_time']) }}
                    </td>
                 </tr>
                 <tr>
                    <td width="272" height="55"><label>End Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'wed_end_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'wed_end_time', null, ['class' => 'timepicker', 'id' => 'wed_end_time']) }}
                    </td>
                 </tr>
                  <tr><td><br></td><td></td></tr>
@@ -129,13 +129,13 @@ Create Schedule
                 <tr>
                    <td width="272" height="55"><label>Start Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'thu_start_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'thu_start_time', null, ['class' => 'timepicker', 'id' => 'thu_start_time']) }}
                    </td>
                 </tr>
                 <tr>
                    <td width="272" height="55"><label>End Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'thu_end_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'thu_end_time', null, ['class' => 'timepicker', 'id' => 'thu_end_time']) }}
                    </td>
                 </tr>
                  <tr><td><br></td><td></td></tr>
@@ -148,13 +148,13 @@ Create Schedule
                 <tr>
                    <td width="272" height="55"><label>Start Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'fri_start_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'fri_start_time', null, ['class' => 'timepicker', 'id' => 'fri_start_time']) }}
                    </td>
                 </tr>
                 <tr>
                    <td width="272" height="55"><label>End Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'fri_end_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'fri_end_time', null, ['class' => 'timepicker', 'id' => 'fri_end_time']) }}
                    </td>
                 </tr>
                  <tr><td><br></td><td></td></tr>
@@ -167,13 +167,13 @@ Create Schedule
                 <tr>
                    <td width="272" height="55"><label>Start Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'sat_start_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'sat_start_time', null, ['class' => 'timepicker', 'id' => 'sat_start_time']) }}
                    </td>
                 </tr>
                 <tr>
                    <td width="272" height="55"><label>End Time:</label> </td>
                    <td width="333">
-                      {{ Form::input('time', 'sat_end_time', null, ['class' => 'timepicker']) }}
+                      {{ Form::input('time', 'sat_end_time', null, ['class' => 'timepicker', 'id' => 'sat_end_time']) }}
                    </td>
                 </tr>
                 <tr><td><br></td><td></td></tr>
