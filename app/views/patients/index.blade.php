@@ -45,7 +45,7 @@
                         <tr>
                             <td>{{{ $patient->name }}}</td>
                             <td>{{{ $patient->patient_id }}}</td>
-                            <td>{{{ $patient->age }}}</td>
+                            <td>{{{ $patient->age }}} - Years</td>
                             <td>{{{ $patient->gender }}}</td>
                             <td>{{{ $patient->phone }}}</td>
                             <td>

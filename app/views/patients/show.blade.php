@@ -40,7 +40,7 @@ Patient Details
                 </tr>
                 <tr>
                 <td width="272" height="55"><label>      Age:</label></td>
-                <td width="333"><label>{{{ $patient->age }}}</label></td>
+                <td width="333"><label>{{{ $patient->age }}} - Years</label></td>
                 </tr>
                 <tr>
                 <td width="272" height="55"><label>      Email:</label></td>

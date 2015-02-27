@@ -10047,7 +10047,7 @@
 		 *    } );
 		 */
 		"bPaginate": true,
-	
+
 	
 		/**
 		 * Enable or disable the display of a 'processing' indicator when the table is

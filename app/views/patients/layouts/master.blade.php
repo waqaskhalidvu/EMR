@@ -60,6 +60,13 @@
             function back () {
                 window.history.back();
             }
+
+            function getAge(){
+                var dob = new Date($('#dob').val());
+                var today = new Date();
+                var age = today.getFullYear() - dob.getFullYear();
+                $('#age').val(age);
+            }
         </script>
         <!--------- End of Data Table files ------->
 

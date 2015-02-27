@@ -9,7 +9,7 @@ class EmployeesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$employees = Employee::all();
+		$employees = Employee::paginate(10);
 
 		return View::make('employees.index', compact('employees'));
 	}
@@ -156,6 +156,13 @@ class EmployeesController extends \BaseController {
         }
 
 		$employee->update($data);
+
+        $data = ['link' => URL::to('login'), 'name' => Input::get('name')];
+//      Send email to employee
+        Mail::queue('emails.welcome', $data, function($message)
+        {
+            $message->to(Input::get('email'), Input::get('name'))->subject('Welcome to EMR!');
+        });
 
 		return Redirect::route('employees.index');
 	}

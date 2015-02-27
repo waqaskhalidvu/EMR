@@ -67,10 +67,8 @@ Edit Patient
                 </span>
                 </td>
                 </tr>
+                <input type="number" hidden="true" id="age" required="true" value="{{{ Form::getValueAttribute('age', null) }}}" name="age">
                 <tr>
-                <td width="272" height="55"><label>      Age*</label></td>
-                <td width="333"><input type="number" id="age" required="true" value="{{{ Form::getValueAttribute('age', null) }}}" name="age"></td>
-                </tr><tr>
                 <td width="272" height="55"><label>      City*</label></td>
                 <td width="333"><input type="text" id="city" required="true" value="{{{ Form::getValueAttribute('city', null) }}}" name="city"></td>
                 </tr>

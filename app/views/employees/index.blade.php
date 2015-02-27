@@ -56,9 +56,10 @@
                             </td>
                         </tr>
                     @endforeach
-
+                    {{ $employees->links() }}
                 </tbody>
             </table>
+
             </center>
 
 @stop
