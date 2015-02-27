@@ -17,11 +17,13 @@ class CreateAppointmentsTable extends Migration {
 			$table->increments('id');
 			$table->text('checkup_reason');
 			$table->date('date');
+            $table->time('time');
 			$table->string('status');
 			$table->double('checkup_fee');
 			$table->text('fee_note');
 			$table->integer('timeslot_id');
-			$table->integer('appointment_id');
+            $table->integer('employee_id');
+            $table->integer('patient_id');
 			$table->timestamps();
 		});
 	}

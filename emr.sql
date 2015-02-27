@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2015 at 05:17 PM
+-- Generation Time: Feb 27, 2015 at 08:10 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -46,15 +46,25 @@ CREATE TABLE IF NOT EXISTS `appointments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `checkup_reason` text COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
+  `time` time NOT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `checkup_fee` double NOT NULL,
   `fee_note` text COLLATE utf8_unicode_ci NOT NULL,
   `timeslot_id` int(11) NOT NULL,
-  `appointment_id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `checkup_reason`, `date`, `time`, `status`, `checkup_fee`, `fee_note`, `timeslot_id`, `employee_id`, `patient_id`, `created_at`, `updated_at`) VALUES
+(1, '', '2015-02-02', '13:00:00', '0', 0, '', 1, 2, 1, '2015-02-27 11:45:15', '2015-02-27 11:45:15'),
+(2, 'Patient has a sever pain in his backbone.', '2015-02-09', '13:00:00', '0', 0, '', 1, 2, 1, '2015-02-27 13:57:24', '2015-02-27 13:57:24');
 
 -- --------------------------------------------------------
 
@@ -120,7 +130,20 @@ CREATE TABLE IF NOT EXISTS `dutydays` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `dutydays`
+--
+
+INSERT INTO `dutydays` (`id`, `day`, `start`, `end`, `employee_id`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, NULL, 2, '2015-02-27 11:43:26', '2015-02-27 11:43:26'),
+(2, 'Monday', '13:00:00', '15:00:00', 2, '2015-02-27 11:43:26', '2015-02-27 11:43:26'),
+(3, NULL, NULL, NULL, 2, '2015-02-27 11:43:28', '2015-02-27 11:43:28'),
+(4, NULL, NULL, NULL, 2, '2015-02-27 11:43:28', '2015-02-27 11:43:28'),
+(5, NULL, NULL, NULL, 2, '2015-02-27 11:43:28', '2015-02-27 11:43:28'),
+(6, NULL, NULL, NULL, 2, '2015-02-27 11:43:28', '2015-02-27 11:43:28'),
+(7, NULL, NULL, NULL, 2, '2015-02-27 11:43:28', '2015-02-27 11:43:28');
 
 -- --------------------------------------------------------
 
@@ -148,19 +171,18 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `employees`
 --
 
 INSERT INTO `employees` (`id`, `name`, `password`, `email`, `gender`, `age`, `city`, `country`, `address`, `phone`, `cnic`, `branch`, `note`, `status`, `role`, `created_at`, `updated_at`, `remember_token`) VALUES
-(1, 'Shah', '$2y$10$6Rt5ASqHqPDjgAfvCTuzmeUVquWYEZk7pCAsuQNMy9P8H7HBmLx2u', 'admin@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Administrator', '2015-02-27 00:46:30', '2015-02-27 00:46:30', NULL),
-(2, 'Ali', '$2y$10$mAVmk5XLKirOasKDzRYNc.UI95clYvv.o7GY3OkDmZTK2Spvc9Hfm', 'doctor@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Doctor', '2015-02-27 00:46:30', '2015-02-27 00:46:30', NULL),
-(3, 'Umer', '$2y$10$QgkZr0sDvzrdOKC7q87NWO6IREjnoGlaoQY5PpsSFxInk/1kK2Kgy', 'accountant@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Accountant', '2015-02-27 00:46:31', '2015-02-27 00:46:31', NULL),
-(4, 'Talal', '$2y$10$3p64eiMAqjJ4N797KO/REOYRvTC/rbBAGZMAlXxl9H4gNdpAAswa.', 'receptionist@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Receptionist', '2015-02-27 00:46:31', '2015-02-27 00:46:31', NULL),
-(5, 'Aqeel', '$2y$10$9kWCf98M3C6ljz22V22voO9fYyiDMj5LW5F7ZHgOjVMx1X06MWSoy', 'lab@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Lab Manager', '2015-02-27 00:46:31', '2015-02-27 00:46:31', NULL),
-(6, 'Fahad Ali', '$2y$10$VxE5NVb0IzfO22xho4uMz.9aK7a7OM4aOX9fE0XUaUF0ZY/eTJ3p2', 'bc100402138@vu.edu.pk', 'Male', 23, 'Lahore', 'Pakistan', '139 lahore', '092033365458833', '332232322323', 'N/A', 'A physician is a professional who practices medicine, which is concerned with promoting, maintaining or restoring human health through the study, diagnosis, and treatment of disease, injury, and other physical and mental impairments. They may focus their practice on certain disease categories, types of patients, or methods of treatment – known as specialist medical practitioners – or assume responsibility for the provision of continuing and comprehensive medical care to individuals, families, and communities.', 'Active', 'Doctor', '2015-02-27 02:33:04', '2015-02-27 02:35:39', NULL);
+(1, 'Shah', '$2y$10$Mi.pbu22u0pWwvTle5PGpO52zP4Jle6WLm/8gvRZ8gC.0hR77MNte', 'admin@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Administrator', '2015-02-27 11:42:55', '2015-02-27 11:42:55', NULL),
+(2, 'Ali', '$2y$10$PkcLWLUCLOapVtBPBUBMwOiyTwC2cLCVAjkseAYXDgPLYeqtKYi1C', 'doctor@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Doctor', '2015-02-27 11:42:55', '2015-02-27 11:42:55', NULL),
+(3, 'Umer', '$2y$10$WwYSBjw45E/.zi2y.5PLquP7mgZe4DuZ0gjNcQLEU26nuYNvqR/Km', 'accountant@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Accountant', '2015-02-27 11:42:55', '2015-02-27 11:42:55', NULL),
+(4, 'Talal', '$2y$10$5hN.amdSKJOoiEIzO4mbqOTeITekNJRMrmebMdEz1GmiEBLQvLAte', 'receptionist@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Receptionist', '2015-02-27 11:42:56', '2015-02-27 11:42:56', NULL),
+(5, 'Aqeel', '$2y$10$khlEkdoBjcltb321/QUC5.ihoYjMenCV0Cg2tX0vESLX18MmwfM36', 'lab@gmail.com', 'Male', 23, 'Lahore', 'Pakistan', '10 Down Street', '03344050495', '1234679', 'DHA', 'MBBS Qualified', 'Active', 'Lab Manager', '2015-02-27 11:42:56', '2015-02-27 11:42:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -231,14 +253,14 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2015_02_12_085330_add_patient_id_to_familyhistories_table', 1),
 ('2015_02_12_085656_add_patient_id_to_previousdiseases_table', 1),
 ('2015_02_12_090044_add_patient_id_to_surgicalhistories_table', 1),
-('2015_02_14_110516_create_dutydays_table', 2),
-('2015_02_14_111359_create_timeslots_table', 2),
-('2015_02_17_060819_create_labtests_table', 2),
-('2015_02_17_080659_create_appointments_table', 2),
-('2015_02_18_064352_create_prescriptions_table', 2),
-('2015_02_19_192700_create_password_reminders_table', 2),
-('2015_02_21_053340_create_checkupfees_table', 2),
-('2015_02_21_053926_create_testfees_table', 2);
+('2015_02_14_110516_create_dutydays_table', 1),
+('2015_02_14_111359_create_timeslots_table', 1),
+('2015_02_17_060819_create_labtests_table', 1),
+('2015_02_17_080659_create_appointments_table', 1),
+('2015_02_18_064352_create_prescriptions_table', 1),
+('2015_02_19_192700_create_password_reminders_table', 1),
+('2015_02_21_053340_create_checkupfees_table', 1),
+('2015_02_21_053926_create_testfees_table', 1);
 
 -- --------------------------------------------------------
 
@@ -284,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `patients` (
 --
 
 INSERT INTO `patients` (`id`, `name`, `dob`, `gender`, `age`, `email`, `city`, `country`, `address`, `phone`, `cnic`, `note`, `patient_id`, `created_at`, `updated_at`) VALUES
-(1, 'Ahmed Raza', '2000-01-01', 'Male', 15, 'rock.star9722@gmail.com', 'Lahore', 'Pakistan', 'DHA, Phase 5', '03344050495', '2323234434', 'Patient has much conscious about his health. So treat the patient with much care in the inpatient ward of the hospital. ', 'Patient-1', '2015-02-27 02:23:20', '2015-02-27 02:27:13');
+(1, 'Fahad Ali', '2010-01-01', 'Male', 5, 'rock.star9722@gmail.com', 'Lahore', 'Pakistan', 'DHA', '03344050495', '3520241581375', 'More susceptible to health. ', 'Patient-1', '2015-02-27 11:44:48', '2015-02-27 11:44:48');
 
 -- --------------------------------------------------------
 
@@ -366,7 +388,22 @@ CREATE TABLE IF NOT EXISTS `timeslots` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `timeslots`
+--
+
+INSERT INTO `timeslots` (`id`, `slot`, `reserved`, `dutyday_id`, `created_at`, `updated_at`) VALUES
+(1, '13:00:00', 'No', 2, '2015-02-27 11:43:26', '2015-02-27 11:43:27'),
+(2, '13:15:00', 'No', 2, '2015-02-27 11:43:27', '2015-02-27 11:43:27'),
+(3, '13:30:00', 'No', 2, '2015-02-27 11:43:27', '2015-02-27 11:43:27'),
+(4, '13:45:00', 'No', 2, '2015-02-27 11:43:27', '2015-02-27 11:43:27'),
+(5, '14:00:00', 'No', 2, '2015-02-27 11:43:27', '2015-02-27 11:43:27'),
+(6, '14:15:00', 'No', 2, '2015-02-27 11:43:27', '2015-02-27 11:43:27'),
+(7, '14:30:00', 'No', 2, '2015-02-27 11:43:27', '2015-02-27 11:43:27'),
+(8, '14:45:00', 'No', 2, '2015-02-27 11:43:28', '2015-02-27 11:43:28'),
+(9, '15:00:00', 'No', 2, '2015-02-27 11:43:28', '2015-02-27 11:43:28');
 
 -- --------------------------------------------------------
 
@@ -398,129 +435,6 @@ CREATE TABLE IF NOT EXISTS `vitalsigns` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
---
--- Database: `practice`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'fahad', '123456');
---
--- Database: `prayerlogger`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `alarms`
---
-
-CREATE TABLE IF NOT EXISTS `alarms` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `prayer_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `repeat` tinyint(1) NOT NULL,
-  `repeat_days` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `migrations`
---
-
-CREATE TABLE IF NOT EXISTS `migrations` (
-  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `migrations`
---
-
-INSERT INTO `migrations` (`migration`, `batch`) VALUES
-('2015_01_28_113736_create_prayerlogs_table', 1),
-('2015_01_28_122036_create_users_table', 1),
-('2015_01_28_133551_create_mosques_table', 1),
-('2015_01_28_135523_create_alarms_table', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mosques`
---
-
-CREATE TABLE IF NOT EXISTS `mosques` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `mosque_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `state` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `street` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `prayerlogs`
---
-
-CREATE TABLE IF NOT EXISTS `prayerlogs` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `offered` tinyint(1) NOT NULL,
-  `prayer_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `prayer_date` date NOT NULL,
-  `prayer_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `offered_date` date NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `fname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `lname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `acctive` tinyint(1) NOT NULL,
-  `calculation_method` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `juristic_method` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
---
--- Database: `test`
---
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

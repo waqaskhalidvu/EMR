@@ -114,7 +114,13 @@ class TimeslotsController extends \BaseController {
 
         $duty_day = Dutyday::where('employee_id', $id)->where('day', $day)->get()->first();
         if($duty_day) {
-            $slot = Timeslot::where('dutyday_id', $duty_day->id)->has('appointments', '=', 0)->get();
+            $slot = Timeslot::where('dutyday_id', $duty_day->id)->has('appointments', '=', 0)
+                            ->orWhereExists(function($query) use ($date)
+                            {
+                                $query->select()
+                                    ->from('appointments')
+                                    ->where('appointments.date', '!=', $date);
+                            })->get();
             return JsonResponse::create($slot);
         }
         return 'false';
