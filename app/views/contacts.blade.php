@@ -55,7 +55,7 @@ class="current"
                                     Lahore Pakistan, <br/>
                                     Telephone: +1 800 603 6035 <br/>
                                     FAX: +1 800 889 9898 <br/>
-                                    E-mail: <a href="#">emr@gmail.com</a>
+                                    E-mail: <a href="#">emronline1@gmail.com</a>
                                 </p>
                             </address>
                         </div>
