@@ -57,6 +57,7 @@ Prescription Details
             <center>
                   <section style="margin-bottom: 10%">
                       <input type="submit" onclick="back()" value="Back" class="submit" />
+                      {{--&nbsp;&nbsp;&nbsp;&nbsp;<a href="/print" class="submit"> Save PDF </a>--}}
                   </section>
              </center>
             </div>
