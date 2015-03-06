@@ -43,15 +43,6 @@ Route::get('remind', 'RemindersController@getRemind');
 /////////////////////////////////////// PRIVATE ROUTES ////////////////////////////////////////////
 Route::group(array('before' => 'auth'), function(){
 
-    Route::get('/print', function()     // For PDF Reports
-    {
-        $html = '<html><body>'
-            . '<p>Put your html here, or generate it with your favourite '
-            . 'templating system.</p>'
-            . '</body></html>';
-        return PDF::load($html, 'A4', 'portrait')->show();
-    });
-
     ////////////////////// Admin Routes START ///////////////////////
     Route::group(array('before' => 'Administrator'), function(){
         Route::get('/admin_home', 'HomeController@showAdmin_home');
@@ -218,6 +209,10 @@ Route::group(array('before' => 'auth'), function(){
     Route::resource('checkupfees', 'CheckupfeesController');
 
     Route::resource('testfees', 'TestfeesController');
+
+    // PDF Reports
+    Route::any('print_pres', ['uses' => 'HomeController@print_pres']);  // Prescription PDF
+
 
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');

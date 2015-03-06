@@ -28,10 +28,12 @@ Prescription Details
                 <table class="row_border" style="  margin: 5%;" width="621" height="720">
              
               <tr>
-                <td width="272" height="55"><label>Current Visit Date:</label></td>
-                <td width="333"><label>{{{ $prescription->appointment->date }}}</label></td>
+                <td width="272" height="55"><label>Visit Date:</label></td>
+                <td width="333"><label>{{{ date('j F, Y', strtotime($prescription->appointment->date)) }}}</label></td>
                 </tr>
-
+                <td width="272" height="55"><label>Visit Time:</label></td>
+                <td width="333"><label>{{{ date('H:i:s', strtotime($prescription->appointment->time)) }}}</label></td>
+                </tr>
                  <tr>
                 <td width="272" height="55"><label>Doctor Name:</label> </td>
                 <td width="333"><label>{{{ $prescription->appointment->employee->name }}}</label></td>
@@ -57,7 +59,9 @@ Prescription Details
             <center>
                   <section style="margin-bottom: 10%">
                       <input type="submit" onclick="back()" value="Back" class="submit" />
-                      {{--&nbsp;&nbsp;&nbsp;&nbsp;<a href="/print" class="submit"> Save PDF </a>--}}
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      {{ link_to('print_pres?id='.$prescription->id, 'Save PDF', ['class' => 'btn_3'], $secure = null) }}
+
                   </section>
              </center>
             </div>
