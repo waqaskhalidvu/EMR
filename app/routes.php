@@ -212,7 +212,7 @@ Route::group(array('before' => 'auth'), function(){
 
     // PDF Reports
     Route::any('print_pres', ['uses' => 'HomeController@print_pres']);  // Prescription PDF
-
+    Route::any('print_test', ['uses' => 'HomeController@print_test']);  // Test Report PDF
 
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');

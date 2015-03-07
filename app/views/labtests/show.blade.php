@@ -54,7 +54,7 @@ Lab Test Details
                   <section style="margin-bottom: 10%">
                      <input type="submit" onclick="back()" value="Back" class="submit" />
                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                     <a value="Print" onClick="printDiv()" style="cursor:pointer" class="btn_3"> Print </a>
+                     {{ link_to('print_test?id='.$labtest->id, 'Save PDF', ['class' => 'btn_3'], $secure = null) }}
                   </section>
              </center>
             </div>

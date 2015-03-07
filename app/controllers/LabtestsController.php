@@ -93,8 +93,13 @@ class LabtestsController extends \BaseController {
 	public function update($id)
 	{
 		$labtest = Labtest::findOrFail($id);
+        $data = Input::all();
+        if(Input::get('flag') != null){
+            $data['test_name'] = $labtest->test_name;
+            $data['test_results'] = $labtest->test_results;
+        }
 
-		$validator = Validator::make($data = Input::all(), Labtest::$rules);
+		$validator = Validator::make($data, Labtest::$rules);
 
 		if ($validator->fails())
 		{
