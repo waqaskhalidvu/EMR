@@ -50,7 +50,7 @@
                             <td>{{{ $appointment->time }}}</td>
                             <td>
                                 @if($appointment->status == 0)
-                                Reserved
+                                    Reserved
                                 @elseif($appointment->status == 1)
                                     Waiting
                                 @elseif($appointment->status == 2)
@@ -67,7 +67,9 @@
                             {{ link_to_route('appointments.show', 'View', [$appointment->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
 
                         @if(Auth::user()->role != 'Doctor')
+                        @if($appointment->status == 0 || $appointment->status == 1 || $appointment->status == 2)
                             {{ link_to_route('appointments.edit', 'Edit', [$appointment->id], ['class' => 'data_table_btn'])}}
+                        @endif
                         @endif
                             </td>
                         </tr>
