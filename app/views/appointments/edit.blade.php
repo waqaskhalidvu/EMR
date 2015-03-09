@@ -51,7 +51,7 @@ Edit Appointment
                <tr>
                   <td width="272" height="55"><label>Select Time Slot*</label> </td>
                   <td width="333">
-                     {{ Form::select('timeslot_id', [], null, ['required' => 'true', 'id' => 'time_slot_id', 'style' => "width: 100%; height: 38px"] ); }}
+                     {{ Form::select('timeslot_id', $timeslot, Input::old('timeslot_id') , ['required' => 'true', 'id' => 'time_slot_id', 'style' => "width: 100%; height: 38px"] ); }}
 
                   </td>
                </tr>

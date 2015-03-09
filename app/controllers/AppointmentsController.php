@@ -73,8 +73,9 @@ class AppointmentsController extends \BaseController {
 		$doctors = Employee::where('role', 'Doctor')->where('status', 'active')->get();
         $patients = Patient::all();
 		$appointment = Appointment::find($id);
+        $timeslot = $appointment->timeslot->lists('slot','id');
 
-		return View::make('appointments.edit', compact('appointment', 'doctors', 'patients'));
+		return View::make('appointments.edit', compact('timeslot','appointment', 'doctors', 'patients'));
 	}
 
 	/**
