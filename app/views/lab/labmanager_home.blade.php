@@ -28,7 +28,7 @@ class="current"
 			<div>
 				<div class="menu" style="margin-left: 10%; margin-right: 10%">
 				<center>
-					<a class="ferozi" href="app_tests">Manage Test Results</a>
+					<a class="ferozi" href="app_tests?flag=results">Add Test Results</a>
 					
 					<a class="purple" href="#">Print Test Report</a>	
 				</center>

@@ -55,7 +55,7 @@
                     @foreach($appointment->labtests as $labtest)
                         <tr>
                             <td>{{{ $labtest->test_name }}}</td>                                                      
-                            <td>{{{ ($labtest->total_fee != 0)? $labtest->total_fee : 'Unpaid' }}}</td>
+                            <td>{{{ ($labtest->total_fee != 0)? $labtest->total_fee . '-/Rs' : 'Unpaid' }}}</td>
                             <td>{{{ ($labtest->test_results != null)? 'Yes' : 'No' }}}</td>
                             <td>
                             
@@ -73,7 +73,7 @@
                     @else
                         {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                         
-                            {{ link_to_route('labtests.edit', 'Add', [$labtest->id], ['class' => 'data_table_btn'])}}
+                        {{ link_to_route('labtests.edit', 'Add', [$labtest->id], ['class' => 'data_table_btn'])}}
                     @endif
                             </td>
                         </tr>

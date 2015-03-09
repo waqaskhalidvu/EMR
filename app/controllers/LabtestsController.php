@@ -99,6 +99,10 @@ class LabtestsController extends \BaseController {
             $data['test_results'] = $labtest->test_results;
         }
 
+        if(Auth::user()->role == 'Lab Manager'){
+            $data['test_name'] = $labtest->test_name;
+        }
+
 		$validator = Validator::make($data, Labtest::$rules);
 
 		if ($validator->fails())
