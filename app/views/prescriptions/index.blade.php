@@ -44,7 +44,7 @@
                             <td>{{{ $appointment->patient->name }}}</td>
                             <td>{{{ $appointment->employee->name }}}</td>
                             <td>{{{ $appointment->date }}}</td>
-                            <td>{{{ $appointment->timeslot->slot }}}</td>
+                            <td>{{{ $appointment->time }}}</td>
                             <td>
                             {{ link_to_route('prescriptions.show', 'View', [$appointment->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                         @if(Auth::user()->role != 'Doctor') 
