@@ -57,8 +57,10 @@ class PrescriptionsController extends \BaseController {
 	public function show($id)
 	{
 		$prescription = Prescription::where('appointment_id', $id)->get()->first();
-		
-		return View::make('prescriptions.show', compact('prescription'));
+        if(Input::get('flag') != null) {
+            $flag = Input::get('flag');
+        }
+		return View::make('prescriptions.show', compact('prescription', 'flag'));
 	}
 
 	/**

@@ -214,6 +214,25 @@ Route::group(array('before' => 'auth'), function(){
     Route::any('print_pres', ['uses' => 'HomeController@print_pres']);  // Prescription PDF
     Route::any('print_test', ['uses' => 'HomeController@print_test']);  // Test Report PDF
 
+    // Prints
+    Route::get('app_pres_print', function(){
+        $appointments = Appointment::has('prescription')->get();
+        $flag = "pres_print";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::get('pres_print', function(){
+        $id = Input::get('id');
+        $prescription = Prescription::findOrFail($id);
+        $date = date('j F, Y', strtotime($prescription->appointment->date));
+        $time = date('H:i:s', strtotime($prescription->appointment->time));
+        $doctor_name = $prescription->appointment->employee->name;
+        $patient = $prescription->appointment->patient;
+
+        return View::make('printables.prescription_print',
+            compact('prescription', 'date', 'time', 'doctor_name', 'patient'));
+    });
+
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');
 //****************************************************************//

@@ -60,8 +60,11 @@ Prescription Details
                   <section style="margin-bottom: 10%">
                       <input type="submit" onclick="back()" value="Back" class="submit" />
                       &nbsp;&nbsp;&nbsp;&nbsp;
-                      {{ link_to('print_pres?id='.$prescription->id, 'Save PDF', ['class' => 'btn_3'], $secure = null) }}
-
+                      @if(isset($flag))
+                        {{ link_to('pres_print?id='.$prescription->id, 'Print', ['class' => 'btn_3'], $secure = null) }}
+                      @else
+                        {{ link_to('print_pres?id='.$prescription->id, 'Save PDF', ['class' => 'btn_3'], $secure = null) }}
+                      @endif
                   </section>
              </center>
             </div>

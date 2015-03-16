@@ -33,7 +33,7 @@ class="current"
 					<a class="purple" href="search_pmr">Manage Medical Record</a>
 					<a class="blue" href="app_vitals">Add Vital Signs</a>
 					<a class="orange" href="app_prescription">Prepare Prescription</a>
-					<a class="ferozi" href="#">Print Prescription</a>	
+					<a class="ferozi" href="app_pres_print">Print Prescription</a>
 					<a class="purple" href="app_tests">Manage Test Reports</a>
 				</div>
 			</div>

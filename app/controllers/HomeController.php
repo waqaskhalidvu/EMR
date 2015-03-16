@@ -83,7 +83,7 @@ class HomeController extends BaseController {
         $time = date('H:i:s', strtotime($prescription->appointment->time));
         $doctor_name = $prescription->appointment->employee->name;
         $patient = $prescription->appointment->patient;
-        $logo = asset('/images/logo_new1.jpg');
+
 
         $html = "<html><body>"
             .   " <img src='./images/logo_new1.jpg'/>
