@@ -82,6 +82,8 @@
                                  {{ link_to_route('labtests.index', 'Select', ['id' => $appointment->id, 'flag' => 'test_fee'], ['class' => 'data_table_btn'])}}
                             @elseif($flag == 'pres_print')
                                 {{ link_to_route('prescriptions.show', 'Select', ['id' => $appointment->id, 'flag' => 'print'], ['class' => 'data_table_btn'])}}
+                            @elseif($flag == 'test_print')
+                                {{ link_to_route('labtests.index', 'Select', ['id' => $appointment->id, 'flag' => 'print'], ['class' => 'data_table_btn'])}}
                             @endif
                             </td>
                         </tr>

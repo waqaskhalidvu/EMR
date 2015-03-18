@@ -12,8 +12,13 @@ class LabtestsController extends \BaseController {
 		$appointment = Appointment::find(Input::get('id'));
 		
 		if(Input::get('flag') != null){
-			$flag = Input::get('flag');
-			return View::make('labtests.index', compact('appointment', 'flag'));
+            if(Input::get('flag') == 'print'){
+                $flag = Input::get('flag');
+                return View::make('labtests.index', compact('appointment', 'flag'));
+            }else{
+                $flag = Input::get('flag');
+                return View::make('labtests.index', compact('appointment', 'flag'));
+            }
 		}
 		
         return View::make('labtests.index', compact('appointment'));

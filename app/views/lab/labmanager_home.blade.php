@@ -30,7 +30,7 @@ class="current"
 				<center>
 					<a class="ferozi" href="app_tests?flag=results">Add Test Results</a>
 					
-					<a class="purple" href="#">Print Test Report</a>	
+					<a class="purple" href="">Print Test Report</a>
 				</center>
 				</div>
 			</div>

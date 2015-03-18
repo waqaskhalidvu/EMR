@@ -200,7 +200,7 @@ Route::group(array('before' => 'auth'), function(){
        if(Input::get('id') !== null){
             $appointments = Appointment::where('patient_id', Input::get('id'))->get();
         }else{
-            $appointments = Appointment::all();
+            $appointments = Appointment::has('labtests')->get();
         }
         $flag = "test_fee";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
@@ -231,6 +231,24 @@ Route::group(array('before' => 'auth'), function(){
 
         return View::make('printables.prescription_print',
             compact('prescription', 'date', 'time', 'doctor_name', 'patient'));
+    });
+
+    Route::get('app_test_print', function(){
+        $appointments = Appointment::has('labtests')->get();
+        $flag = "test_print";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::get('test_print', function(){
+        $id = Input::get('id');
+        $test = Labtest::findOrFail($id);
+        $patient = $test->appointment->patient;
+        $date = date('j F, Y', strtotime($test->appointment->date));
+        $time = date('H:i:s', strtotime($test->appointment->time));
+        $doctor_name = $test->appointment->employee->name;
+
+        return View::make('printables.test_print',
+            compact('test', 'date', 'time', 'doctor_name', 'patient'));
     });
 
     //    Ajax Requests

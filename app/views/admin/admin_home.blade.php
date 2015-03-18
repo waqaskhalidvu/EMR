@@ -54,7 +54,7 @@ class="current"
 					<a class="green" href="app_proc"> Diagnostic Procedures	</a>
 					<a class="blue" href="app_pres_print" >Print Prescription </a>
 					<a class="purple" href="app_tests">Manage Test Reports</a>
-					<a class="orange" href="#">Print Test Report</a>
+					<a class="orange" href="app_test_print">Print Test Report</a>
   					<a class="pink" href="app_check_fee">Add Checkup Fee</a>
 					<a class="green" href="#">Print Checkup Bill</a>
 					<a class="ferozi" href="app_test_fee" >Add Lab Test Fee </a>

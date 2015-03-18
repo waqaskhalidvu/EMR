@@ -54,7 +54,11 @@ Lab Test Details
                   <section style="margin-bottom: 10%">
                      <input type="submit" onclick="back()" value="Back" class="submit" />
                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                     {{ link_to('print_test?id='.$labtest->id, 'Save PDF', ['class' => 'btn_3'], $secure = null) }}
+                     @if(isset($flag) && $flag == 'print')
+                        {{ link_to('test_print?id='.$labtest->id, 'Print', ['class' => 'btn_3'], $secure = null) }}
+                     @else
+                        {{ link_to('print_test?id='.$labtest->id, 'Save PDF', ['class' => 'btn_3'], $secure = null) }}
+                     @endif
                   </section>
              </center>
             </div>

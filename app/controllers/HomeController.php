@@ -88,7 +88,7 @@ class HomeController extends BaseController {
         $html = "<html><body>"
             .   " <img src='./images/logo_new1.jpg'/>
                 <center>
-                    <h1> Prescription </h1>
+                    <h1><u> Prescription </u></h1>
                 </center>
                 <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
 

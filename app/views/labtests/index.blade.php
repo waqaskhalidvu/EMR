@@ -60,20 +60,22 @@
                             <td>
                             
                     @if(Auth::user()->role != "Lab Manager")    
-                        @if(isset($flag))
-                        {{ link_to_route('labtests.show', 'View', [$labtest->id, 'flag' => 'test_fee'], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
-                        {{ link_to_route('labtests.edit', 'Edit', [$labtest->id, 'flag' => 'test_fee'], ['class' => 'data_table_btn'])}}
+                        @if(isset($flag) && $flag == 'print')
+                            {{ link_to_route('labtests.show', 'View', [$labtest->id, 'flag' => 'print'], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+                        @elseif(isset($flag))
+                            {{ link_to_route('labtests.show', 'View', [$labtest->id, 'flag' => 'test_fee'], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+                            {{ link_to_route('labtests.edit', 'Edit', [$labtest->id, 'flag' => 'test_fee'], ['class' => 'data_table_btn'])}}
                         @else
-                        {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+                            {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                         @endif
 
                         @if(Auth::user()->role != 'Doctor' && !isset($flag)) 
                             {{ link_to_route('labtests.edit', 'Edit', [$labtest->id], ['class' => 'data_table_btn'])}}
                         @endif
                     @else
-                        {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
+                            {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                         
-                        {{ link_to_route('labtests.edit', 'Add', [$labtest->id], ['class' => 'data_table_btn'])}}
+                            {{ link_to_route('labtests.edit', 'Add', [$labtest->id], ['class' => 'data_table_btn'])}}
                     @endif
                             </td>
                         </tr>
