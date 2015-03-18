@@ -72,6 +72,8 @@
                         @if(Auth::user()->role != 'Doctor' && !isset($flag)) 
                             {{ link_to_route('labtests.edit', 'Edit', [$labtest->id], ['class' => 'data_table_btn'])}}
                         @endif
+                    @elseif(isset($flag) && $flag == 'print')
+                            {{ link_to_route('labtests.show', 'View', [$labtest->id, 'flag' => 'print'], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                     @else
                             {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                         
