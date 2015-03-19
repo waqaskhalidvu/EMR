@@ -39,7 +39,7 @@
 
                     @foreach($appointments as $appointment)
                         <tr>
-                            <td>{{{ $appointment->checkupfee->checkup_fee }}}</td>
+                            <td>{{{ $appointment->checkupfee->checkup_fee }}}-/Rs</td>
                             
                             <td>
                             {{ link_to_route('checkupfees.show', 'View', [$appointment->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}

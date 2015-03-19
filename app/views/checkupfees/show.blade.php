@@ -28,7 +28,7 @@ Checkup Fee Details
                 <table class="row_border" style=" border-radius: 10px; margin: 5%;" width="621" height="220">
               <tr>
                 <td width="272" height="55"><label>Checkup Fee*</label> </td>
-                <td width="333"><label>{{{ $checkupfee->checkup_fee }}}</label></td>
+                <td width="333"><label>{{{ $checkupfee->checkup_fee }}}-/Rs</label></td>
                 </tr>
               
                 <tr>
@@ -39,7 +39,11 @@ Checkup Fee Details
             </table>
             <center>
                   <section style="margin-bottom: 10%">
-                     <input type="submit" onclick="back()" value="Back" class="submit" />
+                    <input type="submit" onclick="back()" value="Back" class="submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    @if(isset($flag))
+                      {{ link_to('checkup_invoice_print?id='.$checkupfee->id, 'Print', ['class' => 'btn_3'], $secure = null) }}
+                    @endif
                   </section>
              </center>
             </div>

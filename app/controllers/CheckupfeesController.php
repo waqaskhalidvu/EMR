@@ -57,6 +57,13 @@ class CheckupfeesController extends \BaseController {
 	public function show($id)
 	{
 		$checkupfee = Checkupfee::where('appointment_id', $id)->get()->first();
+
+        if(Input::get('flag') != null){
+            $flag = Input::get('flag');
+            if($flag == 'checkup_invoice'){
+                return View::make('checkupfees.show', compact('checkupfee', 'flag'));
+            }
+        }
 		
 		return View::make('checkupfees.show', compact('checkupfee'));
 	}

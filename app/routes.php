@@ -251,6 +251,24 @@ Route::group(array('before' => 'auth'), function(){
             compact('test', 'date', 'time', 'doctor_name', 'patient'));
     });
 
+    Route::get('app_checkup_fee_print', function(){
+        $appointments = Appointment::has('checkupfee')->get();
+        $flag = "checkup_invoice";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::get('checkup_invoice_print', function(){
+        $id = Input::get('id');
+        $fee = Checkupfee::findOrFail($id);
+        $patient = $fee->appointment->patient;
+        $date = date('j F, Y', strtotime($fee->appointment->date));
+        $time = date('H:i:s', strtotime($fee->appointment->time));
+        $doctor_name = $fee->appointment->employee->name;
+
+        return View::make('printables.checkup_invoice_print',
+            compact('fee', 'date', 'time', 'doctor_name', 'patient'));
+    });
+
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');
 //****************************************************************//
