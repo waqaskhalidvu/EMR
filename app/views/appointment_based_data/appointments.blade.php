@@ -86,6 +86,8 @@
                                 {{ link_to_route('labtests.index', 'Select', ['id' => $appointment->id, 'flag' => 'print'], ['class' => 'data_table_btn'])}}
                             @elseif($flag == 'checkup_invoice')
                                 {{ link_to_route('checkupfees.show', 'View', ['id' => $appointment->id, 'flag' => 'checkup_invoice'], ['class' => 'data_table_btn'])}}
+                            @elseif($flag == 'test_invoice')
+                                {{ link_to('test_invoice_print?id='.$appointment->id, 'Select', ['class' => 'data_table_btn'])}}
                             @endif
                             </td>
                         </tr>

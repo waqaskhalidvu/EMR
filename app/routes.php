@@ -269,6 +269,31 @@ Route::group(array('before' => 'auth'), function(){
             compact('fee', 'date', 'time', 'doctor_name', 'patient'));
     });
 
+    Route::get('app_test_fee_print', function(){
+        $appointments = Appointment::has('labtests')->get();
+        $flag = "test_invoice";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::get('test_invoice_print', function(){
+        $id = Input::get('id');
+        $appointment = Appointment::findOrFail($id);
+        $tests = $appointment->labtests()->where('total_fee', '!=', 0)->get();
+
+        $patient = $appointment->patient;
+        $date = date('j F, Y', strtotime($appointment->date));
+        $time = date('H:i:s', strtotime($appointment->time));
+        $doctor_name = $appointment->employee->name;
+
+        $sum = 0;
+        foreach($tests as $test){
+            $sum += $test->total_fee;
+        }
+
+        return View::make('printables.test_invoice_print',
+            compact('sum', 'tests', 'date', 'time', 'doctor_name', 'patient'));
+    });
+
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');
 //****************************************************************//

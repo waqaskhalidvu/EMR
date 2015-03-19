@@ -2,7 +2,7 @@
     <body onload="window.print()">
         <img src='./images/logo_new1.jpg'/>
         <center>
-            <h1><u> Checkup Fee Invoice </u></h1>
+            <h1><u> Test Fee Invoice </u></h1>
         </center>
         <table style='border-collapse: collapse; width: 70%; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
 
@@ -26,13 +26,23 @@
                 <td height='20'><label>Doctor Name:</label></td>
                 <td><label>{{ $doctor_name }}</label></td>
             </tr>
+            @foreach($tests as $test)
             <tr>
-                <td height='20'><label>Total Bill:</label></td>
-                <td><label> {{ $fee->checkup_fee }}-/Rs</label></td>
+                <td height='20'><label>Test Name:</label></td>
+                <td><label> {{ $test->test_name }}</label></td>
             </tr>
             <tr>
-                <td height='20'> <label>Note:</label></td>
-                <td><label> {{ $fee->fee_note }}</label></td>
+                <td height='20'> <label>Description:</label></td>
+                <td><label> {{ $test->test_description }}</label></td>
+            </tr>
+            <tr>
+                <td height='20'> <label>Charges:</label></td>
+                <td><label> {{ $test->total_fee }}-/Rs</label></td>
+            </tr>
+            @endforeach
+            <tr>
+                <td height='20'> <label>Total Bill:</label></td>
+                <td><label> {{ $sum }}-/Rs</label></td>
             </tr>
         </table>
     </body>
