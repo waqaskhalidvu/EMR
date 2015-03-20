@@ -181,4 +181,70 @@ class HomeController extends BaseController {
         return PDF::load($html, 'A4', 'portrait')->show($patient->name. ' Test Report');
     }
 
+    function pdf_record(){
+        $id = Input::get('id');
+        $patient = Patient::findOrFail($id);
+        $dob = date('j F, Y', strtotime($patient->dob));
+
+        $html = "<html><body>"
+            .   " <img src='./images/logo_new1.jpg'/>
+                <center>
+                    <h1><u> $patient->name Medical Record </u></h1>
+                </center>
+                <table style='width: 80%; border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Personal Information)</caption>
+                    <tr>
+                        <td height='20'><label>Patient Name:</label></td>
+                        <td><label> $patient->name </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Patient ID:</label></td>
+                        <td><label> $patient->patient_id </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Date of Birth:</label></td>
+                        <td><label> $dob </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Gender:</label></td>
+                        <td><label> $patient->gender </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Age:</label></td>
+                        <td><label> $patient->age Years</label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Email:</label></td>
+                        <td><label> $patient->email </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>City:</label></td>
+                        <td><label> $patient->city </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'> <label>Country:</label></td>
+                        <td><label> $patient->country </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'> <label>Address:</label></td>
+                        <td><label> $patient->address </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'> <label>Phone:</label></td>
+                        <td><label> $patient->phone </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'> <label>CNIC:</label></td>
+                        <td><label> $patient->cnic </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'> <label>Additional Info:</label></td>
+                        <td><label> $patient->note </label></td>
+                    </tr>
+                </table>";
+
+        $html .= "</body></html>";
+        return PDF::load($html, 'A4', 'portrait')->show($patient->name. ' Medical Record');
+    }
+
 }

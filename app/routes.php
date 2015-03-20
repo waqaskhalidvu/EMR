@@ -294,6 +294,8 @@ Route::group(array('before' => 'auth'), function(){
             compact('sum', 'tests', 'date', 'time', 'doctor_name', 'patient'));
     });
 
+    Route::get('pdf_record', ['uses' => 'HomeController@pdf_record']);
+
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');
 //****************************************************************//

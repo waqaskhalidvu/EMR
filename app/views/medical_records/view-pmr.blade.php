@@ -40,7 +40,8 @@ class="current"
 <!--                     <a class="pink" href="#">Temporary Medication</a>-->
         <a class="blue" href="diagonosticprocedures?id={{$patient_id}}">Diagnostic Procedure</a>
         <a class="orange" href="app_tests?id={{$patient_id}}">Lab Test Reports</a>
-        <a class="purple" href="checkupfees?id={{$patient_id}}" >Checkup Fee History </a> 
+        <a class="purple" href="checkupfees?id={{$patient_id}}" >Checkup Fee History </a>
+         <a class="ferozi" href="pdf_record?id={{$patient_id}}">Medical Record in PDF</a>
     </div>
 </div>
 
