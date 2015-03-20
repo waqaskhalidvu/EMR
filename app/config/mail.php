@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'bc110201815@vu.edu.pk', 'name' => 'EMR Team'),
+	'from' => array('address' => 'emronline1@gmail.com', 'name' => 'EMR Team'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'bc110201815@vu.edu.pk',
+	'username' => 'emronline1@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'eloquentorm',
+	'password' => 'tkxzzdzammxjgyng',
 
 	/*
 	|--------------------------------------------------------------------------
