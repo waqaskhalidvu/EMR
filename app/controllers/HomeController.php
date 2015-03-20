@@ -126,7 +126,7 @@ class HomeController extends BaseController {
                     </tr>
                 </table>"
             . "</body></html>";
-        return PDF::load($html, 'A4', 'portrait')->show();
+        return PDF::load($html, 'A4', 'portrait')->show($patient->name.' Prescription');
     }
 
     public function print_test(){
@@ -178,7 +178,7 @@ class HomeController extends BaseController {
                     </tr>
                 </table>"
             . "</body></html>";
-        return PDF::load($html, 'A4', 'portrait')->show();
+        return PDF::load($html, 'A4', 'portrait')->show($patient->name. ' Test Report');
     }
 
 }
