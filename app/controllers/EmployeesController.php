@@ -32,7 +32,7 @@ class EmployeesController extends \BaseController {
 	public function store()
 	{
         $data = Input::all();
-        $validator = Validator::make($data, array('email' => 'unique:employees', 'status' => 'required', 'role' => 'required'));
+        $validator = Validator::make($data, array('password' => 'min:6','email' => 'unique:employees', 'status' => 'required', 'role' => 'required'));
 
         if ($validator->fails())
         {

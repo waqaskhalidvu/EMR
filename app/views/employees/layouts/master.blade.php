@@ -83,6 +83,12 @@
                         }
                         });
              } );
+
+            function checkForm()
+            {
+                $( "#create" ).prop( "disabled", true );
+                $( "#create" ).val('Please wait...');
+            }
         </script>
         <!--------- End of Data Table files ------->
 

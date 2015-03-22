@@ -34,7 +34,7 @@ Employee Registration
 	   <center>
             <div style="border: 4px solid #129894; width: 800px; border-radius: 10px; background-color: #EBEBEB">
 
-            {{ Form::open(array('action' => 'EmployeesController@store', 'style' => 'padding: 40px', 'id' => 'regForm')) }}
+            {{ Form::open(array('action' => 'EmployeesController@store', 'style' => 'padding: 40px', 'id' => 'regForm', 'onsubmit' => 'checkForm()')) }}
                 <table width="621" height="720" border="0">
               <tr>
                 <td width="272" height="55"><label>Employee Name*</label> </td>
@@ -129,7 +129,7 @@ Employee Registration
                     <center>
                     <div class="btn-wrap">
                         <a class="btn_3" href="javascript:document.getElementById('regForm').reset();" data-type="reset">Reset</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="submit" value="Register" class="submit" />
+                        <input type="submit" id="create" value="Register" class="submit" />
                     </div>
                 </center>
                 </td>
