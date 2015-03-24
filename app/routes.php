@@ -294,7 +294,15 @@ Route::group(array('before' => 'auth'), function(){
             compact('sum', 'tests', 'date', 'time', 'doctor_name', 'patient'));
     });
 
-    Route::get('pdf_record', ['uses' => 'HomeController@pdf_record']);
+    Route::get('pdf_record', function(){
+        $id = Input::get('id');
+        $patient = Patient::find($id);
+        $appointments = $patient->appointments()->get();
+        $flag = "pdf_record";
+        return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
+    });
+
+    Route::get('pdf', 'HomeController@pdf_record');
 
     //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');
