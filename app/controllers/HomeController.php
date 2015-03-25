@@ -369,6 +369,40 @@ class HomeController extends BaseController {
                 </table>";
         }
 
+//        Diagnostic Procedure
+        if($appointment->disgonosticprocedure) {
+            $html .= "<br> <br>
+                <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Diagnostic Procedure)</caption>
+                    <tr>
+                        <td height='20'><label>Procedure Note:</label></td>
+                        <td><label> $appointment->disgonosticprocedure </label></td>
+                    </tr>
+                </table>";
+        }
+
+//        Lab Tests
+        if($appointment->labtests) {
+            foreach($appointment->labtests as $labtest){
+                $html .= "<br> <br>
+                <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Lab Test)</caption>
+                    <tr>
+                        <td height='20'><label>Test Name:</label></td>
+                        <td><label> $labtest->test_name </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Test Description:</label></td>
+                        <td><label> $labtest->test_description </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Test Results:</label></td>
+                        <td><label> $labtest->test_results </label></td>
+                    </tr>
+                </table>";
+            }
+        }
+
         //        Family History
         if($patient->familyhistories){
             foreach($patient->familyhistories as $familyhistory){
@@ -475,7 +509,6 @@ class HomeController extends BaseController {
                 </table>";
             }
         }
-
 
         $html .= "</body></html>";
         return PDF::load($html, 'A4', 'portrait')->show($patient->name. ' Medical Record');
