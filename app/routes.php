@@ -181,7 +181,7 @@ Route::group(array('before' => 'auth'), function(){
     });
 
     Route::get('app_proc', function(){
-        $appointments = Appointment::has('prescription', '=', 0)->get();
+        $appointments = Appointment::has('diagonosticprocedure', '=', 0)->get();
         $flag = "proc";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
     });
