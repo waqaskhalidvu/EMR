@@ -46,7 +46,7 @@
                     @foreach($patient->allergies as $allergy)
                         <tr>
                             <td>{{{ $allergy->allergy_name }}}</td>
-                            <td>{{{ $allergy->allergy_note }}}</td>
+                            <td>{{{ substr($allergy->allergy_note, 0, 50) }}}</td>
 
                             
                             <td>

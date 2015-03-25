@@ -369,6 +369,113 @@ class HomeController extends BaseController {
                 </table>";
         }
 
+        //        Family History
+        if($patient->familyhistories){
+            foreach($patient->familyhistories as $familyhistory){
+                $html .= "<br> <br>
+                <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Family History)</caption>
+                    <tr>
+                        <td height='20'><label>Family Member Name:</label></td>
+                        <td><label> $familyhistory->f_member_name </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Relation wtih Patient:</label></td>
+                        <td><label> $familyhistory->patient_relation </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Gender:</label></td>
+                        <td><label> $familyhistory->gender </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Age:</label></td>
+                        <td><label> $familyhistory->age </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Disease Note:</label></td>
+                        <td><label> $familyhistory->diesease_note </label></td>
+                    </tr>
+                </table>";
+            }
+        }
+
+        //        Surgical History
+        if($patient->surgicalhistories){
+            foreach($patient->surgicalhistories as $surgicalhistory){
+                $date = date('j F, Y', strtotime($surgicalhistory->surgery_date));
+                $html .= "<br> <br>
+                <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Surgical History)</caption>
+                    <tr>
+                        <td height='20'><label>Surgery Name:</label></td>
+                        <td><label> $surgicalhistory->surgery_name </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Surgery Date:</label></td>
+                        <td><label> $date </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Surgery Note:</label></td>
+                        <td><label> $surgicalhistory->surgery_notes </label></td>
+                    </tr>
+                </table>";
+            }
+        }
+
+//        Previous Diseases
+        if($patient->previousdiseases){
+            foreach($patient->previousdiseases as $disease){
+                $html .= "<br> <br>
+                <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Previous Disease)</caption>
+                    <tr>
+                        <td height='20'><label>Disease Name:</label></td>
+                        <td><label> $disease->disease_name </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Disease Note:</label></td>
+                        <td><label> $disease->disease_notes </label></td>
+                    </tr>
+                </table>";
+            }
+        }
+
+//        Drug Usage
+        if($patient->drugusages){
+            foreach($patient->drugusages as $drug){
+                $html .= "<br> <br>
+                <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Drug Usage)</caption>
+                    <tr>
+                        <td height='20'><label>Drug Name:</label></td>
+                        <td><label> $drug->drug_name </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Usage Note:</label></td>
+                        <td><label> $drug->usage_note </label></td>
+                    </tr>
+                </table>";
+            }
+        }
+
+//        Allergy
+        if($patient->allergies){
+            foreach($patient->allergies as $allergy){
+                $html .= "<br> <br>
+                <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
+                    <caption>(Allergy)</caption>
+                    <tr>
+                        <td height='20'><label>Allergy Name:</label></td>
+                        <td><label> $allergy->allergy_name </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Allergy Note:</label></td>
+                        <td><label> $allergy->allergy_note </label></td>
+                    </tr>
+                </table>";
+            }
+        }
+
 
         $html .= "</body></html>";
         return PDF::load($html, 'A4', 'portrait')->show($patient->name. ' Medical Record');

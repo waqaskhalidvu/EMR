@@ -44,7 +44,7 @@
                     @foreach($patient->surgicalhistories as $surgicalhistory)
                         <tr>
                             <td>{{{ $surgicalhistory->surgery_name }}}</td>
-                            <td>{{{ $surgicalhistory->surgery_date }}}</td>
+                            <td>{{{ date('j F, Y', strtotime($surgicalhistory->surgery_date)) }}}</td>
                             
                             <td>
                             {{ link_to_route('surgicalhistories.show', 'View', [$surgicalhistory->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}

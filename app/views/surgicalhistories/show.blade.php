@@ -32,7 +32,7 @@ Surgical History Details
                 </tr>
               <tr>
                 <td width="272" height="55"><label> Surgery Date:</label></td>
-                <td width="333"><label>{{{ $surgicalhistory->surgery_date }}}</label></td>
+                <td width="333"><label>{{{ date('j F, Y', strtotime($surgicalhistory->surgery_date)) }}}</label></td>
                 </tr>
               
                 <tr>
