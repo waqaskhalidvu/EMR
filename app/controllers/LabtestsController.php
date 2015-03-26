@@ -10,7 +10,7 @@ class LabtestsController extends \BaseController {
 	public function index()
 	{
 		$appointment = Appointment::find(Input::get('id'));
-		
+
 		if(Input::get('flag') != null){
             if(Input::get('flag') == 'print'){
                 $flag = Input::get('flag');

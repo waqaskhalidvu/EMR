@@ -76,8 +76,10 @@
                             {{ link_to_route('labtests.show', 'View', [$labtest->id, 'flag' => 'print'], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                     @else
                             {{ link_to_route('labtests.show', 'View', [$labtest->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
-                        
-                            {{ link_to_route('labtests.edit', 'Add', [$labtest->id], ['class' => 'data_table_btn'])}}
+
+                            {{ link_to_route('labtests.edit', (($labtest->test_results != null)? 'Update': 'Add'), [$labtest->id], ['class' => 'data_table_btn'])}}
+
+
                     @endif
                             </td>
                         </tr>

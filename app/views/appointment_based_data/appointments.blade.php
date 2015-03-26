@@ -66,7 +66,7 @@
                             @elseif($flag == 'test')
                                     {{ link_to_route('labtests.index', 'Select', ['id' => $appointment->id], ['class' => 'data_table_btn'])}}
                             @elseif($flag == 'proc')
-                                 {{ link_to_route('diagonosticprocedures.create', 'Add', ['id' => $appointment->id], ['class' => 'data_table_btn'])}} 
+                                 {{ link_to_route('diagonosticprocedures.create', 'Add', ['id' => $appointment->id], ['class' => 'data_table_btn'])}}
                             @elseif($flag == 'check_fee')
                                 @if(Auth::user()->role == "Accountant")
                                     @if(($appointment->checkupfee) != null)
