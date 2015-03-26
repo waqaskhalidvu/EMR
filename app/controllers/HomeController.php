@@ -370,13 +370,14 @@ class HomeController extends BaseController {
         }
 
 //        Diagnostic Procedure
-        if($appointment->disgonosticprocedure) {
+        if($appointment->diagonosticprocedure) {
+            $note = $appointment->diagonosticprocedure->procedure_note;
             $html .= "<br> <br>
                 <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
                     <caption>(Diagnostic Procedure)</caption>
                     <tr>
                         <td height='20'><label>Procedure Note:</label></td>
-                        <td><label> $appointment->disgonosticprocedure </label></td>
+                        <td><label> $note </label></td>
                     </tr>
                 </table>";
         }
