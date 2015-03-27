@@ -31,8 +31,8 @@ Patient Details
                 <td width="333"><label>{{{ $patient->name }}}</label></td>
                 </tr>
               <tr>
-                <td width="272" height="55"><label>     Date of Borth:</label></td>
-                <td width="333"><label>{{{ $patient->dob }}}</label></td>
+                <td width="272" height="55"><label>     Date of Birth:</label></td>
+                <td width="333"><label>{{{ date('j F, Y', strtotime($patient->dob)) }}}</label></td>
                 </tr>
               <tr>
                 <td width="272" height="55"><label>      Gender:</label></td>

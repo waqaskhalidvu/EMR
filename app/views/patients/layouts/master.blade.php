@@ -18,6 +18,7 @@
     {{ HTML::style('/login_css/style.css') }}
     {{ HTML::style('/css/camera.css') }}
     {{ HTML::style('/css/owl.carousel.css') }}
+    {{ HTML::style('/css/jquery-ui.css') }}
 
   
 <!--========================================================
@@ -46,6 +47,8 @@
     {{ HTML::script('js/jquery.mobilemenu.js') }}
     {{ HTML::script('js/jquery.unveil.js') }}
     {{ HTML::script('js/script.js') }}
+    {{ HTML::script('js/jquery_masks.js') }}
+    {{ HTML::script('js/jquery-ui.js') }}
 
         <!-- Data Table files -->
 
@@ -54,7 +57,9 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-            $('#example').dataTable();
+                $('#example').dataTable();
+                $("#cnic").mask("99999-9999999-9");
+                $("#phone").mask("(9999) 999-9999999");
             } );
 
             function back () {
