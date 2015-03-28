@@ -60,7 +60,7 @@ class="current"
                     @foreach($appointments as $appointment)
                         <tr>
                             <td>{{{ $appointment->patient->name }}}</td>
-                            <td>{{{ $appointment->date }}}</td>
+                            <td>{{{ date('j F, Y', strtotime($appointment->date)) }}}</td>
                             <td>{{{ $appointment->time }}}</td>
                             <td>
                                 @if($appointment->status == 0)
