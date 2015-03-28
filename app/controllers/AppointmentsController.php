@@ -73,7 +73,7 @@ class AppointmentsController extends \BaseController {
 		$doctors = Employee::where('role', 'Doctor')->where('status', 'active')->get();
         $patients = Patient::all();
 		$appointment = Appointment::find($id);
-        $timeslot = $appointment->timeslot->limit(1)->lists('slot','id');
+        $timeslot = $appointment->timeslot->first()->where('dutyday_id', $appointment->timeslot->dutyday_id)->lists('slot','id');
 
 		return View::make('appointments.edit', compact('timeslot','appointment', 'doctors', 'patients'));
 	}
