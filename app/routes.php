@@ -317,7 +317,7 @@ Route::group(array('before' => 'auth'), function(){
     // 4- Receptionist
     // 5- Lab Manager
 
-// Anointment Statuses Values in DB
+// Appointment Statuses Values in DB
 //    '0' = 'Reserved'
 //    '1' = 'Waiting'
 //    '2' = 'Check-in'

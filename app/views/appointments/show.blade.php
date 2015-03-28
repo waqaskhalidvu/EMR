@@ -32,7 +32,7 @@ Appointment Details
                 </tr>
               <tr>
                 <td width="272" height="55"><label>     Appointment Date:</label></td>
-                <td width="333"><label>{{{ $appointment->date }}}</label></td>
+                <td width="333"><label>{{{ date('j F, Y', strtotime($appointment->date)) }}}</label></td>
                 </tr>
               <tr>
                 <td width="272" height="55"><label>      Appointment Time:</label></td>
