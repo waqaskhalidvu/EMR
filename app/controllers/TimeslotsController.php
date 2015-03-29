@@ -123,6 +123,7 @@ class TimeslotsController extends \BaseController {
                                     ->where('appointments.date', '!=', $date)
                                     ->where('dutyday_id', $duty_day->id);
                             })->get();
+
             return JsonResponse::create($slot);
         }
         return 'false';

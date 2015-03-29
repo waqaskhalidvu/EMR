@@ -31,7 +31,7 @@ class="current"
                 <div class="row">
                     <div class="grid_12">
                         <iframe class="map"
-                                src="https://www.google.com/maps/embed/v1/place?q=57+-+Lawrence+Road+Lawrence+Road+Lahore+54000,+Pakistan+&key=AIzaSyBZCFjtU6e-CWFyg_EIVB5IxxsmEYAI5Jo"
+                                src="https://www.google.com/maps/embed/v1/place?q=virtual+university+Lawrence+Road&key=AIzaSyBZCFjtU6e-CWFyg_EIVB5IxxsmEYAI5Jo"
                                 style="border:0">
                         </iframe>
                     </div>

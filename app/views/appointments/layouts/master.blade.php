@@ -129,6 +129,7 @@
                 type: 'get',
                 data: {'id': doc_id, 'date': date},
                 success: function(response){
+                console.log(response)
                    $("select#time_slot_id").empty();
                     if(response != 'false'){
                        $.each(response, function() {
