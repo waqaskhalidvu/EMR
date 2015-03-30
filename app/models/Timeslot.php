@@ -18,6 +18,6 @@ class Timeslot extends \Eloquent {
 
     public function appointments()
     {
-        return $this->hasMany('Appointment');
+        return $this->hasMany('Appointment', 'timeslot_id', 'id');
     }
 }

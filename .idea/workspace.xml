@@ -28,8 +28,28 @@
       <file leaf-file-name="TimeslotsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/TimeslotsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19791667" vertical-offset="2394" max-vertical-offset="3036">
-              <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+            <state vertical-scroll-proportion="-0.13321492" vertical-offset="2781" max-vertical-offset="3344">
+              <caret line="123" column="41" selection-start-line="123" selection-start-column="41" selection-end-line="123" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Timeslot.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Timeslot.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.193548" vertical-offset="0" max-vertical-offset="616">
+              <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Appointment.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Appointment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.645162" vertical-offset="546" max-vertical-offset="1452">
+              <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -38,7 +58,7 @@
       <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/appointments/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2590" max-vertical-offset="3410">
+            <state vertical-scroll-proportion="-9.419354" vertical-offset="2590" max-vertical-offset="3410">
               <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
               <folding>
                 <marker date="1427535386345" expanded="false" signature="2413:2465" placeholder="..." />
@@ -78,11 +98,9 @@
         <option value="$PROJECT_DIR$/app/controllers/RemindersController.php" />
         <option value="$PROJECT_DIR$/app/views/public_layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/views/emails/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/Timeslot.php" />
         <option value="$PROJECT_DIR$/app/views/appointments/create.blade.php" />
         <option value="$PROJECT_DIR$/app/views/appointment_based_data/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/admin_home.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/Appointment.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_02_11_095950_create_vitalsigns_table.php" />
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/views/appointments/index.blade.php" />
@@ -109,12 +127,14 @@
         <option value="$PROJECT_DIR$/app/views/appointments/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/AppointmentsController.php" />
         <option value="$PROJECT_DIR$/app/views/appointments/layouts/master.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/TimeslotsController.php" />
         <option value="$PROJECT_DIR$/app/views/contacts.blade.php" />
         <option value="$PROJECT_DIR$/app/views/receptionist/contacts.blade.php" />
         <option value="$PROJECT_DIR$/app/views/lab/contacts.blade.php" />
         <option value="$PROJECT_DIR$/app/views/doctor/contacts.blade.php" />
         <option value="$PROJECT_DIR$/app/views/admin/contacts.blade.php" />
+        <option value="$PROJECT_DIR$/app/models/Timeslot.php" />
+        <option value="$PROJECT_DIR$/app/models/Appointment.php" />
+        <option value="$PROJECT_DIR$/app/controllers/TimeslotsController.php" />
       </list>
     </option>
   </component>
@@ -151,6 +171,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,9 +244,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EMR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -258,15 +296,15 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
       <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -286,7 +324,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -300,13 +338,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -619,14 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Timeslot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7638889" vertical-offset="0" max-vertical-offset="616">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AppointmentsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5079929" vertical-offset="1364" max-vertical-offset="2794">
@@ -634,16 +664,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Appointment.php">
+    <entry file="file://$PROJECT_DIR$/app/views/receptionist/contacts.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0763888" vertical-offset="150" max-vertical-offset="1452">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.3516874" vertical-offset="528" max-vertical-offset="2948">
+          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contacts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3516874" vertical-offset="528" max-vertical-offset="2948">
+          <caret line="33" column="159" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/lab/contacts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23445825" vertical-offset="594" max-vertical-offset="2948">
+          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/doctor/contacts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7033748" vertical-offset="330" max-vertical-offset="2948">
+          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/contacts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4689165" vertical-offset="462" max-vertical-offset="2948">
+          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/appointments/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2590" max-vertical-offset="3410">
+        <state vertical-scroll-proportion="-9.419354" vertical-offset="2590" max-vertical-offset="3410">
           <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
           <folding>
             <marker date="1427535386345" expanded="false" signature="2413:2465" placeholder="..." />
@@ -658,50 +716,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/receptionist/contacts.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/models/Timeslot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3516874" vertical-offset="528" max-vertical-offset="2948">
-          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
+        <state vertical-scroll-proportion="-14.193548" vertical-offset="0" max-vertical-offset="616">
+          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contacts.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/models/Appointment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3516874" vertical-offset="528" max-vertical-offset="2948">
-          <caret line="33" column="159" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="159" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/lab/contacts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23445825" vertical-offset="594" max-vertical-offset="2948">
-          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/doctor/contacts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7033748" vertical-offset="330" max-vertical-offset="2948">
-          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/contacts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4689165" vertical-offset="462" max-vertical-offset="2948">
-          <caret line="33" column="159" selection-start-line="33" selection-start-column="159" selection-end-line="33" selection-end-column="159" />
+        <state vertical-scroll-proportion="-8.645162" vertical-offset="546" max-vertical-offset="1452">
+          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/TimeslotsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19791667" vertical-offset="2394" max-vertical-offset="3036">
-          <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+        <state vertical-scroll-proportion="-0.13321492" vertical-offset="2781" max-vertical-offset="3344">
+          <caret line="123" column="41" selection-start-line="123" selection-start-column="41" selection-end-line="123" selection-end-column="41" />
           <folding />
         </state>
       </provider>

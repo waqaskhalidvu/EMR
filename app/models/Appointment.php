@@ -35,7 +35,7 @@ class Appointment extends \Eloquent {
 
     public function timeslot()
     {
-        return $this->belongsTo('Timeslot');
+        return $this->belongsTo('Timeslot', 'timeslot_id');
     }
 
     public function vitalsign()
