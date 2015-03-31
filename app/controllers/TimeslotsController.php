@@ -115,28 +115,28 @@ class TimeslotsController extends \BaseController {
         $duty_day = Dutyday::where('employee_id', $id)->where('day', $day)->get()->first();
 
         if($duty_day) {
-            $slot = Timeslot::where('dutyday_id', $duty_day->id)->has('appointments', '=', 0)
-                            ->orWhereExists(function($query) use ($date, $duty_day)
-                            {
-                                $query->select()
-                                    ->from('appointments')
-                                    ->where('appointments.date', '!=', $date)
-                                    ->where('dutyday_id', $duty_day->id);
-                            })->get();
+//            $slot = Timeslot::where('dutyday_id', $duty_day->id)->has('appointments', '=', 0)
+//                            ->orWhereExists(function($query) use ($date, $duty_day)
+//                            {
+//                                $query->select()
+//                                    ->from('appointments')
+//                                    ->where('appointments.date', '!=', $date)
+//                                    ->where('dutyday_id', $duty_day->id);
+//                            })->get();
 
-//            $slot = Timeslot::where('dutyday_id', $duty_day->id)
-//                            ->where(function($query) use ($duty_day, $date){
-//                                $query->has('appointments', '=', 0)
-//                                    ->orWhere(function($query) use ($date, $duty_day)
-//                                    {
-//                                        $query->join('appointments', function($join) use($date)
-//                                        {
-//                                            $join->on('timeslots.id', '=', 'appointments.timeslot_id')
-//                                                ->where('appointments.date', '!=', $date);
-//                                        });
-//                                    });
-//                            })
-//                            ->get();
+            $slot = Timeslot::where('dutyday_id', $duty_day->id)
+                            ->where(function($query) use ($duty_day, $date){
+                                $query->has('appointments', '=', 0)
+                                    ->orWhere(function($query) use ($date, $duty_day)
+                                    {
+                                        $query->join('appointments', function($join) use($date)
+                                        {
+                                            $join->on('timeslots.id', '=', 'appointments.timeslot_id')
+                                                ->where('appointments.date', '!=', $date);
+                                        });
+                                    });
+                            })
+                            ->get();
 //            return DB::getQueryLog();
             return JsonResponse::create($slot);
         }
