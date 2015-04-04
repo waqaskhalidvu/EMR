@@ -36,7 +36,7 @@ Appointment Details
                 </tr>
               <tr>
                 <td width="272" height="55"><label>      Appointment Time:</label></td>
-                <td width="333"><label>{{{ $appointment->time }}}</label> </td>
+                <td width="333"><label>{{{ $appointment->timeslot->slot }}}</label> </td>
                 </tr>
                 <tr>
                 <td width="272" height="55"><label>      Patient Name:</label></td>

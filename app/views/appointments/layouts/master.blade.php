@@ -132,7 +132,7 @@
                 console.log(response)
                    $("select#time_slot_id").empty();
                     if(response != 'false'){
-                       $.each(response, function() {
+                       $.each($.parseJSON(response), function() {
                             $("select#time_slot_id").append( $("<option>")
                                 .val(this.id)
                                 .html(this.slot)

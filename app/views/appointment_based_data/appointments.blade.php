@@ -45,7 +45,7 @@
                             <td>{{{ $appointment->patient->name }}}</td>
                             <td>{{{ $appointment->employee->name }}}</td>
                             <td>{{{ date('j F, Y', strtotime($appointment->date)) }}}</td>
-                            <td>{{{ $appointment->time }}} </td>
+                            <td>{{{ $appointment->timeslot->slot }}} </td>
 
                             <td>
                                 @if(($appointment->checkupfee) != null)

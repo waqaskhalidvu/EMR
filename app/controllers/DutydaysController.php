@@ -44,7 +44,7 @@ class DutydaysController extends \BaseController {
             $data['start'] = (Input::get('sun_start_time'));
             $data['end'] = (Input::get('sun_end_time'));
             $day_id = Dutyday::create($data)->id;
-            Dutyday::makeSlots($data['start'], $data['end'], $day_id);
+            Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
             $data['day'] = null;
             $data['start'] = null;
@@ -57,7 +57,7 @@ class DutydaysController extends \BaseController {
             $data['start'] = (Input::get('mon_start_time'));
             $data['end'] = (Input::get('mon_end_time'));
             $day_id = Dutyday::create($data)->id;
-            Dutyday::makeSlots($data['start'], $data['end'], $day_id);
+            Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
             $data['day'] = null;
             $data['start'] = null;
@@ -70,7 +70,7 @@ class DutydaysController extends \BaseController {
             $data['start'] = (Input::get('tue_start_time'));
             $data['end'] = (Input::get('tue_end_time'));
             $day_id = Dutyday::create($data)->id;
-            Dutyday::makeSlots($data['start'], $data['end'], $day_id);
+            Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
             $data['day'] = null;
             $data['start'] = null;
@@ -83,7 +83,7 @@ class DutydaysController extends \BaseController {
             $data['start'] = (Input::get('wed_start_time'));
             $data['end'] = (Input::get('wed_end_time'));
             $day_id = Dutyday::create($data)->id;
-            Dutyday::makeSlots($data['start'], $data['end'], $day_id);
+            Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
             $data['day'] = null;
             $data['start'] = null;
@@ -96,7 +96,7 @@ class DutydaysController extends \BaseController {
             $data['start'] = (Input::get('thu_start_time'));
             $data['end'] = (Input::get('thu_end_time'));
             $day_id = Dutyday::create($data)->id;
-            Dutyday::makeSlots($data['start'], $data['end'], $day_id);
+            Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
             $data['day'] = null;
             $data['start'] = null;
@@ -109,7 +109,7 @@ class DutydaysController extends \BaseController {
             $data['start'] = (Input::get('fri_start_time'));
             $data['end'] = (Input::get('fri_end_time'));
             $day_id = Dutyday::create($data)->id;
-            Dutyday::makeSlots($data['start'], $data['end'], $day_id);
+            Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
             $data['day'] = null;
             $data['start'] = null;
@@ -122,7 +122,7 @@ class DutydaysController extends \BaseController {
             $data['start'] = (Input::get('sat_start_time'));
             $data['end'] = (Input::get('sat_end_time'));
             $day_id = Dutyday::create($data)->id;
-            Dutyday::makeSlots($data['start'], $data['end'], $day_id);
+            Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
             $data['day'] = null;
             $data['start'] = null;
@@ -171,8 +171,6 @@ class DutydaysController extends \BaseController {
 	 */
 	public function update($id)
 	{
-//		$dutyday = Dutyday::findOrFail($id);
-
 		$validator = Validator::make($data = Input::all(), Dutyday::$rules);
 
 		if ($validator->fails())

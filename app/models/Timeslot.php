@@ -8,7 +8,7 @@ class Timeslot extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['slot', 'reserved', 'dutyday_id'];
+	protected $fillable = ['slot', 'reserved', 'dutyday_id', 'employee_id'];
 
     // Relationships
     public function dutyday()

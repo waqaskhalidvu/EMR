@@ -10,7 +10,7 @@ class Dutyday extends \Eloquent {
 	// Don't forget to fill this array
 	protected $fillable = ['day', 'start', 'end', 'employee_id'];
 
-    public static function makeSlots($start_time, $end_time, $day_id){
+    public static function makeSlots($start_time, $end_time, $day_id, $emp_id){
         $fifteen_mins  = 15 * 60;
         $start = strtotime($start_time);
         $end = strtotime($end_time);
@@ -19,9 +19,9 @@ class Dutyday extends \Eloquent {
             $timeslot = new Timeslot();
             $timeslot->slot = date("H:i:s", $start);
             $timeslot->save();
-            $timeslot->reserved = 'No';
-            $timeslot->save();
             $timeslot->dutyday_id = $day_id;
+            $timeslot->save();
+            $timeslot->employee_id = $emp_id;
             $timeslot->save();
             $start += $fifteen_mins;
         }
@@ -37,8 +37,6 @@ class Dutyday extends \Eloquent {
         while($start <= $end){
             $timeslot = new Timeslot();
             $timeslot->slot = date("H:i:s", $start);
-            $timeslot->save();
-            $timeslot->reserved = 'No';
             $timeslot->save();
             $timeslot->dutyday_id = $day_id;
             $timeslot->save();

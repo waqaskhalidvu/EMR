@@ -16,7 +16,6 @@ class CreateTimeslotsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->time('slot');
-			$table->string('reserved');
 			$table->integer('dutyday_id');
 			$table->timestamps();
 		});

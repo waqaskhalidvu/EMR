@@ -19,8 +19,6 @@ class CreateAppointmentsTable extends Migration {
 			$table->date('date');
             $table->time('time');
 			$table->string('status');
-			$table->double('checkup_fee');
-			$table->text('fee_note');
 			$table->integer('timeslot_id');
             $table->integer('employee_id');
             $table->integer('patient_id');

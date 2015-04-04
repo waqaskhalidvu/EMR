@@ -108,36 +108,26 @@ class TimeslotsController extends \BaseController {
 
     //    Return Free slots to Appointment creation form
     public function getFreeSlots(){
-        $id = Input::get('id');
-        $date = Input::get('date');
-        $day = date('l', strtotime($date));
+        $id = Input::get('id');                 // Get Employee id
+        $date = Input::get('date');             // Get selected date
+        $day = date('l', strtotime($date));     // Get day name from date
 
         $duty_day = Dutyday::where('employee_id', $id)->where('day', $day)->get()->first();
 
         if($duty_day) {
-//            $slot = Timeslot::where('dutyday_id', $duty_day->id)->has('appointments', '=', 0)
-//                            ->orWhereExists(function($query) use ($date, $duty_day)
-//                            {
-//                                $query->select()
-//                                    ->from('appointments')
-//                                    ->where('appointments.date', '!=', $date)
-//                                    ->where('dutyday_id', $duty_day->id);
-//                            })->get();
+            $slot = null;
+            $appointments = Appointment::where('date', $date)->where('employee_id', $id)->get();
+            if(count($appointments) > 0){
+                $timeslots = Timeslot::where('dutyday_id', $duty_day->id)
+                    ->where('employee_id', $id);
+                foreach($appointments as $appointment){
+                    $slot = $timeslots
+                                ->where('slot', '!=', $appointment->time)->get()->toJson();
+                }
+            }else{
+                $slot = Timeslot::where('dutyday_id', $duty_day->id)->get()->toJson();
+            }
 
-            $slot = Timeslot::where('dutyday_id', $duty_day->id)
-                            ->where(function($query) use ($duty_day, $date){
-                                $query->has('appointments', '=', 0)
-                                    ->orWhere(function($query) use ($date, $duty_day)
-                                    {
-                                        $query->join('appointments', function($join) use($date)
-                                        {
-                                            $join->on('timeslots.id', '=', 'appointments.timeslot_id')
-                                                ->where('appointments.date', '!=', $date);
-                                        });
-                                    });
-                            })
-                            ->get();
-//            return DB::getQueryLog();
             return JsonResponse::create($slot);
         }
         return 'false';

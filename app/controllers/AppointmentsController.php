@@ -97,7 +97,7 @@ class AppointmentsController extends \BaseController {
 		$data['time'] = Timeslot::findOrFail($data['timeslot_id'])->slot;
 
 		if(Input::get('status') == '3' || Input::get('status') == '4' || Input::get('status') == '5'){
-			$data['timeslot_id'] = null; 
+			$data['time'] = null;
 		}
 
 		$appointment->update($data);
