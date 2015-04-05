@@ -324,8 +324,8 @@ Patient Registration
                 <td width="333"><input type="text" id="address" required="true" name="address" value="{{{ Form::getValueAttribute('address', null) }}}"></td>
                 </tr>
                 <tr>
-                <td width="272" height="55"><label>      Phone:</label></td>
-                <td width="333"><input type="text" id="phone" name="phone" value="{{{ Form::getValueAttribute('phone', null) }}}"></td>
+                <td width="272" height="55"><label>      Mobile:</label></td>
+                <td width="333"><input type="text" placeholder="(0092)333-1234567" id="phone" name="phone" value="{{{ Form::getValueAttribute('phone', null) }}}"></td>
                 </tr>
                 <tr>
                     <td width="272" height="55"><label>      CNIC:</label></td>

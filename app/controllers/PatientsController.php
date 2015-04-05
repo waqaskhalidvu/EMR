@@ -43,8 +43,13 @@ class PatientsController extends \BaseController {
         $patient->save();
         $patient->dob = Input::get('dob');
         $patient->save();
-        $patient->email = Input::get('email');
-        $patient->save();
+        if(Input::has('email')){
+            $patient->email = Input::get('email');
+            $patient->save();
+        }else{
+            $patient->email = 'N/A';
+            $patient->save();
+        }
         $patient->gender = Input::get('gender');
         $patient->save();
         $patient->age = Input::get('age');
@@ -80,12 +85,14 @@ class PatientsController extends \BaseController {
         $patient->patient_id = "Patient-" . $patient->id;
         $patient->save();
 
-        $data = ['name' => Input::get('name')];
-//      Send email to employee
-        Mail::queue('emails.patient_welcome', $data, function($message)
-        {
-            $message->to(Input::get('email'), Input::get('name'))->subject('Welcome to EMR!');
-        });
+        if(Input::has('email')){
+            $data = ['name' => Input::get('name')];
+            Mail::queue('emails.patient_welcome', $data, function($message)
+            {
+                $message->to(Input::get('email'), Input::get('name'))->subject('Welcome to EMR!');
+            });
+        }
+
 
 		return Redirect::route('patients.index');
 	}
