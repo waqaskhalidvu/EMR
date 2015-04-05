@@ -90,7 +90,7 @@
                 <div class="grid_12">
                     <div class="brand put-left">
                         <h1>
-                            <a href="index">
+                            <a href="/">
                                 <img src="/images/logo_new1.jpg" alt="Logo"/>
                             </a>
                         </h1>
