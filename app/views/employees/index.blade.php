@@ -29,7 +29,7 @@
                 <table id="example" style=" border: 1px solid black" class="display" cellspacing="0" width="80%">
                 <thead>
                     <tr>
-                        <th style="width: 20%">Employee Name</th>
+                        <th style="width: 20%"> Name</th>
                         <th>Username</th>
                         <th>Gender</th>
                         <th>Role</th>
