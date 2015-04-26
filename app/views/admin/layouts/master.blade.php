@@ -15,6 +15,7 @@
     {{ HTML::style('css/isotope.css') }}
     {{ HTML::style('css/camera.css') }}
     {{ HTML::style('css/owl.carousel.css') }}
+    {{ HTML::style('css/animate.css') }}
 
     {{ HTML::script('js/jquery.js') }}
     {{ HTML::script('js/jquery-migrate-1.2.1.js') }}

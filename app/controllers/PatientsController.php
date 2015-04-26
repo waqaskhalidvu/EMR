@@ -82,7 +82,7 @@ class PatientsController extends \BaseController {
         }
         $patient->save();
 
-        $patient->patient_id = "Patient-" . $patient->id;
+        $patient->patient_id = "P0" . $patient->id;
         $patient->save();
 
         if(Input::has('email')){

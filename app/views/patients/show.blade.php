@@ -30,6 +30,10 @@ Patient Details
                 <td width="272" height="55"><label>Patient Name:</label> </td>
                 <td width="333"><label>{{{ $patient->name }}}</label></td>
                 </tr>
+            <tr>
+                <td width="272" height="55"><label>Patient ID:</label> </td>
+                <td width="333"><label>{{{ $patient->patient_id }}}</label></td>
+            </tr>
               <tr>
                 <td width="272" height="55"><label>     Date of Birth:</label></td>
                 <td width="333"><label>{{{ date('j F, Y', strtotime($patient->dob)) }}}</label></td>
