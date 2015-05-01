@@ -7,37 +7,29 @@ class EmployeesTableSeeder extends Seeder {
 
 	public function run()
 	{
-//		$faker = Faker::create();
-//
-//		foreach(range(1, 10) as $index)
-//		{
-//			Employee::create([
-//
-//			]);
-//		}
 
         DB::table('employees')->where('email', 'root@gmail.com')->delete();
-	    Employee::create(['name' => 'Shah', 'password' => Hash::make('root'), 'email' => 'root@gmail.com',
+	    Employee::create(['name' => 'Shah', 'password' => Hash::make('123456'), 'email' => 'root@gmail.com',
         'gender' => 'Male', 'age' => '23', 'city' => 'Lahore', 'country' => 'Pakistan', 'address' => '10 Down Street', 'phone' => '03344050495',
         'cnic' => '1234679', 'role' => 'Administrator', 'status' => 'Active', 'branch' => 'DHA', 'note' => 'MBBS Qualified']);
 
 	    DB::table('employees')->where('email', 'doctor@gmail.com')->delete();
-	    Employee::create(['name' => 'Ali', 'password' => Hash::make('doctor'), 'email' => 'doctor@gmail.com',
+	    Employee::create(['name' => 'Ali', 'password' => Hash::make('123456'), 'email' => 'doctor@gmail.com',
         'gender' => 'Male', 'age' => '23', 'city' => 'Lahore', 'country' => 'Pakistan', 'address' => '10 Down Street', 'phone' => '03344050495',
         'cnic' => '1234679', 'role' => 'Doctor', 'status' => 'Active', 'branch' => 'DHA', 'note' => 'MBBS Qualified']);
 
 	    DB::table('employees')->where('email', 'accountant@gmail.com')->delete();
-	    Employee::create(['name' => 'Umer', 'password' => Hash::make('accountant'), 'email' => 'accountant@gmail.com',
+	    Employee::create(['name' => 'Umer', 'password' => Hash::make('123456'), 'email' => 'accountant@gmail.com',
         'gender' => 'Male', 'age' => '23', 'city' => 'Lahore', 'country' => 'Pakistan', 'address' => '10 Down Street', 'phone' => '03344050495',
         'cnic' => '1234679', 'role' => 'Accountant', 'status' => 'Active', 'branch' => 'DHA', 'note' => 'MBBS Qualified']);
 
 	    DB::table('employees')->where('email', 'receptionist@gmail.com')->delete();
-	    Employee::create(['name' => 'Talal', 'password' => Hash::make('receptionist'), 'email' => 'receptionist@gmail.com',
+	    Employee::create(['name' => 'Talal', 'password' => Hash::make('123456'), 'email' => 'receptionist@gmail.com',
         'gender' => 'Male', 'age' => '23', 'city' => 'Lahore', 'country' => 'Pakistan', 'address' => '10 Down Street', 'phone' => '03344050495',
         'cnic' => '1234679', 'role' => 'Receptionist', 'status' => 'Active', 'branch' => 'DHA', 'note' => 'MBBS Qualified']);
 
 	    DB::table('employees')->where('email', 'lab@gmail.com')->delete();
-	    Employee::create(['name' => 'Aqeel', 'password' => Hash::make('lab'), 'email' => 'lab@gmail.com',
+	    Employee::create(['name' => 'Aqeel', 'password' => Hash::make('123456'), 'email' => 'lab@gmail.com',
         'gender' => 'Male', 'age' => '23', 'city' => 'Lahore', 'country' => 'Pakistan', 'address' => '10 Down Street', 'phone' => '03344050495',
         'cnic' => '1234679', 'role' => 'Lab Manager', 'status' => 'Active', 'branch' => 'DHA', 'note' => 'MBBS Qualified']);
 
