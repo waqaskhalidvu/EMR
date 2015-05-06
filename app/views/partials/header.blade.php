@@ -200,4 +200,51 @@
         </div>
     </header>
 
+    @elseif(Auth::user()->role=='Super User')
+     <!--========================================================
+                             Receptionist HEADER
+    =========================================================-->
+    <header id="header">
+        <div id="stuck_container">
+            <div class="container">
+                <div class="row">
+                    <div class="grid_12">
+                        <div class="brand put-left">
+                            <h1>
+                                <a href="super_home">
+                                    <img src="/images/logo_new1.jpg" alt="Logo"/>
+                                </a>
+                            </h1>
+                        </div>
+                        <nav class="nav put-right">
+                            <ul class="sf-menu">
+                                <li @yield('current_super_home')><a href="/super_home">Home</a></li>
+                                <li @yield('current_services')><a style="cursor: pointer">Management</a>
+                                    <ul>
+                                        <li><a href="/dutydays">Doctor Schedules</a></li>
+                                    </ul>
+                                </li>
+                                <li @yield('current_about')><a style="cursor: pointer">Patients</a>
+                                    <ul>
+                                        <li><a href="/appointments">Appointments</a></li>
+                                        <li><a href="/patients">Patients</a></li>
+                                        <li><a href="/search_pmr">Medical Records</a></li>
+                                        <li><a href="/app_vitals">Vital Signs</a></li>
+                                        <li><a href="/app_prescription">Add Prescriptions</a></li>
+                                        <li><a href="/app_pres_print">Print Prescription</a></li>
+                                        <li><a href="/app_proc">Add Procedures</a></li>
+                                        <li><a href="/app_tests">Test Reports</a></li>
+                                        <li><a href="/app_test_print">Print Reports</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
 @endif

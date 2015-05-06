@@ -60,6 +60,10 @@ class HomeController extends BaseController {
 		return View::make('admin.admin_home');
 	}
 
+    public function showSuper_home(){
+        return View::make('super.super_home');
+    }
+
 	public function showUserRegistrationForm(){
 
 		return View::make('admin.register_user');

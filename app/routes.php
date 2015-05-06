@@ -43,6 +43,25 @@ Route::get('remind', 'RemindersController@getRemind');
 /////////////////////////////////////// PRIVATE ROUTES ////////////////////////////////////////////
 Route::group(array('before' => 'auth'), function(){
 
+    ////////////////////// Super User Routes START ///////////////////////
+    Route::group(array('before' => 'Super'), function(){
+        Route::get('/super_home', 'HomeController@showSuper_home');
+
+        Route::resource('employees', 'EmployeesController');
+
+        Route::get('super_about', function(){
+            return View::make('super.about');
+        });
+        Route::get('super_contacts', function(){
+            return View::make('super.contacts');
+        });
+        Route::get('super_services', function(){
+            return View::make('super.services');
+        });
+
+    });
+    ////////////////////// Admin Routes END ///////////////////////
+
     ////////////////////// Admin Routes START ///////////////////////
     Route::group(array('before' => 'Administrator'), function(){
         Route::get('/admin_home', 'HomeController@showAdmin_home');

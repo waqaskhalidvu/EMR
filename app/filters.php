@@ -104,27 +104,54 @@ Route::filter('Doctor', function()
 	 	else if ( Auth::user()->role == 'Receptionist'){
 	    	return Redirect::to('receptionist_home'); 
 	 	}
+        else if ( Auth::user()->role == 'Super'){
+            return Redirect::to('super_home');
+        }
 	}else{
 		Redirect::to('doctor_home');
 	}
-}); 
+});
+
+Route::filter('Super', function()
+{
+    if ( Auth::user()->role !== 'Super User') {
+        if ( Auth::user()->role == 'Doctor'){
+            return Redirect::to('doctor_home');
+        }
+        else if ( Auth::user()->role == 'Accountant'){
+            return Redirect::to('accountant_home');
+        }
+        else if ( Auth::user()->role == 'Lab Manager'){
+            return Redirect::to('labmanager_home');
+        }
+        else if ( Auth::user()->role == 'Receptionist'){
+            return Redirect::to('receptionist_home');
+        }else if ( Auth::user()->role == 'Administrator'){
+            return Redirect::to('admin_home');
+        }
+    }
+});
 
 Route::filter('Administrator', function()
-{ 
-  if ( Auth::user()->role !== 'Administrator') {
-    if ( Auth::user()->role == 'Doctor'){
-    	return Redirect::to('doctor_home'); 
- 	}
- 	else if ( Auth::user()->role == 'Accountant'){
-    	return Redirect::to('accountant_home'); 
- 	}
- 	else if ( Auth::user()->role == 'Lab Manager'){
-    	return Redirect::to('labmanager_home'); 
- 	}
- 	else if ( Auth::user()->role == 'Receptionist'){
-    	return Redirect::to('receptionist_home'); 
- 	}
-}});
+{
+    if ( Auth::user()->role !== 'Administrator') {
+        if ( Auth::user()->role == 'Doctor'){
+            return Redirect::to('doctor_home');
+        }
+        else if ( Auth::user()->role == 'Accountant'){
+            return Redirect::to('accountant_home');
+        }
+        else if ( Auth::user()->role == 'Lab Manager'){
+            return Redirect::to('labmanager_home');
+        }
+        else if ( Auth::user()->role == 'Receptionist'){
+            return Redirect::to('receptionist_home');
+        }
+        else if ( Auth::user()->role == 'Super'){
+            return Redirect::to('super_home');
+        }
+    }
+});
 
 Route::filter('Accountant', function()
 { 
@@ -141,6 +168,9 @@ Route::filter('Accountant', function()
  	else if ( Auth::user()->role == 'Receptionist'){
     	return Redirect::to('receptionist_home'); 
  	}
+    else if ( Auth::user()->role == 'Super'){
+        return Redirect::to('super_home');
+    }
 }});
 
 Route::filter('Lab', function()
@@ -158,6 +188,9 @@ Route::filter('Lab', function()
  	else if ( Auth::user()->role == 'Receptionist'){
     	return Redirect::to('receptionist_home'); 
  	}
+    else if ( Auth::user()->role == 'Super'){
+        return Redirect::to('super_home');
+    }
 }});
 
 Route::filter('Receptionist', function()
@@ -175,4 +208,7 @@ Route::filter('Receptionist', function()
  	else if ( Auth::user()->role == 'Lab Manager'){
     	return Redirect::to('labmanager_home'); 
  	}
+    else if ( Auth::user()->role == 'Super'){
+        return Redirect::to('super_home');
+    }
 }});
