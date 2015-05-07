@@ -29,24 +29,24 @@ Vital Sign Details
               
 			 <tr>
                 <td width="272" height="55"><label>Weight</label> </td>
-                <td width="333"><label>{{{ $vitalsign->weight}}} ({{{ $vitalsign->weight_unit}}})</label></td>
+                <td width="333"><label>{{{ $vitalsign->weight}}} (kg)</label></td>
              </tr>
 
              <tr>
                 <td width="272" height="55"><label>Height</label> </td>
-                <td width="333"><label>{{{$vitalsign->height}}} ({{{$vitalsign->height_unit}}})</label></td>
+                <td width="333"><label>{{{$vitalsign->height}}} (cm)</label></td>
              </tr>
 
              <tr>
                 <td width="272" height="55"><label>BP (systolic)</label> </td>
                 <td width="333">
-                    <label>{{{$vitalsign->bp_systolic}}} ({{{$vitalsign->bp_systolic_unit}}})</label>
+                    <label>{{{$vitalsign->bp_systolic}}} (mmHg)</label>
                 </td>
                 </tr>
              <tr>
                 <td width="272" height="55"><label>BP (diastolic)</label> </td>
                 <td width="333">
-                    <label>{{{$vitalsign->bp_diastolic}}} ({{{$vitalsign->bp_diastolic_unit}}})</label>
+                    <label>{{{$vitalsign->bp_diastolic}}} (mmHg)</label>
                 </td>
                 </tr>
                 <tr>
@@ -58,13 +58,14 @@ Vital Sign Details
                 <tr>
                 <td width="272" height="55"><label>Pulse Rate</label> </td>
                 <td width="333">
-                    <label>{{{$vitalsign->pulse_rate}}} ({{{$vitalsign->pulse_rate_unit}}})</label>
+                    <label>{{{$vitalsign->pulse_rate}}} (per min)</label>
                 </td>
                 </tr>
-                <td width="272" height="55"><label>Respiration Rate</label> </td>
-                <td width="333">
-                    <label>{{{$vitalsign->respiration_rate}}} ({{{$vitalsign->respiration_rate_unit}}})</label>
-                </td>
+                <tr>
+                    <td width="272" height="55"><label>Respiration Rate</label> </td>
+                    <td width="333">
+                        <label>{{{$vitalsign->respiration_rate}}} (per min)</label>
+                    </td>
                 </tr>
 
                 <tr>

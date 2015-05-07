@@ -15,7 +15,7 @@ class Vitalsign extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['weight', 'weight_unit', 'height', 'height_unit', 'bp_systolic', 'bp_systolic_unit', 'bp_diastolic', 'bp_diastolic_unit', 'blood_group', 'pulse_rate', 'pulse_rate_unit', 'respiration_rate', 'respiration_rate_unit', 'temprature', 'temprature_unit', 'note', 'patient_id', 'appointment_id'];
+	protected $fillable = ['weight', 'height', 'bp_systolic', 'bp_diastolic', 'blood_group', 'pulse_rate', 'respiration_rate', 'temprature', 'temprature_unit', 'note', 'patient_id', 'appointment_id'];
 
 	public function patient()
     {

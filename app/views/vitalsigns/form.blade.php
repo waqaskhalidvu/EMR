@@ -4,19 +4,8 @@
                 <td width="333">
                     {{ Form::input('text', 'weight', null, array('required' => 'true')) }}
                 </td>
-                <td width="200"> 
-                    <select name="weight_unit" style="width: 74%; height: 38px" required>
-                     <option selected value="" disabled>Select Unit</option>
-                     <option 
-                     @if(isset($vitalsign))
-                        @if($vitalsign->weight_unit == "lbs") selected="true" @endif
-                     @endif value="lbs">lbs</option>
-                     <option
-                     @if(isset($vitalsign))
-                        @if($vitalsign->weight_unit == "kg") selected="true" @endif
-                     @endif
-                      value="kg">kg</option>
-                   </select>
+                <td width="200">
+                    : kg
                     </td>
                 </tr>
                <tr>
@@ -24,20 +13,8 @@
                 <td width="333">
                     {{ Form::input('text', 'height', null, array('required' => 'true')) }}
                 </td>
-                <td width="200"> 
-                    <select name="height_unit" style="width: 74%; height: 38px" required>
-                     <option selected value="" disabled>Select Unit</option>
-                     <option 
-                     @if(isset($vitalsign))
-                        @if($vitalsign->height_unit == "inch") selected="true" @endif
-                     @endif 
-                     value="inch">inch</option>
-                     <option
-                     @if(isset($vitalsign))
-                        @if($vitalsign->height_unit == "cm") selected="true" @endif
-                     @endif
-                      value="cm">cm</option>
-                   </select>
+                <td width="200">
+                    : cm
                </td>
                 </tr>
               <tr>
@@ -46,14 +23,7 @@
                     {{ Form::input('number', 'bp_systolic', null, array('required' => 'true')) }}
                 </td>
                 <td width="200">
-                    <select name="bp_systolic_unit" style="width: 74%; height: 38px" required>
-                     <option selected value="" disabled>Select Unit</option>
-                     <option
-                     @if(isset($vitalsign))
-                        @if($vitalsign->bp_systolic_unit == "mmHg") selected="true" @endif
-                     @endif
-                      value="mmHg">mmHg</option>
-                   </select>
+                    : mmHg
                </td>
                 </tr> 
              <tr>
@@ -61,15 +31,8 @@
                 <td width="333">
                     {{ Form::input('number', 'bp_diastolic', null, array('required' => 'true')) }}
                 </td>
-                <td width="200"> 
-                    <select name="bp_diastolic_unit" style="width: 74%; height: 38px" required>
-                     <option selected value="" disabled>Select Unit</option>
-                     <option
-                     @if(isset($vitalsign))
-                        @if($vitalsign->bp_diastolic_unit == "mmHg") selected="true" @endif
-                     @endif
-                      value="mmHg">mmHg</option>
-                   </select>
+                <td width="200">
+                    : mmHg
                 </td>
                 </tr>
                 <tr>
@@ -129,14 +92,7 @@
                     {{ Form::input('text', 'pulse_rate', null, array('required' => 'true')) }}
                 </td>
                 <td width="200"> 
-                    <select name="pulse_rate_unit" style="width: 74%; height: 38px" required>
-                     <option selected value="" disabled>Select Unit</option>
-                     <option
-                      @if(isset($vitalsign))
-                        @if($vitalsign->pulse_rate_unit == "per min") selected="true" @endif
-                     @endif
-                      value="per min">per min</option>
-                   </select>
+                    : per min
                    </td>
                 </tr>
                 <td width="272" height="55"><label>Respiration Rate*</label> </td>
@@ -144,14 +100,7 @@
                     {{ Form::input('text', 'respiration_rate', null, array('required' => 'true')) }}
                 </td>
                 <td width="200"> 
-                    <select name="respiration_rate_unit" style="width: 74%; height: 38px" required>
-                     <option selected value="" disabled>Select Unit</option>
-                     <option 
-                     @if(isset($vitalsign))
-                        @if($vitalsign->respiration_rate_unit == "per min") selected="true" @endif
-                     @endif 
-                     value="per min">per min</option>
-                   </select>
+                    : per min
                </td>
                 </tr>
 
