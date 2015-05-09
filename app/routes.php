@@ -163,6 +163,8 @@ Route::group(array('before' => 'auth'), function(){
 
     Route::resource('prescriptions', 'PrescriptionsController');
 
+    Route::resource('medicines', 'MedicinesController');
+
     // Medical Record Routes
     Route::get('search_pmr', 'HomeController@showSearchPMR');
     Route::any('view_pmr', 'HomeController@showViewPMR');

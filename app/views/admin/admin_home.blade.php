@@ -59,6 +59,7 @@ class="current"
 					<a class="green" href="app_checkup_fee_print">Print Checkup Invoice</a>
 					<a class="ferozi" href="app_test_fee" >Add Lab Test Fee </a>
 					<a class="blue" href="app_test_fee_print">Print Test Invoice</a>
+					<a class="orange" href="medicines" >Manage Medicines </a>
 				</div>
 			</div>
 

@@ -22,6 +22,7 @@
                                     <ul>
                                         <li> <a href="/employees">Manage Employees</a></li>
                                         <li><a href="/dutydays">Doctor Schedules</a></li>
+                                        <li><a href="/medicines">Manage Medicines</a></li>
                                     </ul>
                                 </li>
                                 <li @yield('current_about')><a style="cursor: pointer">Patients</a>

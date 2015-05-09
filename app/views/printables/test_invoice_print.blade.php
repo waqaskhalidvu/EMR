@@ -4,45 +4,47 @@
         <center>
             <h1><u> Test Fee Invoice </u></h1>
         </center>
-        <table style='border-collapse: collapse; width: 70%; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
-
+        <table style='text-align: left; border-collapse: collapse; width: 70%; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
             <tr>
-                <td height='20'><label>Patient Name:</label></td>
+                <th colspan="2">Details</th>
+                <th>Charges</th>
+            </tr>
+            <tr>
+                <th height='20'><label>Patient Name:</label></th>
                 <td><label> {{ $patient->name }}</label></td>
+                <td></td>
             </tr>
             <tr>
-                <td height='20'><label>Patient ID:</label></td>
+                <th height='20'><label>Patient ID:</label></th>
                 <td><label>{{ $patient->patient_id }}</label></td>
+                <td></td>
             </tr>
             <tr>
-                <td height='20'><label>Visit Date:</label></td>
+                <th height='20'><label>Visit Date:</label></th>
                 <td><label> {{ $date }} </label></td>
+                <td></td>
             </tr>
             <tr>
-                <td height='20'><label>Visit Time:</label></td>
+                <th height='20'><label>Visit Time:</label></th>
                 <td><label> {{ $time }}</label></td>
+                <td></td>
             </tr>
             <tr>
-                <td height='20'><label>Doctor Name:</label></td>
+                <th height='20'><label>Doctor Name:</label></th>
                 <td><label>{{ $doctor_name }}</label></td>
+                <td></td>
             </tr>
             @foreach($tests as $test)
             <tr>
-                <td height='20'><label>Test Name:</label></td>
+                <th height='20'><label>Test Detail:</label></th>
                 <td><label> {{ $test->test_name }}</label></td>
-            </tr>
-            <tr>
-                <td height='20'> <label>Description:</label></td>
-                <td><label> {{ $test->test_description }}</label></td>
-            </tr>
-            <tr>
-                <td height='20'> <label>Charges:</label></td>
                 <td><label> {{ $test->total_fee }}-/Rs</label></td>
             </tr>
+
             @endforeach
             <tr>
-                <td height='20'> <label>Total Bill:</label></td>
-                <td><label> {{ $sum }}-/Rs</label></td>
+                <th height='20' colspan="2"> <label>Total Bill:</label></th>
+                <th><label> {{ $sum }}-/Rs</label></th>
             </tr>
         </table>
     </body>

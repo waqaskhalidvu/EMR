@@ -336,19 +336,19 @@ class HomeController extends BaseController {
                     <caption>(Vital Signs)</caption>
                     <tr>
                         <td height='20'><label>Patient Height:</label></td>
-                        <td><label> $vitals->height - $vitals->height_unit </label></td>
+                        <td><label> $vitals->height - cm </label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Patient Weight:</label></td>
-                        <td><label> $vitals->weight - $vitals->weight_unit </label></td>
+                        <td><label> $vitals->weight - kg </label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Blood Pressure (Systolic):</label></td>
-                        <td><label> $vitals->bp_systolic - $vitals->bp_systolic_unit </label></td>
+                        <td><label> $vitals->bp_systolic - mmHg </label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Blood Pressure (Diastolic):</label></td>
-                        <td><label> $vitals->bp_diastolic - $vitals->bp_diastolic_unit </label></td>
+                        <td><label> $vitals->bp_diastolic - mmHg </label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Blood Group:</label></td>
@@ -356,11 +356,11 @@ class HomeController extends BaseController {
                     </tr>
                     <tr>
                         <td height='20'><label>Pulse Rate:</label></td>
-                        <td><label> $vitals->pulse_rate - $vitals->pulse_rate_unit </label></td>
+                        <td><label> $vitals->pulse_rate - per min </label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Respiration Rate:</label></td>
-                        <td><label> $vitals->respiration_rate - $vitals->respiration_rate_unit </label></td>
+                        <td><label> $vitals->respiration_rate - per min </label></td>
                     </tr>
                     <tr>
                         <td height='20'> <label>Temperature:</label></td>
