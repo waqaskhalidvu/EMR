@@ -116,6 +116,22 @@ class PrescriptionsController extends \BaseController {
 
         $data['patient_id'] = $prescription->patient_id;
 
+        foreach(Input::get('medicines') as $id){
+            if(!in_array($id, explode(',', $prescription->medicines))){
+                $medicine = Medicine::find($id);
+                $medicine->quantity -= 1;
+                $medicine->update();
+            }
+        }
+
+        foreach(explode(',', $prescription->medicines) as $old_id){
+            if(!in_array($old_id, Input::get('medicines'))){
+                $medicine = Medicine::find($old_id);
+                $medicine->quantity += 1;
+                $medicine->update();
+            }
+        }
+
         $data['medicines'] = implode(",",Input::get('medicines'));
 
         $prescription->update($data);
