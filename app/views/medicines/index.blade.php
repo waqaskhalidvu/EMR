@@ -34,7 +34,7 @@
                 <thead>
                     <tr>
                         <th style="width: 20%">Medicine Name</th>
-                        <th style="width: 20%">Expiry Date</th>
+                        <th style="width: 20%">Quantity</th>
                         <th style="width: 25%">Manage</th>
                     </tr>
                 </thead>
@@ -44,7 +44,7 @@
                     @foreach($medicines as $medicine)
                         <tr>
                             <td>{{{ $medicine->name }}}</td>
-                            <td>{{{  date('j F, Y', strtotime($medicine->exp_date)) }}}</td>
+                            <td>{{{ $medicine->quantity }}}</td>
                             <td>
                             {{ link_to_route('medicines.show', 'View', [$medicine->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
                         @if(Auth::user()->role != 'Doctor') 

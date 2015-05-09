@@ -17,7 +17,7 @@ class CreateMedicinesTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->text('description');
-			$table->date('exp_date');
+			$table->integer('quantity');
 			$table->timestamps();
 		});
 	}

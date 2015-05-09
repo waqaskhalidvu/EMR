@@ -5,9 +5,9 @@
                     {{ Form::input('text', 'name', null, array('required' => 'true')) }}
                 </td>
                 <tr>
-                    <td width="272" height="55"><label>Expiry Date:</label> </td>
+                    <td width="272" height="55"><label>Quantity:</label> </td>
                      <td width="333">
-                        {{ Form::input('date', 'exp_date', null, array('placeholder' => 'mm/dd/yyyy', 'id' => 'exp_date')) }}
+                        {{ Form::input('number', 'quantity', null, array('required' => 'true')) }}
                      </td>
                 </tr>
                 <tr>

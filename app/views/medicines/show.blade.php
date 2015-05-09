@@ -31,8 +31,8 @@ Medicine Detail
                 <td width="333"><label>{{{ $medicine->name}}}</label></td>
               </tr>
                 <tr>
-                    <td width="272" height="55"><label>Expiry Date:</label> </td>
-                    <td width="333"><label>{{{ $medicine->exp_date}}}</label></td>
+                    <td width="272" height="55"><label>Remaining Quantity:</label> </td>
+                    <td width="333"><label>{{{ $medicine->quantity}}}</label></td>
                 </tr>
 
                 <tr>
