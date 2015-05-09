@@ -18,6 +18,7 @@
     {{ HTML::style('/login_css/style.css') }}
     {{ HTML::style('/css/camera.css') }}
     {{ HTML::style('/css/owl.carousel.css') }}
+    {{ HTML::style('/css/select2.css') }}
 
   
 <!--========================================================
@@ -46,6 +47,7 @@
     {{ HTML::script('js/jquery.mobilemenu.js') }}
     {{ HTML::script('js/jquery.unveil.js') }}
     {{ HTML::script('js/script.js') }}
+    {{ HTML::script('js/select2.js') }}
 
         <!-- Data Table files -->
 
@@ -54,8 +56,8 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-            $('#example').dataTable();
-            } );
+                $('#example').dataTable();
+            });
 
             function back () {
                 window.history.back();
@@ -117,6 +119,7 @@
 =========================================================-->
 @include('partials.footer')
 
+@yield('scripts')
  
 </body>
 

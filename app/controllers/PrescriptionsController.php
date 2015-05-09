@@ -26,7 +26,9 @@ class PrescriptionsController extends \BaseController {
 		$appointment = Appointment::find(Input::get('id'));
         $patient_id = $appointment->patient->id;
         $doctors = Employee::where('role', 'Doctor')->where('status', 'Active')->get();
-        return View::make('prescriptions.create', compact('appointment', 'patient_id', 'doctors'));
+        $medicines = Medicine::all()->lists('name', 'id');
+
+        return View::make('prescriptions.create', compact('medicines', 'appointment', 'patient_id', 'doctors'));
 	}
 
 	/**
@@ -42,6 +44,15 @@ class PrescriptionsController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
+
+        $medicines_id = Input::get('medicines');
+
+        foreach($medicines_id as $id){
+            $medicine = Medicine::find($id);
+            $medicine->quantity -= 1;
+            $medicine->update();
+        }
+        $data['medicines'] = implode(",",$medicines_id);
 
 		Prescription::create($data);
 
@@ -60,7 +71,13 @@ class PrescriptionsController extends \BaseController {
         if(Input::get('flag') != null) {
             $flag = Input::get('flag');
         }
-		return View::make('prescriptions.show', compact('prescription', 'flag'));
+
+        $medicines = [];
+        foreach(explode(',', $prescription->medicines) as $id){
+            array_push($medicines, Medicine::find($id));
+        }
+
+		return View::make('prescriptions.show', compact('prescription', 'flag', 'medicines'));
 	}
 
 	/**
@@ -73,7 +90,11 @@ class PrescriptionsController extends \BaseController {
 	{
 		$prescription = Prescription::where('appointment_id', $id)->get()->first();
 
-		return View::make('prescriptions.edit', compact('prescription'));
+        $medicines = Medicine::all()->lists('name', 'id');
+
+        $old_medicines = explode(',', $prescription->medicines);
+
+		return View::make('prescriptions.edit', compact('old_medicines', 'prescription', 'medicines'));
 	}
 
 	/**
@@ -94,6 +115,8 @@ class PrescriptionsController extends \BaseController {
 		}
 
         $data['patient_id'] = $prescription->patient_id;
+
+        $data['medicines'] = implode(",",Input::get('medicines'));
 
         $prescription->update($data);
 

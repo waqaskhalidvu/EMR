@@ -32,7 +32,11 @@
             </tr>
             <tr>
                 <td height='20'> <label>Medicines:</label></td>
-                <td><label> {{ $prescription->medicines }}</label></td>
+                <td><label>
+                @foreach($medicines as $index => $medicine)
+                    {{ $index+1 .' - '.$medicine->name }} <br/>
+                @endforeach
+                </label></td>
             </tr>
             <tr>
                 <td height='20'><label>Note:</label></td>

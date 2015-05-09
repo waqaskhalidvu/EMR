@@ -250,8 +250,13 @@ Route::group(array('before' => 'auth'), function(){
         $doctor_name = $prescription->appointment->employee->name;
         $patient = $prescription->appointment->patient;
 
+        $medicines = [];
+        foreach(explode(',', $prescription->medicines) as $id){
+            array_push($medicines, Medicine::find($id));
+        }
+
         return View::make('printables.prescription_print',
-            compact('prescription', 'date', 'time', 'doctor_name', 'patient'));
+            compact('prescription', 'date', 'time', 'doctor_name', 'patient', 'medicines'));
     });
 
     Route::get('app_test_print', function(){

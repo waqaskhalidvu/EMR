@@ -46,7 +46,11 @@ Prescription Details
 
                 <tr>
                 <td width="272"><label>Medicines:</label></td>
-                <td width="333"><label><div style="width: 333px; word-wrap: break-word">{{{ $prescription->medicines }}}</div></label></td>
+                <td width="333"><label><div style="width: 333px; word-wrap: break-word">
+                    @foreach($medicines as $index => $medicine)
+                        {{ $index+1 .' - '.$medicine->name }} <br/>
+                    @endforeach
+                    </div></label></td>
                 </tr>
 
               

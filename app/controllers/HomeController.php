@@ -87,7 +87,10 @@ class HomeController extends BaseController {
         $time = date('H:i:s', strtotime($prescription->appointment->time));
         $doctor_name = $prescription->appointment->employee->name;
         $patient = $prescription->appointment->patient;
-
+        $medicines = [];
+        foreach(explode(',', $prescription->medicines) as $id){
+            array_push($medicines, Medicine::find($id));
+        }
 
         $html = "<html><body>"
             .   " <img src='./images/logo_new1.jpg'/>
@@ -122,7 +125,12 @@ class HomeController extends BaseController {
                     </tr>
                     <tr>
                         <td height='20'> <label>Medicines:</label></td>
-                        <td><label> $prescription->medicines </label></td>
+                        <td><label>";
+
+        foreach($medicines as $index => $medicine) {
+            $html .= $index + 1 . ' - ' . $medicine->name . "<br />";
+        }
+        $html .= "</label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Note:</label></td>
@@ -285,11 +293,15 @@ class HomeController extends BaseController {
 
 //      Prescription
         if($appointment->prescription) {
+            $medicines = [];
+            foreach(explode(',', $appointment->prescription->medicines) as $id){
+                array_push($medicines, Medicine::find($id));
+            }
+
             $doctor = $appointment->employee->name;
-            $medicines = $appointment->prescription->medicines;
             $code = $appointment->prescription->code;
             $note = $appointment->prescription->note;
-            $html .= "<br> <br>
+            $html .= "<br> <br> <br> <br> <br>
                 <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
                     <caption>(Prescription)</caption>
                     <tr>
@@ -318,7 +330,11 @@ class HomeController extends BaseController {
                     </tr>
                     <tr>
                         <td height='20'> <label>Medicines:</label></td>
-                        <td><label> $medicines </label></td>
+                        <td><label>";
+        foreach($medicines as $index => $medicine) {
+            $html .= $index + 1 . ' - ' . $medicine->name . "<br />";
+        }
+        $html .= "</label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Note:</label></td>
