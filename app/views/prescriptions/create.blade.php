@@ -40,5 +40,13 @@ Create Prescriptions
 		
 		<br><br>
 
-      
+@stop
+
+@section('scripts')
+    <script>
+        $('#medicines').select2({
+            tags: "true",
+            placeholder: "Select an option"
+         });
+    </script>
 @stop
