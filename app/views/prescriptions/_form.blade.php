@@ -37,6 +37,11 @@
                 </tr>
 
                 <tr>
+                <td width="272"><label>Procedure</label></td>
+                <td width="333" height="350">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'required' => 'true', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
+                </tr>
+
+                <tr>
                 @if(isset($appointment))
                     <input name="patient_id" type="hidden" value="{{ $appointment->patient->id }}">
                     <input name="appointment_id" type="hidden" value="{{ $appointment->id }}">

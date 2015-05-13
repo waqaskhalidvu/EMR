@@ -8,7 +8,7 @@ class Prescription extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['code', 'medicines', 'note', 'patient_id', 'appointment_id'];
+	protected $fillable = ['code', 'medicines', 'note', 'patient_id', 'appointment_id', 'procedure'];
 
     // Relationships
     public function patient()
