@@ -136,6 +136,10 @@ class HomeController extends BaseController {
                         <td height='20'><label>Note:</label></td>
                         <td><label> $prescription->note </label></td>
                     </tr>
+                    <tr>
+                        <td height='20'><label>Dignostic Procedure:</label></td>
+                        <td><label> $prescription->procedure </label></td>
+                    </tr>
                 </table>"
             . "</body></html>";
         return PDF::load($html, 'A4', 'portrait')->show($patient->name.' Prescription');
@@ -301,6 +305,7 @@ class HomeController extends BaseController {
             $doctor = $appointment->employee->name;
             $code = $appointment->prescription->code;
             $note = $appointment->prescription->note;
+            $proc = $appointment->prescription->procedure;
             $html .= "<br> <br> <br> <br> <br>
                 <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
                     <caption>(Prescription)</caption>
@@ -339,6 +344,10 @@ class HomeController extends BaseController {
                     <tr>
                         <td height='20'><label>Note:</label></td>
                         <td><label> $note </label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Diagnostic Procedure:</label></td>
+                        <td><label> $proc </label></td>
                     </tr>
                 </table>";
         }

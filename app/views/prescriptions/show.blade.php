@@ -55,8 +55,12 @@ Prescription Details
 
               
                 <tr>
-                <td width="272"><label>Note:</label></td>
-                <td width="333"><label><div style="width: 333px; word-wrap: break-word">{{{ $prescription->note }}}</div></label></td>
+                    <td width="272"><label>Note:</label></td>
+                    <td width="333"><label><div style="width: 333px; word-wrap: break-word">{{{ $prescription->note }}}</div></label></td>
+                </tr>
+                <tr>
+                    <td width="272"><label>Diagnostic Procedure:</label></td>
+                    <td width="333"><label><div style="width: 333px; word-wrap: break-word">{{{ $prescription->procedure }}}</div></label></td>
                 </tr>
 
             </table>

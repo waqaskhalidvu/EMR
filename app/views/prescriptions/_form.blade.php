@@ -1,4 +1,4 @@
-<table width="621" height="720" border="0">
+<table width="621" height="820" border="0">
 
               <tr>
                  <td width="272" height="55"><label>Current Visit Date*</label> </td>
@@ -38,7 +38,7 @@
 
                 <tr>
                 <td width="272"><label>Procedure</label></td>
-                <td width="333" height="350">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'required' => 'true', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
+                <td width="333">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'required' => 'true', 'placeholder' => 'procedure', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
                 </tr>
 
                 <tr>
