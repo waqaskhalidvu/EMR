@@ -467,6 +467,21 @@ img {
   text-decoration: none;
 }
 
+.data_table_submit_btn {
+    display: inline-block;
+    padding: 2px 20px 2px;
+    font: 400 18px/36px 'Open Sans', sans-serif;
+    color: #413d3d;
+    background: #f1f045;
+    border: none;
+    transition: 0.3s all ease;
+    cursor: pointer;
+}
+.data_table_submit_btn:hover {
+    color: #ffffff;
+    background: #249f9c;
+}
+
 .btn_3 {
   display: inline-block;
   padding: 4px 34px 3px 33px;

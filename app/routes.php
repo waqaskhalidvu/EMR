@@ -59,6 +59,8 @@ Route::group(array('before' => 'auth'), function(){
             return View::make('super.services');
         });
 
+        Route::resource('clinics', 'ClinicsController');
+
     });
     ////////////////////// Admin Routes END ///////////////////////
 

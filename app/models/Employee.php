@@ -16,7 +16,7 @@ class Employee extends \Eloquent implements UserInterface, RemindableInterface{
 	// Don't forget to fill this array
 
 	protected $fillable = ['name', 'password', 'email', 'gender', 'age', 'city', 'country',
-        'address', 'phone', 'cnic', 'branch', 'note', 'status', 'role'];
+        'address', 'phone', 'cnic', 'branch', 'note', 'status', 'role', 'clinic_id'];
 
     /**
      * Get the e-mail address where password reminders are sent.
@@ -95,6 +95,10 @@ class Employee extends \Eloquent implements UserInterface, RemindableInterface{
     public function prescriptions()
     {
         return $this->hasMany('Prescriotions');
+    }
+
+    public function clinic(){
+        return $this->belongsTo('Clinic');
     }
 
 }
