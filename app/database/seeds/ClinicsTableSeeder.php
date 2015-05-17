@@ -11,8 +11,7 @@ class ClinicsTableSeeder extends Seeder {
         Clinic::create([
             'id' => '1',
             'name' => 'EMR Clinic',
-            'address' => 'DHA Lahore',
-            'is_activated' => 1
+            'address' => 'DHA Lahore'
         ]);
 
 	}
