@@ -1,72 +1,55 @@
-@extends('employees.layouts.master')
-<!--========================================================
-                          TITLE
-=========================================================-->
-@section('title')
-Edit Employee
-@stop
-
-
-<!--========================================================
-                          CONTENT
-=========================================================-->
-@section('content1')
-    <section id="content">
-
-		<div class = "user_logo">
-			<div class="header_1 wrap_3 color_3" style="color: #fff; padding-top: 20px">
-                        Edit Employee
-            </div>
-		</div>
-		<br><br><br>
-@stop
-
-@section('content2')
-
-    <!-------------------------- Error Messages ----------------------->
-
-        @foreach($errors->all("<p class='error'>:message</p>") as $message)
-	    {{ $message }}
-		@endforeach
-
-		<br/>
-	   <center>
-            <div style="border: 4px solid #129894; width: 800px; border-radius: 10px; background-color: #EBEBEB">
-
-            {{ Form::model($employee, ['route' => ['employees.update', $employee->id], 'method' => 'put' ,'style' => 'padding: 40px', 'id' => 'regForm'])}}
 
                 <table width="621" height="720" border="0">
-              <tr>
-                <td width="272" height="55"><label>Employee Name*</label> </td>
-                <td width="333"><input type="text" id="name" required="true" value="{{{ Form::getValueAttribute('name', null) }}}" name="name"></td>
+                <tr>
+                    <td width="272" height="55"><label>Clinic Name*</label> </td>
+                    <td width="333"><input type="text" id="name" required="true" value="{{{ isset($clinic)? $clinic->name : '' }}}" name="clinic_name"></td>
+                </tr>
+                <tr>
+                    <td width="272" height="55"><label>Clinic Address*</label> </td>
+                    <td width="333"><input type="text" id="name" required="true" value="{{{ isset($clinic)? $clinic->address : '' }}}" name="clinic_address"></td>
                 </tr>
               <tr>
+                <td width="272" height="55"><label>Admin Name*</label> </td>
+                <td width="333"><input type="text" id="name" required="true" value="{{{ isset($admin)? $admin->name : '' }}}" name="name"></td>
+                </tr>
+                @if(!isset($clinic))
+              <tr>
+                <td width="272" height="55"><label>      Password*</label></td>
+                <td width="333"><input type="password" id="password" required="true" class="pass" name="password" ></td>
+                </tr>
+              <tr>
+                <td width="272" height="55"><label>      Re-type Password*</label></td>
+                <td width="333"><input type="password" id="confirm_password" required="true" class="pass" >
+                <p style="width:97%" id='message'></p>
+                </td>
+                </tr>
+                @endif
+              <tr>
                 <td width="272" height="55"><label>     Email*</label></td>
-                <td width="333"><input type="email" required="true" value="{{{ Form::getValueAttribute('email', null) }}}" id="email" name="email" ></td>
+                <td width="333"><input type="email" required="true" value="{{{ isset($admin)? $admin->email : '' }}}" id="email" name="email" ></td>
                 </tr>
               <tr>
                 <td width="272" height="55"><label>      Gender*</label></td>
                 <td width="333"><span>
                   <label class="radio">
-                    <input style="width: 30px" type="radio" required="true" name="gender" @if($employee->gender == 'Male') checked="true" @endif value="Male" id="gender_0">
+                    <input style="width: 30px" type="radio" required="true" name="gender" value="Male" @if(isset($admin) && $admin->gender == 'Male') checked="true" @endif id="gender_0">
                     Male</label>
                  &nbsp;     &nbsp;     &nbsp;
                   <label class="radio">
-                    <input style="width: 30px" type="radio" required="true" name="gender" @if($employee->gender == 'Female') checked="true" @endif value="Female" id="gender_1">
+                    <input style="width: 30px" type="radio" required="true" name="gender"  value="Female" @if(isset($admin) && $admin->gender == 'Female') checked="true" @endif id="gender_1">
                     Female</label>
-
-                </span>
-                </td>
+                 
+                </span></td>
                 </tr>
                 <tr>
                 <td width="272" height="55"><label>      Age*</label></td>
-                <td width="333"><input type="number" id="age" required="true" value="{{{ Form::getValueAttribute('age', null) }}}" name="age"></td>
+                <td width="333"><input type="number" id="age" required="true" value="{{{ isset($admin)? $admin->age : ''  }}}" name="age"></td>
                 </tr><tr>
-                <td width="272" height="55"><label>      City*</label></td>
-                <td width="333"><input type="text" id="city" required="true" value="{{{ Form::getValueAttribute('city', null) }}}" name="city"></td>
+                <td width="272" height="55"><label>      Admin City*</label></td>
+                <td width="333"><input type="text" id="city" required="true" value="{{{ isset($admin)? $admin->city : ''  }}}" name="city"></td>
                 </tr>
                 <tr>
-                     <td width="272" height="55"><label>      Country*</label></td>
+                     <td width="272" height="55"><label>     Admin Country*</label></td>
                      <td width="333">
                          <select id="country" required name="country">
                              <option value="" selected>Select Country</option>
@@ -313,70 +296,51 @@ Edit Employee
                      </td>
                  </tr>
                 <tr>
-                <td width="272" height="55"><label>      Address*</label></td>
-                <td width="333"><input type="text" id="address" required="true" name="address" value="{{{ Form::getValueAttribute('address', null) }}}"></td>
+                <td width="272" height="55"><label>     Admin Address*</label></td>
+                <td width="333"><input type="text" id="address" required="true" name="address" value="{{{ isset($admin)? $admin->address : ''  }}}"></td>
                 </tr>
                 <tr>
                 <td width="272" height="55"><label>      Mobile:</label></td>
-                <td width="333"><input type="text" id="phone" placeholder="(0092)333-1234567" name="phone" value="{{{ Form::getValueAttribute('phone', null) }}}"></td>
+                <td width="333"><input type="tel" id="phone" placeholder="(0092)333-1234567" name="phone" value="{{{ isset($admin)? $admin->phone : ''  }}}"></td>
                 </tr>
                 <tr>
                     <td width="272" height="55"><label>      CNIC:</label></td>
-                    <td width="333"><input type="text" id="cnic" name="cnic" value="{{{ Form::getValueAttribute('cnic', null) }}}"></td>
+                    <td width="333"><input type="text" id="cnic" name="cnic" value="{{{ isset($admin)? $admin->cnic : ''  }}}"></td>
                  </tr>
-                <tr>
-                <td width="272" height="55"><label> Role*</label></td>
-                <td width="333"><select required name="role">
-                  <option selected value="" disabled>Select Role</option>
-                  <option @if($employee->role == "Administrator") selected="true" @endif value="Administrator">Administrator</option>
-                  <option @if($employee->role == "Doctor") selected="true" @endif value="Doctor">Doctor</option>
-                  <option @if($employee->role == "Accountant") selected="true" @endif value="Accountant">Accountant</option>
-                  <option @if($employee->role == "Receptionist") selected="true" @endif value="Receptionist">Receptionist</option>
-                  <option @if($employee->role == "Lab Manager") selected="true" @endif value="Lab Manager">Lab Manager</option>
-                </select></td>
-                </tr>
                 <tr>
                 <td width="272" height="55"><label> Branch Name:</label></td>
                 <td width="333"><select name="branch" style="width: 70%">
-                  <option selected disabled>Select Branch</option>
-                  <option @if($employee->branch == "DHA") selected="true" @endif value="DHA">DHA</option>
-                  <option @if($employee->branch == "Gulberg") selected="true" @endif value="Gulberg">Gulberg</option>
-                  <option @if($employee->branch == "Canal View") selected="true" @endif value="Canal View">Canal View</option>
-                  <option @if($employee->branch == "Garden Town") selected="true" @endif value="Garden Town">Garden Town</option>
-                  <option @if($employee->branch == "Johar Town") selected="true" @endif value='Johar Town'>Johar Town</option>
+                  <option value="N/A" selected disabled>Select Branch</option>
+                  <option @if(isset($admin) && $admin->branch == "DHA") selected="true" @endif value="DHA">DHA</option>
+                  <option @if(isset($admin) && $admin->branch == "Gulberg") selected="true" @endif value="Gulberg">Gulberg</option>
+                  <option @if(isset($admin) && $admin->branch == "Canal View") selected="true" @endif value="Canal View">Canal View</option>
+                  <option @if(isset($admin) && $admin->branch == "Garden Town") selected="true" @endif value="Garden Town">Garden Town</option>
+                  <option @if(isset($admin) && $admin->branch == "Johar Town") selected="true" @endif value='Johar Town'>Johar Town</option>
                 </select></td>
                 </tr>
                 <tr>
                   <td width="272" height="55"><label> Status*</label></td>
-                  <td width="333"><select required="true" name="status" style="width: 70%">
+                  <td width="333"><select name="status" style="width: 70%" required>
                      <option selected value="" disabled>Select Status</option>
-                     <option @if($employee->status == "Active") selected="true" @endif value="Active">Active</option>
-                     <option @if($employee->status == "Inactive") selected="true" @endif value="Inactive">Inactive</option>
+                     <option @if(isset($admin) && $admin->status == "Active") selected="true" @endif value="Active">Active</option>
+                     <option @if(isset($admin) && $admin->status == "Inactive") selected="true" @endif value="Inactive">Inactive</option>
                    </select></td>
                 </tr>
                 <tr>
                 <td width="272"><label>Additional Info:</label></td>
                 <td width="333" height="200">
-                {{ Form::textarea('note', null, array('rows' => '7', 'cols' => '20', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}
-
+                {{ Form::textarea('note', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}
+                    {{--<textarea rows="7" cols="20" style="font-size: 1.2em; margin-top: 2px; resize: none;">{{isset($admin)? $admin->note : ''}}</textarea>--}}
                 </td>
                 </tr>
-                <tr>
-                <td colspan="2">
+                <tr> 
+                <td colspan="2"> 
                     <center>
                     <div class="btn-wrap">
-                        <a class="btn_3" href="../" >Back</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="submit" value="Update" class="submit" />
+                        <a class="btn_3" href="javascript:document.getElementById('regForm').reset();" data-type="reset">Reset</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="submit" id="create" value="{{ isset($admin)? 'Update' : 'Register'}}" class="submit" />
                     </div>
                 </center>
                 </td>
                 </tr>
             </table>
-            {{ Form::close() }}
-            </div>
-        </center>
-
-		<br><br>
-
-     
-@stop

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +12,11 @@
     {{ HTML::style('/css/user_reg_form.css') }}
     {{ HTML::style('/css/grid.css') }}
     {{ HTML::style('/css/style.css') }}
-    {{ HTML::style('css/breadcrumbs.css') }}
     {{ HTML::style('/css/isotope.css') }}
     {{ HTML::style('/css/contact-form.css') }}
     {{ HTML::style('/login_css/style.css') }}
     {{ HTML::style('/css/camera.css') }}
     {{ HTML::style('/css/owl.carousel.css') }}
-
 
 <!--========================================================
                           JS
@@ -33,7 +32,7 @@
     {{ HTML::script('js/jquery.mobile.customized.min.js') }}
     {{ HTML::script('js/camera.js') }}
     {{ HTML::script('js/owl.carousel.js') }}
-
+    
     {{ HTML::script('js/jquery.cookie.js') }}
     {{ HTML::script('js/device.min.js') }}
     {{ HTML::script('js/tmstickup.js') }}
@@ -45,17 +44,52 @@
     {{ HTML::script('js/jquery.mobilemenu.js') }}
     {{ HTML::script('js/jquery.unveil.js') }}
     {{ HTML::script('js/script.js') }}
+    {{ HTML::script('js/jquery_masks.js') }}
 
-        <!-- Data Table files -->
+    <!-- Data Table files -->
+    {{ HTML::script('js/jquery.dataTables.js') }}
+    {{ HTML::style('/css/jquery.dataTables.css') }}
 
-        {{ HTML::script('js/jquery.dataTables.js') }}
-        {{ HTML::style('/css/jquery.dataTables.css') }}
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-            $('#example').dataTable();
-            } );
-        </script>
+        $('#example').dataTable();
+         $("#cnic").mask("99999-9999999-9");
+         $("#phone").mask("(9999) 999-9999999");
+        } );
+
+        //////////////// Password Matching ////////////////////////////
+        $(document).ready(function() {
+        $('#confirm_password').on('keyup', function () {
+        if($(this).val() != '' || $('#password').val() != ''){
+            if ($(this).val() == $('#password').val()) {
+                $('#message').html('Password Match!').addClass('success').removeClass('error').css('margin-bottom', '10px');
+            } else{
+             $('#message').html('Password not Matched!').addClass('error').removeClass('success').css('margin-bottom', '10px');
+             }
+        }else{
+        $('#message').addClass('error').removeClass('success');
+        }
+        });
+        $('#password').on('keyup', function () {
+                    if($(this).val() != '' || $('#confirm_password').val() != ''){
+                        if ($(this).val() == $('#confirm_password').val()) {
+                            $('#message').html('Password Match!').addClass('success').removeClass('error').css('margin-bottom', '10px');
+                        } else{
+                         $('#message').html('Password not Matched!').addClass('error').removeClass('success').css('margin-bottom', '10px');
+                         }
+                    }else{
+                    $('#message').addClass('error').removeClass('success');
+                    }
+                    });
+         } );
+
+        function checkForm()
+        {
+            $( "#create" ).prop( "disabled", true );
+            $( "#create" ).val('Please wait...');
+        }
+    </script>
         <!--------- End of Data Table files ------->
 
     <!--------------------- VIEW USER tr CSS -------------------->
@@ -85,10 +119,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/css/ie.css">
     <![endif]-->
     <!-- About Page End -->
-
+    
 </head>
 <body>
-
+    
 <div class="page">
 
     <!--========================================================
@@ -112,6 +146,6 @@
 =========================================================-->
 @include('partials.footer')
 
-
+ 
 </body>
 </html>

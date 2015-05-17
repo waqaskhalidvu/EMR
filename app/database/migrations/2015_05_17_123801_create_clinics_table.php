@@ -17,7 +17,6 @@ class CreateClinicsTable extends Migration {
 			$table->increments('id');
             $table->string('name');
             $table->string('address');
-            $table->boolean('is_activated');
 			$table->timestamps();
 		});
 	}

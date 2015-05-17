@@ -24,13 +24,13 @@
                                      Data Table
             =========================================================-->
             <center style="margin-top: 7%;">
-
+            <center>{{ link_to_route('clinics.create', 'Register Clinic', '', ['class' => 'btn_1'])}}</center>
+            <br/>
                 <table id="example" style=" border: 1px solid black" class="display" cellspacing="0" width="80%">
                 <thead>
                     <tr>
                         <th>Clinic Name</th>
                         <th>Address</th>
-                        <th>Activated</th>
                         <th style="width: 30%">Action</th>
                     </tr>
                 </thead>
@@ -41,7 +41,6 @@
                         <tr>
                            <td> {{$clinic->name}} </td>
                            <td>{{ $clinic->address }}</td>
-                           <td>{{ ($clinic->is_activated == 1)? 'Yes' : 'No' }}</td>
 
                             <td>
 
