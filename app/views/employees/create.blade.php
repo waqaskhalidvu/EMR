@@ -337,7 +337,7 @@ Employee Registration
                 <td width="272" height="55"><label> Role*</label></td>
                 <td width="333"><select required name="role">
                   <option selected value="" disabled>Select Role</option>
-                  <option value="Administrator">Administrator</option>
+                  {{--<option value="Administrator">Administrator</option>--}}
                   <option value="Doctor">Doctor</option>
                   <option value="Accountant">Accountant</option>
                   <option value="Receptionist">Receptionist</option>

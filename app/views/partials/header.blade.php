@@ -33,7 +33,7 @@
                                         <li><a href="/app_vitals">Vital Signs</a></li>
                                         <li><a href="/app_prescription">Add Prescriptions</a></li>
                                         <li><a href="/app_pres_print">Print Prescription</a></li>
-                                        <li><a href="/app_proc">Add Procedures</a></li>
+                                        {{--<li><a href="/app_proc">Add Procedures</a></li>--}}
                                         <li><a href="/app_tests">Test Reports</a></li>
                                         <li><a href="/app_test_print">Print Reports</a></li>
                                     </ul>
@@ -187,7 +187,7 @@
                                         <li><a href="/app_vitals">Vital Signs</a></li>
                                         <li><a href="/app_prescription">Add Prescriptions</a></li>
                                         <li><a href="/app_pres_print">Print Prescription</a></li>
-                                        <li><a href="/app_proc">Add Procedures</a></li>
+                                        {{--<li><a href="/app_proc">Add Procedures</a></li>--}}
                                         <li><a href="/app_tests">Test Reports</a></li>
                                         <li><a href="/app_test_print">Print Reports</a></li>
                                     </ul>

@@ -9,7 +9,7 @@ class EmployeesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$employees = Employee::all();
+		$employees = Employee::where('clinic_id', Auth::user()->clinic_id)->get();
 
 		return View::make('employees.index', compact('employees'));
 	}
@@ -41,52 +41,40 @@ class EmployeesController extends \BaseController {
 
         $employee = new Employee();
         $employee->name = Input::get('name');
-        $employee->save();
+        $employee->clinic_id = Auth::user()->clinic_id;
         $employee->password = Hash::make(Input::get('password'));
-        $employee->save();
         $employee->email = Input::get('email');
-        $employee->save();
         $employee->gender = Input::get('gender');
-        $employee->save();
         $employee->age = Input::get('age');
-        $employee->save();
         $employee->city = Input::get('city');
-        $employee->save();
         $employee->country = Input::get('country');
-        $employee->save();
         $employee->address = Input::get('address');
-        $employee->save();
 
         if(Input::get('phone') == ''){
             $employee->phone = 'N/A';
         }else {
             $employee->phone = Input::get('phone');
         }
-        $employee->save();
 
         if(Input::get('cnic') == ''){
             $employee->cnic = 'N/A';
         }else {
             $employee->cnic = Input::get('cnic');
         }
-        $employee->save();
 
         if(Input::get('branch') == ''){
             $employee->branch = 'N/A';
         }else {
             $employee->branch = Input::get('branch');
         }
-        $employee->save();
 
         if(Input::get('note') == ''){
             $employee->note = 'N/A';
         }else {
             $employee->note = Input::get('note');
         }
-        $employee->save();
 
         $employee->status = Input::get('status');
-        $employee->save();
         $employee->role = Input::get('role');
         $employee->save();
 

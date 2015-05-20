@@ -52,7 +52,7 @@
                             <td>{{{ $employee->status }}}</td>
                             <td>
                             {{ link_to_route('employees.show', 'View', [$employee->id], ['class' => 'data_table_btn', 'style' => 'margin-bottom: 2px'])}}
-                            @if($employee->email != 'admin@gmail.com' && $employee->role != 'Super User')
+                            @if($employee->role != 'Administrator' && $employee->role != 'Super User')
                                 {{ link_to_route('employees.edit', 'Edit', [$employee->id], ['class' => 'data_table_btn'])}}
                             @endif
                             </td>
