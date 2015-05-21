@@ -9,7 +9,7 @@ class PatientsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$patients = Patient::all();
+		$patients = Patient::where('clinic_id', Auth::user()->clinic_id)->get();
 
 		return View::make('patients.index', compact('patients'));
 	}

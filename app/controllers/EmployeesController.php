@@ -200,17 +200,5 @@ class EmployeesController extends \BaseController {
             }
         }
 
-
-        // $email = Input::get('email');
-
-        // // Check if Email exists in DB
-        // $validator = Validator::make(Input::all(), array('email' => 'exists:users'));
-
-        // 	if ($validator->fails())
-        // 	{
-        // 		return Redirect::back()->withErrors($validator)->withInput();
-        // 	}else{
-        // 		return View::make('users.home');
-        // 	}
     }
 }

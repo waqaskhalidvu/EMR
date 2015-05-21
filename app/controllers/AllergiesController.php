@@ -40,6 +40,7 @@ class AllergiesController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		Allergy::create($data);
 
 		return Redirect::to('allergies?id='.$data['patient_id']);

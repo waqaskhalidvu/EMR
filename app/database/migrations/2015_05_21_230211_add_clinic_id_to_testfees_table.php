@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddClinicIdToEmployeesTable extends Migration {
+class AddClinicIdToTestfeesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class AddClinicIdToEmployeesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('employees', function(Blueprint $table)
+		Schema::table('testfees', function(Blueprint $table)
 		{
             $table->integer('clinic_id')->unsigned()->nullable();
             $table->foreign('clinic_id')
-                    ->references('id')->on('clinics')
-                    ->onDelete('cascade');
+                ->references('id')->on('clinics')
+                ->onDelete('cascade');
 		});
 	}
 
@@ -28,9 +28,9 @@ class AddClinicIdToEmployeesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('employees', function(Blueprint $table)
+		Schema::table('testfees', function(Blueprint $table)
 		{
-            $table->dropForeign('employees_clinic_id_foreign');
+            $table->dropForeign('testfees_clinic_id_foreign');
             $table->dropColumn('clinic_id');
 		});
 	}
