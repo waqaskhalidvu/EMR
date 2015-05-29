@@ -9,7 +9,8 @@ class Labtest extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['test_name', 'test_description', 'test_results', 'total_fee', 'patient_id', 'appointment_id'];
+	protected $fillable = ['test_name', 'test_description', 'test_results', 'total_fee',
+        'patient_id', 'appointment_id', 'clinic_id'];
 
 	public function patient()
     {

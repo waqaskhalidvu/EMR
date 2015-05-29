@@ -48,6 +48,7 @@ class LabtestsController extends \BaseController {
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		Labtest::create($data);
 
         return Redirect::to('labtests?id='.$data['appointment_id']);

@@ -1,4 +1,4 @@
-<table width="621" height="820" border="0">
+<table width="650" height="1300" border="0">
 
               <tr>
                  <td width="272" height="55"><label>Current Visit Date*</label> </td>
@@ -18,27 +18,78 @@
 
                 <tr>
                 <td width="272" height="55"><label>Prescription Code:</label> </td>
-                <td width="333">
+                <td width="333" colspan="2">
                     {{ Form::input('text', 'code', null, array('required' => 'true')) }}
                 </td>
                 </tr>
 
                 <tr>
-                    <td width="272"><label>Medicines:</label></td>
+                    <td width="272"><label>Inventory Medicines:</label></td>
                     <td width="333" height="60">
-                    {{--{{ Form::textarea('medicines', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'medicines', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}--}}
-                    {{ Form::select('medicines[]', $medicines, (isset($prescription))? $old_medicines : null, ['required' => 'true', 'id' => 'medicines', 'style' => 'width: 97%', 'multiple' => 'multiple'] ); }}
+                    {{ Form::select('medicine1_id', ['default' => 'Select first medicine']+$medicine1, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
                     </td>
+                    <td width="150">
+                    {{ Form::input('number', 'med1_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="272"></td>
+                    <td width="333" height="60">
+                    {{ Form::select('medicine2_id', array('default' => 'Select second medicine')+$medicine2, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    </td>
+                    <td width="150">
+                    {{ Form::input('number', 'med2_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="272"></td>
+                    <td width="333" height="60">
+                    {{ Form::select('medicine3_id', array('default' => 'Select third medicine')+$medicine3, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    </td>
+                    <td width="150">
+                    {{ Form::input('number', 'med3_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="272"></td>
+                    <td width="333" height="60">
+                    {{ Form::select('medicine4_id', array('default' => 'Select fourth medicine')+$medicine4, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    </td>
+                    <td width="150">
+                    {{ Form::input('number', 'med4_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="272"></td>
+                    <td width="333" height="60">
+                    {{ Form::select('medicine5_id', array('default' => 'Select fifth medicine')+$medicine5, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    </td>
+                    <td width="150">
+                    {{ Form::input('number', 'med5_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="272"></td>
+                    <td width="333" height="60">
+                    {{ Form::select('medicine6_id', array('default' => 'Select sixth medicine')+$medicine6, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    </td>
+                    <td width="150">
+                    {{ Form::input('number', 'med6_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="272" ><label>Other Medicines:</label></td>
+                    <td width="333" colspan="2">{{ Form::textarea('medicines', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'Other medicines...', "style" => "font-size: 1.2em; resize: none; margin-top: 10px") ) }}</td>
                 </tr>
 
                 <tr>
                     <td width="272"><label>Note:</label></td>
-                    <td width="333" >{{ Form::textarea('note', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; resize: none; margin-top: 10px") ) }}</td>
+                    <td width="333" colspan="2">{{ Form::textarea('note', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; resize: none; margin-top: 10px") ) }}</td>
                 </tr>
 
                 <tr>
                 <td width="272"><label>Procedure</label></td>
-                <td width="333">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'required' => 'true', 'placeholder' => 'procedure', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
+                <td width="333" colspan="2">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'required' => 'true', 'placeholder' => 'procedure', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
                 </tr>
 
                 <tr>
@@ -46,13 +97,15 @@
                     <input name="patient_id" type="hidden" value="{{ $appointment->patient->id }}">
                     <input name="appointment_id" type="hidden" value="{{ $appointment->id }}">
                 @endif
-                <td colspan="2">
-                    <center>
-                    <div class="btn-wrap">
-                        <a class="btn_3" href="javascript:document.getElementById('regForm').reset();" data-type="reset">Reset</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="submit" value="Save" class="submit" />
-                    </div>
-                </center>
-                </td>
+
+                    <td colspan="3">
+                        <center>
+                        <div class="btn-wrap">
+                            <a class="btn_3" href="javascript:document.getElementById('regForm').reset();" data-type="reset">Reset</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <input type="submit" value="Save" class="submit" />
+                        </div>
+                    </center>
+                    </td>
                 </tr>
             </table>
+

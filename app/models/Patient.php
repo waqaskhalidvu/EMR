@@ -15,7 +15,7 @@ class Patient extends \Eloquent {
 
 	// Don't forget to fill this array
 	protected $fillable = ['name', 'dob', 'gender', 'age', 'email', 'city', 'country', 'address',
-    'phone', 'cnic', 'note'];
+    'phone', 'cnic', 'note', 'clinic_id'];
 
 //  Relationships
     public function allergies()

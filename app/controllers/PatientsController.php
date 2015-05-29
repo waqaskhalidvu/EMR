@@ -40,49 +40,38 @@ class PatientsController extends \BaseController {
 
         $patient = new Patient();
         $patient->name = Input::get('name');
-        $patient->save();
         $patient->dob = Input::get('dob');
-        $patient->save();
         if(Input::has('email')){
             $patient->email = Input::get('email');
-            $patient->save();
         }else{
             $patient->email = 'N/A';
-            $patient->save();
         }
         $patient->gender = Input::get('gender');
-        $patient->save();
         $patient->age = Input::get('age');
-        $patient->save();
         $patient->city = Input::get('city');
-        $patient->save();
         $patient->country = Input::get('country');
-        $patient->save();
         $patient->address = Input::get('address');
-        $patient->save();
 
         if(Input::get('phone') == ''){
             $patient->phone = 'N/A';
         }else {
             $patient->phone = Input::get('phone');
         }
-        $patient->save();
 
         if(Input::get('cnic') == ''){
             $patient->cnic = 'N/A';
         }else {
             $patient->cnic = Input::get('cnic');
         }
-        $patient->save();
 
         if(Input::get('note') == ''){
             $patient->note = 'N/A';
         }else {
             $patient->note = Input::get('note');
         }
-        $patient->save();
 
         $patient->patient_id = "P0" . $patient->id;
+        $patient->clinic_id = Auth::user()->clinic_id;
         $patient->save();
 
         if(Input::has('email')){

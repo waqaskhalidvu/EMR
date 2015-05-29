@@ -41,7 +41,8 @@ class VitalsignsController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-		
+
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		Vitalsign::create($data);
 
 		return Redirect::to('/app_vitals');

@@ -8,6 +8,6 @@ class Testfee extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['test_fee', 'fee_note'];
+	protected $fillable = ['test_fee', 'fee_note', 'clinic_id'];
 
 }

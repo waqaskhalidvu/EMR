@@ -12,7 +12,7 @@ class AppointmentsController extends \BaseController {
 		if(Auth::user()->role == 'Doctor'){
 			$appointments = Auth::user()->appointments()->get();
 		}else{
-			$appointments = Appointment::all();
+			$appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)->get();
 		}
 
 		return View::make('appointments.index', compact('appointments'));
@@ -44,6 +44,7 @@ class AppointmentsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 		$data['time'] = Timeslot::findOrFail($data['timeslot_id'])->slot;
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		Appointment::create($data);
 
 		return Redirect::route('appointments.index');

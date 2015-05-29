@@ -48,12 +48,15 @@ Prescription Details
                 <td width="272"><label>Medicines:</label></td>
                 <td width="333"><label><div style="width: 333px; word-wrap: break-word">
                     @foreach($medicines as $index => $medicine)
-                        {{ $index+1 .' - '.$medicine->name }} <br/>
+                        {{ $index+1 .' - '.$medicine['name'] }}, Qty: {{ $medicine['qty'] }} <br/>
                     @endforeach
                     </div></label></td>
                 </tr>
 
-              
+                <tr>
+                      <td width="272"><label>Other Medicines:</label></td>
+                      <td width="333"><label><div style="width: 333px; word-wrap: break-word">{{{ $prescription->medicines }}}</div></label></td>
+                </tr>
                 <tr>
                     <td width="272"><label>Note:</label></td>
                     <td width="333"><label><div style="width: 333px; word-wrap: break-word">{{{ $prescription->note }}}</div></label></td>

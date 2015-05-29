@@ -40,6 +40,7 @@ class DrugusagesController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		Drugusage::create($data);
 
 		return Redirect::to('drugusages?id='.$data['patient_id']);

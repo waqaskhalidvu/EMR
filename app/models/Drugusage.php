@@ -9,7 +9,7 @@ class Drugusage extends \Eloquent
     ];
 
     // Don't forget to fill this array
-    protected $fillable = ['drug_name', 'usage_note', 'patient_id'];
+    protected $fillable = ['drug_name', 'usage_note', 'patient_id', 'clinic_id'];
 
     // Relationships
     public function patient()

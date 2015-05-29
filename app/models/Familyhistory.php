@@ -8,7 +8,8 @@ class Familyhistory extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['f_member_name','patient_relation','gender','age','diesease_note', 'patient_id'];
+	protected $fillable = ['f_member_name','patient_relation','gender','age',
+        'diesease_note', 'patient_id', 'clinic_id'];
 
     // Relationships
     public function patient()

@@ -37,11 +37,11 @@ class FamilyhistoriesController extends \BaseController {
 		$data = Input::all();
         $validator = Validator::make($data, array('f_member_name' => 'required', 'patient_relation' => 'required', 'gender' => 'required', 'age' => 'required'));
 
-
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
+        $data['clinic_id'] = Auth::user()->clinic_id;
 
 		Familyhistory::create($data);
 

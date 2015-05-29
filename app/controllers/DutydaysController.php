@@ -9,7 +9,7 @@ class DutydaysController extends \BaseController {
 	 */
 	public function index()
 	{
-		$dutydays = Dutyday::distinct()->get(['employee_id']);
+		$dutydays = Dutyday::distinct()->where('clinic_id', Auth::user()->clinic_id)->get(['employee_id']);
 
 		return View::make('dutydays.index', compact('dutydays'));
 	}
@@ -21,7 +21,8 @@ class DutydaysController extends \BaseController {
 	 */
 	public function create()
 	{
-		$doctors = Employee::has('dutydays', '=', 0)->where('role', 'Doctor')->where('status', 'Active')->get();
+		$doctors = Employee::has('dutydays', '=', 0)->where('role', 'Doctor')
+                ->where('status', 'Active')->where('clinic_id', Auth::user()->clinic_id)->get();
         return View::make('dutydays.create', compact('doctors'));
 	}
 
@@ -38,7 +39,8 @@ class DutydaysController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-		
+
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		if(Input::get('Sunday') != null){
             $data['day'] = (Input::get('Sunday'));
             $data['start'] = (Input::get('sun_start_time'));

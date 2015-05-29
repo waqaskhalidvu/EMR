@@ -8,7 +8,7 @@ class Dutyday extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['day', 'start', 'end', 'employee_id'];
+	protected $fillable = ['day', 'start', 'end', 'employee_id', 'clinic_id'];
 
     public static function makeSlots($start_time, $end_time, $day_id, $emp_id){
         $fifteen_mins  = 15 * 60;

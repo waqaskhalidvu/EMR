@@ -8,7 +8,7 @@ class Checkupfee extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['checkup_fee', 'fee_note', 'patient_id', 'appointment_id'];
+	protected $fillable = ['checkup_fee', 'fee_note', 'patient_id', 'appointment_id', 'clinic_id'];
 
 	// Relationships
     public function patient()

@@ -25,10 +25,13 @@ class PrescriptionsController extends \BaseController {
 	{
 		$appointment = Appointment::find(Input::get('id'));
         $patient_id = $appointment->patient->id;
-        $doctors = Employee::where('role', 'Doctor')->where('status', 'Active')->get();
-        $medicines = Medicine::all()->lists('name', 'id');
+        $doctors = Employee::where('role', 'Doctor')->where('status', 'Active')
+                    ->where('clinic_id', Auth::user()->clinic_id)->get();
+        $medicine1 = $medicine2 = $medicine3 = $medicine4 = $medicine5 = $medicine6 = Medicine::where('clinic_id', Auth::user()->clinic_id)
+                                ->get()->lists('name', 'id');
 
-        return View::make('prescriptions.create', compact('medicines', 'appointment', 'patient_id', 'doctors'));
+        return View::make('prescriptions.create', compact('medicine1', 'medicine2', 'medicine3', 'medicine4',
+            'medicine5', 'medicine6', 'appointment', 'patient_id', 'doctors'));
 	}
 
 	/**
@@ -44,15 +47,43 @@ class PrescriptionsController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
+        $data['clinic_id'] = Auth::user()->clinic_id;
 
-        $medicines_id = Input::get('medicines');
-
-        foreach($medicines_id as $id){
-            $medicine = Medicine::find($id);
-            $medicine->quantity -= 1;
+        if(Input::get('medicine1_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine1_id'));
+            $medicine->quantity -= Input::get('med1_qty');
             $medicine->update();
         }
-        $data['medicines'] = implode(",",$medicines_id);
+
+        if(Input::get('medicine2_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine2_id'));
+            $medicine->quantity -= Input::get('med2_qty');
+            $medicine->update();
+        }
+
+        if(Input::get('medicine3_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine3_id'));
+            $medicine->quantity -= Input::get('med3_qty');
+            $medicine->update();
+        }
+
+        if(Input::get('medicine4_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine4_id'));
+            $medicine->quantity -= Input::get('med4_qty');
+            $medicine->update();
+        }
+
+        if(Input::get('medicine5_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine5_id'));
+            $medicine->quantity -= Input::get('med5_qty');
+            $medicine->update();
+        }
+
+        if(Input::get('medicine6_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine6_id'));
+            $medicine->quantity -= Input::get('med6_qty');
+            $medicine->update();
+        }
 
 		Prescription::create($data);
 
@@ -73,8 +104,42 @@ class PrescriptionsController extends \BaseController {
         }
 
         $medicines = [];
-        foreach(explode(',', $prescription->medicines) as $id){
-            array_push($medicines, Medicine::find($id));
+
+
+        if($prescription->medicine1_id){
+            $name = $prescription->medicine1->name;
+            $qty = $prescription->med1_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine2_id){
+            $name = $prescription->medicine2->name;
+            $qty = $prescription->med2_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine3_id){
+            $name = $prescription->medicine3->name;
+            $qty = $prescription->med3_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine4_id){
+            $name = $prescription->medicine4->name;
+            $qty = $prescription->med4_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine5_id){
+            $name = $prescription->medicine5->name;
+            $qty = $prescription->med5_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine6_id){
+            $name = $prescription->medicine6->name;
+            $qty = $prescription->med6_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
         }
 
 		return View::make('prescriptions.show', compact('prescription', 'flag', 'medicines'));
@@ -90,11 +155,13 @@ class PrescriptionsController extends \BaseController {
 	{
 		$prescription = Prescription::where('appointment_id', $id)->get()->first();
 
-        $medicines = Medicine::all()->lists('name', 'id');
+        $medicine1 = $medicine2 = $medicine3 = $medicine4 = $medicine5 = $medicine6 = Medicine::where('clinic_id', Auth::user()->clinic_id)
+            ->get()->lists('name', 'id');
 
-        $old_medicines = explode(',', $prescription->medicines);
+        return View::make('prescriptions.edit', compact('medicine1', 'medicine2', 'medicine3', 'medicine4',
+            'medicine5', 'medicine6', 'prescription'));
 
-		return View::make('prescriptions.edit', compact('old_medicines', 'prescription', 'medicines'));
+
 	}
 
 	/**
@@ -116,23 +183,101 @@ class PrescriptionsController extends \BaseController {
 
         $data['patient_id'] = $prescription->patient_id;
 
-        foreach(Input::get('medicines') as $id){
-            if(!in_array($id, explode(',', $prescription->medicines))){
-                $medicine = Medicine::find($id);
-                $medicine->quantity -= 1;
-                $medicine->update();
+        if(Input::get('medicine1_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine1_id'));
+            if($medicine->id != $prescription->medicine1_id){
+                $medicine->quantity -= Input::get('med1_qty');
+            }else {
+                if ($prescription->med1_qty < Input::get('med1_qty')) {
+                    $difference = Input::get('med1_qty') - $prescription->med1_qty;
+                    $medicine->quantity -= $difference;
+                } else if ($prescription->med1_qty > Input::get('med1_qty')) {
+                    $difference = $prescription->med1_qty - Input::get('med1_qty');
+                    $medicine->quantity += $difference;
+                }
             }
+            $medicine->update();
         }
 
-        foreach(explode(',', $prescription->medicines) as $old_id){
-            if(!in_array($old_id, Input::get('medicines'))){
-                $medicine = Medicine::find($old_id);
-                $medicine->quantity += 1;
-                $medicine->update();
+        if(Input::get('medicine2_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine2_id'));
+            if($medicine->id != $prescription->medicine2_id){
+                $medicine->quantity -= Input::get('med2_qty');
+            }else {
+                if ($prescription->med2_qty < Input::get('med2_qty')) {
+                    $difference = Input::get('med2_qty') - $prescription->med2_qty;
+                    $medicine->quantity -= $difference;
+                } else if ($prescription->med2_qty > Input::get('med2_qty')) {
+                    $difference = $prescription->med2_qty - Input::get('med2_qty');
+                    $medicine->quantity += $difference;
+                }
             }
+            $medicine->update();
         }
 
-        $data['medicines'] = implode(",",Input::get('medicines'));
+        if(Input::get('medicine3_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine3_id'));
+            if($medicine->id != $prescription->medicine3_id){
+                $medicine->quantity -= Input::get('med3_qty');
+            }else {
+                if ($prescription->med3_qty < Input::get('med3_qty')) {
+                    $difference = Input::get('med3_qty') - $prescription->med3_qty;
+                    $medicine->quantity -= $difference;
+                } else if ($prescription->med3_qty > Input::get('med3_qty')) {
+                    $difference = $prescription->med3_qty - Input::get('med3_qty');
+                    $medicine->quantity += $difference;
+                }
+            }
+            $medicine->update();
+        }
+
+        if(Input::get('medicine4_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine4_id'));
+            if($medicine->id != $prescription->medicine4_id){
+                $medicine->quantity -= Input::get('med4_qty');
+            }else {
+                if ($prescription->med4_qty < Input::get('med4_qty')) {
+                    $difference = Input::get('med4_qty') - $prescription->med4_qty;
+                    $medicine->quantity -= $difference;
+                } else if ($prescription->med4_qty > Input::get('med4_qty')) {
+                    $difference = $prescription->med4_qty - Input::get('med4_qty');
+                    $medicine->quantity += $difference;
+                }
+            }
+            $medicine->update();
+        }
+
+        if(Input::get('medicine5_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine5_id'));
+            if($medicine->id != $prescription->medicine5_id){
+                $medicine->quantity -= Input::get('med5_qty');
+            }else {
+                if ($prescription->med5_qty < Input::get('med5_qty')) {
+                    $difference = Input::get('med5_qty') - $prescription->med5_qty;
+                    $medicine->quantity -= $difference;
+                } else if ($prescription->med5_qty > Input::get('med5_qty')) {
+                    $difference = $prescription->med5_qty - Input::get('med5_qty');
+                    $medicine->quantity += $difference;
+                }
+            }
+            $medicine->update();
+        }
+
+        if(Input::get('medicine6_id') != 'default'){
+            $medicine = Medicine::find(Input::get('medicine6_id'));
+            if($medicine->id != $prescription->medicine6_id){
+                $medicine->quantity -= Input::get('med6_qty');
+            }else {
+                if ($prescription->med6_qty < Input::get('med6_qty')) {
+                    $difference = Input::get('med6_qty') - $prescription->med6_qty;
+                    $medicine->quantity -= $difference;
+                } else if ($prescription->med6_qty > Input::get('med6_qty')) {
+                    $difference = $prescription->med6_qty - Input::get('med6_qty');
+                    $medicine->quantity += $difference;
+                }
+            }
+            $medicine->update();
+        }
 
         $prescription->update($data);
 

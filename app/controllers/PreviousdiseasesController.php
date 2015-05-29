@@ -40,6 +40,7 @@ class PreviousdiseasesController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		Previousdisease::create($data);
 
 		return Redirect::to('previousdiseases?id='.$data['patient_id']);

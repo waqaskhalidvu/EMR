@@ -87,9 +87,44 @@ class HomeController extends BaseController {
         $time = date('H:i:s', strtotime($prescription->appointment->time));
         $doctor_name = $prescription->appointment->employee->name;
         $patient = $prescription->appointment->patient;
+
         $medicines = [];
-        foreach(explode(',', $prescription->medicines) as $id){
-            array_push($medicines, Medicine::find($id));
+
+
+        if($prescription->medicine1_id){
+            $name = $prescription->medicine1->name;
+            $qty = $prescription->med1_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine2_id){
+            $name = $prescription->medicine2->name;
+            $qty = $prescription->med2_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine3_id){
+            $name = $prescription->medicine3->name;
+            $qty = $prescription->med3_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine4_id){
+            $name = $prescription->medicine4->name;
+            $qty = $prescription->med4_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine5_id){
+            $name = $prescription->medicine5->name;
+            $qty = $prescription->med5_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine6_id){
+            $name = $prescription->medicine6->name;
+            $qty = $prescription->med6_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
         }
 
         $html = "<html><body>"
@@ -127,10 +162,15 @@ class HomeController extends BaseController {
                         <td height='20'> <label>Medicines:</label></td>
                         <td><label>";
 
-        foreach($medicines as $index => $medicine) {
-            $html .= $index + 1 . ' - ' . $medicine->name . "<br />";
+        foreach($medicines as $index => $medicine){
+             $html .= $index+1 .' - '.$medicine['name']. ", Qty: ". $medicine['qty']."<br/>";
         }
+
         $html .= "</label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Other Medicines:</label></td>
+                        <td><label> $prescription->medicines </label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Note:</label></td>
@@ -297,15 +337,48 @@ class HomeController extends BaseController {
 
 //      Prescription
         if($appointment->prescription) {
-            $medicines = [];
-            foreach(explode(',', $appointment->prescription->medicines) as $id){
-                array_push($medicines, Medicine::find($id));
-            }
-
             $doctor = $appointment->employee->name;
             $code = $appointment->prescription->code;
-            $note = $appointment->prescription->note;
-            $proc = $appointment->prescription->procedure;
+            $prescription = $appointment->prescription;
+
+            $medicines = [];
+            if($prescription->medicine1_id){
+                $name = $prescription->medicine1->name;
+                $qty = $prescription->med1_qty;
+                array_push($medicines, ['name' => $name, 'qty' => $qty]);
+            }
+
+            if($prescription->medicine2_id){
+                $name = $prescription->medicine2->name;
+                $qty = $prescription->med2_qty;
+                array_push($medicines, ['name' => $name, 'qty' => $qty]);
+            }
+
+            if($prescription->medicine3_id){
+                $name = $prescription->medicine3->name;
+                $qty = $prescription->med3_qty;
+                array_push($medicines, ['name' => $name, 'qty' => $qty]);
+            }
+
+            if($prescription->medicine4_id){
+                $name = $prescription->medicine4->name;
+                $qty = $prescription->med4_qty;
+                array_push($medicines, ['name' => $name, 'qty' => $qty]);
+            }
+
+            if($prescription->medicine5_id){
+                $name = $prescription->medicine5->name;
+                $qty = $prescription->med5_qty;
+                array_push($medicines, ['name' => $name, 'qty' => $qty]);
+            }
+
+            if($prescription->medicine6_id){
+                $name = $prescription->medicine6->name;
+                $qty = $prescription->med6_qty;
+                array_push($medicines, ['name' => $name, 'qty' => $qty]);
+            }
+
+
             $html .= "<br> <br> <br> <br> <br>
                 <table style='border-collapse: collapse; margin-left:auto; margin-right:auto' cellpadding='7' border='1'>
                     <caption>(Prescription)</caption>
@@ -336,18 +409,23 @@ class HomeController extends BaseController {
                     <tr>
                         <td height='20'> <label>Medicines:</label></td>
                         <td><label>";
-        foreach($medicines as $index => $medicine) {
-            $html .= $index + 1 . ' - ' . $medicine->name . "<br />";
-        }
-        $html .= "</label></td>
+            foreach($medicines as $index => $medicine){
+                $html .= $index+1 .' - '.$medicine['name']. ", Qty: ". $medicine['qty']."<br/>";
+            }
+
+            $html .= "</label></td>
+                    </tr>
+                    <tr>
+                        <td height='20'><label>Other Medicines:</label></td>
+                        <td><label> $prescription->medicines </label></td>
                     </tr>
                     <tr>
                         <td height='20'><label>Note:</label></td>
-                        <td><label> $note </label></td>
+                        <td><label> $prescription->note </label></td>
                     </tr>
                     <tr>
-                        <td height='20'><label>Diagnostic Procedure:</label></td>
-                        <td><label> $proc </label></td>
+                        <td height='20'><label>Dignostic Procedure:</label></td>
+                        <td><label> $prescription->procedure </label></td>
                     </tr>
                 </table>";
         }

@@ -252,9 +252,44 @@ Route::group(array('before' => 'auth'), function(){
         $doctor_name = $prescription->appointment->employee->name;
         $patient = $prescription->appointment->patient;
 
+
         $medicines = [];
-        foreach(explode(',', $prescription->medicines) as $id){
-            array_push($medicines, Medicine::find($id));
+
+
+        if($prescription->medicine1_id){
+            $name = $prescription->medicine1->name;
+            $qty = $prescription->med1_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine2_id){
+            $name = $prescription->medicine2->name;
+            $qty = $prescription->med2_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine3_id){
+            $name = $prescription->medicine3->name;
+            $qty = $prescription->med3_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine4_id){
+            $name = $prescription->medicine4->name;
+            $qty = $prescription->med4_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine5_id){
+            $name = $prescription->medicine5->name;
+            $qty = $prescription->med5_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
+        }
+
+        if($prescription->medicine6_id){
+            $name = $prescription->medicine6->name;
+            $qty = $prescription->med6_qty;
+            array_push($medicines, ['name' => $name, 'qty' => $qty]);
         }
 
         return View::make('printables.prescription_print',

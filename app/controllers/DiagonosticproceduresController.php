@@ -24,7 +24,6 @@ class DiagonosticproceduresController extends \BaseController {
 	{
 		$appointment = Appointment::find(Input::get('id'));
         $patient_id = $appointment->patient->id;
-		$patient_id = Input::get('id');
 		return View::make('diagonosticprocedures.create', compact('appointment', 'patient_id'));
 	}
 

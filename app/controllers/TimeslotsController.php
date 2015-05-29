@@ -11,7 +11,7 @@ class TimeslotsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$timeslots = Timeslot::all();
+		$timeslots = Timeslot::where('clinic_id', Auth::user()->clinic_id)->get();
 
 		return View::make('timeslots.index', compact('timeslots'));
 	}
@@ -40,6 +40,7 @@ class TimeslotsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+        $data['clinic_id'] = Auth::user()->clinic_id;
 		Timeslot::create($data);
 
 		return Redirect::route('timeslots.index');
@@ -112,20 +113,23 @@ class TimeslotsController extends \BaseController {
         $date = Input::get('date');             // Get selected date
         $day = date('l', strtotime($date));     // Get day name from date
 
-        $duty_day = Dutyday::where('employee_id', $id)->where('day', $day)->get()->first();
+        $duty_day = Dutyday::where('employee_id', $id)->where('day', $day)
+                    ->where('clinic_id', Auth::user()->clinic_id)->get()->first();
 
         if($duty_day) {
             $slot = null;
-            $appointments = Appointment::where('date', $date)->where('employee_id', $id)->get();
+            $appointments = Appointment::where('date', $date)->where('employee_id', $id)
+                            ->where('clinic_id', Auth::user()->clinic_id)->get();
             if(count($appointments) > 0){
                 $timeslots = Timeslot::where('dutyday_id', $duty_day->id)
-                    ->where('employee_id', $id);
+                    ->where('clinic_id', Auth::user()->clinic_id)->where('employee_id', $id);
                 foreach($appointments as $appointment){
-                    $slot = $timeslots
-                                ->where('slot', '!=', $appointment->time)->get()->toJson();
+                    $slot = $timeslots->where('slot', '!=', $appointment->time)
+                            ->where('clinic_id', Auth::user()->clinic_id)->get()->toJson();
                 }
             }else{
-                $slot = Timeslot::where('dutyday_id', $duty_day->id)->get()->toJson();
+                $slot = Timeslot::where('dutyday_id', $duty_day->id)
+                        ->where('clinic_id', Auth::user()->clinic_id)->get()->toJson();
             }
 
             return JsonResponse::create($slot);

@@ -15,7 +15,7 @@ class Appointment extends \Eloquent {
 
 	// Don't forget to fill this array
 	protected $fillable = ['checkup_reason', 'time', 'date', 'status', 'checkup_fee', 'fee_note',
-    'timeslot_id', 'patient_id', 'employee_id'];
+    'timeslot_id', 'patient_id', 'employee_id', 'clinic_id'];
 
     // Relationships
     public function patient()
