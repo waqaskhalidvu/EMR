@@ -147,4 +147,8 @@ class PatientsController extends \BaseController {
 		return Redirect::route('patients.index');
 	}
 
+    public function patients_reporting(){
+        $appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)->where('status', 5)->get();
+        return View::make('patients.checked_patients', compact('appointments'));
+    }
 }

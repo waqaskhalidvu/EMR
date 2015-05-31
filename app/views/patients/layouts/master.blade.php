@@ -18,9 +18,19 @@
     {{ HTML::style('/login_css/style.css') }}
     {{ HTML::style('/css/camera.css') }}
     {{ HTML::style('/css/owl.carousel.css') }}
-    {{ HTML::style('/css/jquery-ui.css') }}
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
 
-  
+    <style>
+        .form__daterange {
+            font-size: 16px;
+            padding: 8px;
+            width: 20em;
+        }
+        .ui-datepicker-range > .ui-state-default {
+            background: lightsalmon;
+        }
+    </style>
+
 <!--========================================================
                           JS
 =========================================================-->
@@ -48,7 +58,8 @@
     {{ HTML::script('js/jquery.unveil.js') }}
     {{ HTML::script('js/script.js') }}
     {{ HTML::script('js/jquery_masks.js') }}
-    {{ HTML::script('js/jquery-ui.js') }}
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    {{ HTML::script('js/jquery.daterange.js') }}
 
         <!-- Data Table files -->
 
@@ -127,6 +138,8 @@
 <!--========================================================
                           FOOTER
 =========================================================-->
+    @yield('scripts')
+
 @include('partials.footer')
 
  

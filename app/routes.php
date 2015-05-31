@@ -28,6 +28,20 @@ Route::get('/logout', array('before' => 'auth', function(){
     return View::make('login');
 }));
 
+Route::post('contact/messages',function(){
+
+    $data = ['text' => Input::get('message'), 'phone' => Input::get('phone'), 'name' => Input::get('name'),
+            'email' => Input::get('email')];
+//      Send email to employee
+    $super_admin = Employee::where('role', 'Super User')->first();
+    Mail::queue('emails.contact_message', $data, function($message) use($super_admin)
+    {
+        $message->to('emronline1@gmail.com', $super_admin->name)->subject('EMR Contact Message!');
+    });
+
+    return 'You message has been received. We will contact you back soon!';
+});
+
 Route::get('/about', 'HomeController@showAbout');
 
 Route::get('/services', 'HomeController@showServices');
@@ -79,6 +93,25 @@ Route::group(array('before' => 'auth'), function(){
         Route::get('admin_services', function(){
             return View::make('admin.services');
         });
+
+        Route::post('patients/filter', function(){
+            $date_range = (explode("--",Input::get('date_range')));
+            if(isset($date_range[0]) && isset($date_range[1])) {
+                $start = $date_range[0];
+                $end = $date_range[1];
+                $appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)
+                    ->whereBetween('date', [$start, $end])->where('status', 5)->get();
+
+                return View::make('patients.checked_patients', compact('appointments'));
+            }elseif(isset($date_range[0])){
+                $appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)
+                    ->where('date', $date_range[0])->where('status', 5)->get();
+
+                return View::make('patients.checked_patients', compact('appointments'));
+            }
+        });
+
+        Route::get('patients_reporting', 'PatientsController@patients_reporting');
 
     });
     ////////////////////// Admin Routes END ///////////////////////
@@ -367,8 +400,9 @@ Route::group(array('before' => 'auth'), function(){
 
     Route::get('pdf', 'HomeController@pdf_record');
 
-    //    Ajax Requests
     Route::get('getSlots', 'TimeslotsController@getFreeSlots');
+
+
 //****************************************************************//
     
 });

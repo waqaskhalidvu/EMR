@@ -18,7 +18,7 @@ class="current"
                           CONTENT
 =========================================================-->
 @section('content')
-    <section id="content"><div class="ic">More Website Templates @ TemplateMonster.com - September08, 2014!</div>
+    <section id="content">
         <div class="container">
             <div class="row wrap_11">
                 <div class="grid_12">
@@ -71,54 +71,33 @@ class="current"
                                     <div class="row">
                                         <div class="grid_2">
                                             <label class="name">
-                                                <input type="text" name="name" placeholder="Name:" value=""
-                                                       data-constraints="@Required @JustLetters"/>
-                                                <span class="empty-message">*This field is required.</span>
-                                                <span class="error-message">*This is not a valid name.</span>
+                                                <input id="name" type="text" required="true" name="name" placeholder="*Name:" />
                                             </label>
                                         </div>
                                         <div class="grid_2">
                                             <label class="email">
-                                                <input type="text" name="email" placeholder="E-mail:" value=""
-                                                       data-constraints="@Required @Email"/>
-                                                <span class="empty-message">*This field is required.</span>
-                                                <span class="error-message">*This is not a valid email.</span>
+                                                <input id="email" type="text" required="true" name="email" placeholder="*E-mail:" />
                                             </label>
                                         </div>
                                         <div class="grid_2">
                                             <label class="phone">
-                                                <input type="text" name="phone" placeholder="Phone:" value=""
-                                                       data-constraints="@JustNumbers"/>
-                                                <span class="empty-message">*This field is required.</span>
-                                                <span class="error-message">*This is not a valid phone.</span>
+                                                <input id='phone' type="text" name="phone" placeholder="Phone:" />
                                             </label>
                                         </div>
                                     </div>
                                     <label class="message">
-                                        <textarea name="message" placeholder="Message:"
-                                                  data-constraints='@Required @Length(min=20,max=999999)'></textarea>
-                                        <span class="empty-message">*This field is required.</span>
-                                        <span class="error-message">*The message is too short.</span>
+                                        <textarea id="message" name="message" required="true" placeholder="*Message:"></textarea>
                                     </label>
+                                    <div>
+                                        <p id="success_message" style="color: green"></p>
+                                    </div>
+                                    <br/>
                                     <div class="btn-wrap">
                                         <a class="btn_3" href="#" data-type="reset">clear</a>
-                                        <a class="btn_3" href="#" data-type="submit">send</a>
+                                        <input class="data_table_submit_btn" type="submit" value="send">
                                     </div>
                                 </fieldset>
-                                <div class="modal fade response-message">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title">Modal title</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                You message has been sent! We will be in touch soon.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </form>
                         </div>
                     </div>
@@ -126,4 +105,31 @@ class="current"
             </div>
         </div>
        
+@stop
+
+@section('scripts')
+    <script>
+        $('#contact-form').submit(function(){
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+            var message = $('#message').val();
+
+            $.ajax({
+                url: "contact/messages",
+                type: 'post',
+                data: {name: name, email: email, phone: phone, message: message},
+                success: function(response){
+                    console.log(response);
+                    $('#name').val("");
+                    $('#email').val("");
+                    $('#phone').val("");
+                    $('#message').val("");
+                    $('#success_message').text(response);
+                }
+            });
+        });
+
+
+    </script>
 @stop

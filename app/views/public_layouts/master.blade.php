@@ -103,20 +103,6 @@
                              <li @yield('current_services')><a href="services">Services</a></li>
                             <li @yield('current_about')>
                                 <a href="about">About</a>
-                                <!-- <ul>
-                                    <li><a href="#">Lorem ipsum</a></li>
-                                    <li><a href="#">Dolor sit amet</a>
-                                    <li><a href="#">Ctetur adipisicing</a>
-                                    <li><a href="#">Elit sed do</a>
-                                        <ul>
-                                            <li><a href="#">Iusmod tempor</a></li>
-                                            <li><a href="#">Incididunt ut labore</a></li>
-                                            <li><a href="#">Et dolore magna</a></li>
-                                            <li><a href="#">Aliqua Ut enim</a></li>
-                                            <li><a href="#">Minim veniam</a></li>
-                                        </ul>
-                                    </li>
-                                </ul> -->
                             </li>
                             <li @yield('current_contacts')><a href="contacts">Contacts</a></li>
                         </ul>
@@ -138,7 +124,9 @@
 <!--========================================================
                           FOOTER
 =========================================================-->
-@include('partials.footer')
+    @include('partials.footer')
+
+    @yield('scripts')
 
 </body>
 </html>
