@@ -6,4 +6,5 @@ class Clinic extends \Eloquent {
     public function employees(){
         return $this->hasMany('employees');
     }
+
 }

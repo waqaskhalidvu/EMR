@@ -36,7 +36,7 @@ class HomeController extends BaseController {
 
 	public function showDoctor_home()
 	{
-		$appointments = Auth::user()->appointments()->get();
+		$appointments = Auth::user()->appointments()->where('date', date('Y-m-d'))->get();
 		return View::make('doctor.doctor_home', compact('appointments'));
 	}
 
@@ -70,7 +70,7 @@ class HomeController extends BaseController {
 	}
 
 	public function showSearchPMR(){
-        $patients = Patient::all();
+        $patients = Patient::where('clinic_id', Auth::user()->clinic_id)->get();
 		return View::make('medical_records.search-pmr', compact('patients'));
 	}
 

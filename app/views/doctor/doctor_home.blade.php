@@ -43,7 +43,7 @@ class="current"
 			<div class="slideout">
 				<input id="dashboard" type="button" value="Dashboard" />
 				<div class="emptyDiv">
-				<center><b style="font-weight: 800; color: #129894; font-size: 1.5em"> Your Appointments!</b></center><br/>
+				<center><b style="font-weight: 800; color: #129894; font-size: 1.5em"> Today Appointments!</b></center><br/>
 				<table id="example" style=" border: 1px solid black" class="display" cellspacing="0" width="80%">
                 <thead>
                     <tr>
