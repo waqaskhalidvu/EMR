@@ -25,8 +25,9 @@ class AppointmentsController extends \BaseController {
 	 */
 	public function create()
 	{
-        $doctors = Employee::where('role', 'Doctor')->where('status', 'active')->get();
-        $patients = Patient::all();
+        $doctors = Employee::where('role', 'Doctor')->where('status', 'active')
+                    ->where('clinic_id', Auth::user()->clinic_id)->get();
+        $patients = Patient::where('clinic_id', Auth::user()->clinic_id)->get();
 		return View::make('appointments.create', compact('doctors', 'patients'));
 	}
 
@@ -72,7 +73,7 @@ class AppointmentsController extends \BaseController {
 	public function edit($id)
 	{
 		$doctors = Employee::where('role', 'Doctor')->where('status', 'active')->get();
-        $patients = Patient::all();
+        $patients = Patient::where('clinic_id', Auth::user()->clinic_id)->get();
 		$appointment = Appointment::find($id);
         $timeslot = $appointment->timeslot->first()->where('dutyday_id', $appointment->timeslot->dutyday_id)->lists('slot','id');
 

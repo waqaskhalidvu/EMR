@@ -54,7 +54,13 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#example').dataTable();
-//            $('.timepicker').timepicki('hh:mm');
+            $('.timepicker').timepicki({
+                increase_direction:'up',
+                show_meridian:false,
+                start_time: ["08", "00"],
+                min_hour_value:0,
+                max_hour_value:24
+            });
 
             $('#regForm').submit(function(e){
                if($("#sunday").is(':checked') || $("#monday").is(':checked') || $("#tuesday").is(':checked') || $("#wednesday").is(':checked') || $("#thursday").is(':checked') || $("#friday").is(':checked') || $("#saturday").is(':checked')){

@@ -43,8 +43,8 @@ class DutydaysController extends \BaseController {
         $data['clinic_id'] = Auth::user()->clinic_id;
 		if(Input::get('Sunday') != null){
             $data['day'] = (Input::get('Sunday'));
-            $data['start'] = (Input::get('sun_start_time'));
-            $data['end'] = (Input::get('sun_end_time'));
+            $data['start'] = str_replace(' ', '', (Input::get('sun_start_time')));
+            $data['end'] = str_replace(' ', '', (Input::get('sun_end_time')));
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
@@ -56,8 +56,8 @@ class DutydaysController extends \BaseController {
 
         if(Input::get('Monday') != null){
         	$data['day'] = (Input::get('Monday'));
-            $data['start'] = (Input::get('mon_start_time'));
-            $data['end'] = (Input::get('mon_end_time'));
+            $data['start'] = str_replace(' ', '', (Input::get('mon_start_time')));
+            $data['end'] = str_replace(' ', '', (Input::get('mon_end_time')));
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
@@ -69,8 +69,8 @@ class DutydaysController extends \BaseController {
 
         if(Input::get('Tuesday') != null){
         	$data['day'] = (Input::get('Tuesday'));
-            $data['start'] = (Input::get('tue_start_time'));
-            $data['end'] = (Input::get('tue_end_time'));
+            $data['start'] = str_replace(' ', '', (Input::get('tue_start_time')));
+            $data['end'] = str_replace(' ', '', (Input::get('tue_end_time')));
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
@@ -82,8 +82,8 @@ class DutydaysController extends \BaseController {
 
         if(Input::get('Wednesday') != null){
         	$data['day'] = (Input::get('Wednesday'));
-            $data['start'] = (Input::get('wed_start_time'));
-            $data['end'] = (Input::get('wed_end_time'));
+            $data['start'] = str_replace(' ', '', (Input::get('wed_start_time')));
+            $data['end'] = str_replace(' ', '', (Input::get('wed_end_time')));
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
@@ -95,8 +95,8 @@ class DutydaysController extends \BaseController {
 
         if(Input::get('Thursday') != null){
         	$data['day'] = (Input::get('Thursday'));
-            $data['start'] = (Input::get('thu_start_time'));
-            $data['end'] = (Input::get('thu_end_time'));
+            $data['start'] = str_replace(' ', '', (Input::get('thu_start_time')));
+            $data['end'] = str_replace(' ', '', (Input::get('thu_end_time')));
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
@@ -108,8 +108,8 @@ class DutydaysController extends \BaseController {
 
         if(Input::get('Friday') != null){
             $data['day'] = (Input::get('Friday'));
-            $data['start'] = (Input::get('fri_start_time'));
-            $data['end'] = (Input::get('fri_end_time'));
+            $data['start'] = str_replace(' ', '', (Input::get('fri_start_time')));
+            $data['end'] = str_replace(' ', '', (Input::get('fri_end_time')));
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
@@ -121,8 +121,8 @@ class DutydaysController extends \BaseController {
 
         if(Input::get('Saturday') != null){
             $data['day'] = (Input::get('Saturday'));
-            $data['start'] = (Input::get('sat_start_time'));
-            $data['end'] = (Input::get('sat_end_time'));
+            $data['start'] = str_replace(' ', '', (Input::get('sat_start_time')));
+            $data['end'] = str_replace(' ', '', (Input::get('sat_end_time')));
             $day_id = Dutyday::create($data)->id;
             Dutyday::makeSlots($data['start'], $data['end'], $day_id, $data['employee_id']);
         }else{
@@ -185,9 +185,9 @@ class DutydaysController extends \BaseController {
             if(Input::get('Sunday') != null){
                 $dutydays[0]->day = (Input::get('Sunday'));
                 $dutydays[0]->update();
-                $dutydays[0]->start = (Input::get('sun_start_time'));
+                $dutydays[0]->start = str_replace(' ', '', (Input::get('sun_start_time')));
                 $dutydays[0]->update();
-                $dutydays[0]->end = (Input::get('sun_end_time'));
+                $dutydays[0]->end = str_replace(' ', '', (Input::get('sun_end_time')));
                 $dutydays[0]->update();
                 Dutyday::updateSlots($dutydays[0]->start, $dutydays[0]->end, $dutydays[0]->id);
             }else{
@@ -203,9 +203,9 @@ class DutydaysController extends \BaseController {
             if(Input::get('Monday') != null){
                 $dutydays[1]->day = (Input::get('Monday'));
                 $dutydays[1]->update();
-                $dutydays[1]->start = (Input::get('mon_start_time'));
+                $dutydays[1]->start = str_replace(' ', '', (Input::get('mon_start_time')));
                 $dutydays[1]->update();
-                $dutydays[1]->end = (Input::get('mon_end_time'));
+                $dutydays[1]->end = str_replace(' ', '', (Input::get('mon_end_time')));
                 $dutydays[1]->update();
                 Dutyday::updateSlots($dutydays[1]->start, $dutydays[1]->end, $dutydays[1]->id);
             }else{
@@ -220,9 +220,9 @@ class DutydaysController extends \BaseController {
             if(Input::get('Tuesday') != null){
                 $dutydays[2]->day = (Input::get('Tuesday'));
                 $dutydays[2]->update();
-                $dutydays[2]->start = (Input::get('tue_start_time'));
+                $dutydays[2]->start = str_replace(' ', '', (Input::get('tue_start_time')));
                 $dutydays[2]->update();
-                $dutydays[2]->end = (Input::get('tue_end_time'));
+                $dutydays[2]->end = str_replace(' ', '', (Input::get('tue_end_time')));
                 $dutydays[2]->update();
                 Dutyday::updateSlots($dutydays[2]->start, $dutydays[2]->end, $dutydays[2]->id);
             }else{
@@ -237,9 +237,9 @@ class DutydaysController extends \BaseController {
             if(Input::get('Wednesday') != null){
                 $dutydays[3]->day = (Input::get('Wednesday'));
                 $dutydays[3]->update();
-                $dutydays[3]->start = (Input::get('wed_start_time'));
+                $dutydays[3]->start = str_replace(' ', '', (Input::get('wed_start_time')));
                 $dutydays[3]->update();
-                $dutydays[3]->end = (Input::get('wed_end_time'));
+                $dutydays[3]->end = str_replace(' ', '', (Input::get('wed_end_time')));
                 $dutydays[3]->update();
                 Dutyday::updateSlots($dutydays[3]->start, $dutydays[3]->end, $dutydays[3]->id);
             }else{
@@ -254,9 +254,9 @@ class DutydaysController extends \BaseController {
             if(Input::get('Thursday') != null){
                 $dutydays[4]->day = (Input::get('Thursday'));
                 $dutydays[4]->update();
-                $dutydays[4]->start = (Input::get('thu_start_time'));
+                $dutydays[4]->start = str_replace(' ', '', (Input::get('thu_start_time')));
                 $dutydays[4]->update();
-                $dutydays[4]->end = (Input::get('thu_end_time'));
+                $dutydays[4]->end = str_replace(' ', '', (Input::get('thu_end_time')));
                 $dutydays[4]->update();
                 Dutyday::updateSlots($dutydays[4]->start, $dutydays[4]->end, $dutydays[4]->id);
             }else{
@@ -271,9 +271,9 @@ class DutydaysController extends \BaseController {
             if(Input::get('Friday') != null){
                 $dutydays[5]->day = (Input::get('Friday'));
                 $dutydays[5]->update();
-                $dutydays[5]->start = (Input::get('fri_start_time'));
+                $dutydays[5]->start = str_replace(' ', '', (Input::get('fri_start_time')));
                 $dutydays[5]->update();
-                $dutydays[5]->end = (Input::get('fri_end_time'));
+                $dutydays[5]->end = str_replace(' ', '', (Input::get('fri_end_time')));
                 $dutydays[5]->update();
                 Dutyday::updateSlots($dutydays[5]->start, $dutydays[5]->end, $dutydays[5]->id);
             }
@@ -289,9 +289,9 @@ class DutydaysController extends \BaseController {
             if(Input::get('Saturday') != null){
                 $dutydays[6]->day = (Input::get('Saturday'));
                 $dutydays[6]->update();
-                $dutydays[6]->start = (Input::get('sat_start_time'));
+                $dutydays[6]->start = str_replace(' ', '', (Input::get('sat_start_time')));
                 $dutydays[6]->update();
-                $dutydays[6]->end = (Input::get('sat_end_time'));
+                $dutydays[6]->end = str_replace(' ', '', (Input::get('sat_end_time')));
                 $dutydays[6]->update();
                 Dutyday::updateSlots($dutydays[6]->start, $dutydays[6]->end, $dutydays[6]->id);
             }

@@ -114,22 +114,22 @@ class TimeslotsController extends \BaseController {
         $day = date('l', strtotime($date));     // Get day name from date
 
         $duty_day = Dutyday::where('employee_id', $id)->where('day', $day)
-                    ->where('clinic_id', Auth::user()->clinic_id)->get()->first();
+                    ->get()->first();
 
         if($duty_day) {
             $slot = null;
             $appointments = Appointment::where('date', $date)->where('employee_id', $id)
-                            ->where('clinic_id', Auth::user()->clinic_id)->get();
+                            ->get();
             if(count($appointments) > 0){
                 $timeslots = Timeslot::where('dutyday_id', $duty_day->id)
-                    ->where('clinic_id', Auth::user()->clinic_id)->where('employee_id', $id);
+                    ->where('employee_id', $id);
                 foreach($appointments as $appointment){
                     $slot = $timeslots->where('slot', '!=', $appointment->time)
-                            ->where('clinic_id', Auth::user()->clinic_id)->get()->toJson();
+                            ->get()->toJson();
                 }
             }else{
                 $slot = Timeslot::where('dutyday_id', $duty_day->id)
-                        ->where('clinic_id', Auth::user()->clinic_id)->get()->toJson();
+                        ->get()->toJson();
             }
 
             return JsonResponse::create($slot);
