@@ -48,8 +48,7 @@
                                 </li>
                                 <li @yield('current_reporting')><a style="cursor: pointer">Reporting</a>
                                     <ul>
-                                        <li> <a href="/patients_reporting">Checked Patients</a></li>
-                                        <li><a href="/tests_reporting">Performed Tests</a></li>
+                                        <li> <a href="/patients_reporting">Checked Patients</a></li>                                        
                                     </ul>
                                 </li>
 								<li><a href="/logout">Logout</a></li>
