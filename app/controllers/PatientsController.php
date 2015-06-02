@@ -69,7 +69,7 @@ class PatientsController extends \BaseController {
         }else {
             $patient->note = Input::get('note');
         }
-
+        $patient->save();
         $patient->patient_id = "P0" . $patient->id;
         $patient->clinic_id = Auth::user()->clinic_id;
         $patient->save();
@@ -81,7 +81,6 @@ class PatientsController extends \BaseController {
                 $message->to(Input::get('email'), Input::get('name'))->subject('Welcome to EMR!');
             });
         }
-
 
 		return Redirect::route('patients.index');
 	}
