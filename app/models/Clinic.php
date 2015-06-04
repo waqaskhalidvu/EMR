@@ -7,4 +7,7 @@ class Clinic extends \Eloquent {
         return $this->hasMany('employees');
     }
 
+    public function admin(){
+        return $this->hasOne('Employee')->where('role', 'Administrator');
+    }
 }

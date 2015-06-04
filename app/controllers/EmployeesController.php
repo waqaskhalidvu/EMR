@@ -170,24 +170,24 @@ class EmployeesController extends \BaseController {
 
         if (Auth::attempt(array('email' => $email, 'password' => $password), true))
         {
-            if(Auth::user()->status == 'Active' && Auth::user()->role == 'Doctor'){
+            if(Auth::user()->status == 'Active' && Auth::user()->role == 'Doctor' && Auth::user()->clinic->admin->status == 'Active'){
                  return Redirect::to('doctor_home');
             }else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Administrator'){
                 return Redirect::to('admin_home');
             }
-            else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Receptionist'){
+            else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Receptionist' && Auth::user()->clinic->admin->status == 'Active'){
                 return Redirect::to('receptionist_home');
             }
-            else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Lab Manager'){
+            else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Lab Manager' && Auth::user()->clinic->admin->status == 'Active'){
                 return Redirect::to('labmanager_home');
             }
-            else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Accountant'){
+            else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Accountant' && Auth::user()->clinic->admin->status == 'Active'){
                 return Redirect::to('accountant_home');
             }
             else if(Auth::user()->status == 'Active' && Auth::user()->role == 'Super User'){
                 return Redirect::to('super_home');
             }else{
-                return View::make('login')->withErrors('You are not Activated! Please contact administrator.');
+                return View::make('login')->withErrors('You are not Activated!');
                 Auth::logout();
             }
 
