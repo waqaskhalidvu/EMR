@@ -16,39 +16,33 @@ class AddFieldsToPrescriptionTable extends Migration {
 		{
             $table->integer('medicine1_id')->unsigned()->nullable();
             $table->foreign('medicine1_id')
-                ->references('id')->on('medicines')
-                ->onDelete('cascade');
-            $table->integer('med1_qty');
+                ->references('id')->on('medicines');
+            $table->integer('med1_qty')->nullable();
 
             $table->integer('medicine2_id')->unsigned()->nullable();
             $table->foreign('medicine2_id')
-                ->references('id')->on('medicines')
-                ->onDelete('cascade');
-            $table->integer('med2_qty');
+                ->references('id')->on('medicines');
+            $table->integer('med2_qty')->nullable();
 
             $table->integer('medicine3_id')->unsigned()->nullable();
             $table->foreign('medicine3_id')
-                ->references('id')->on('medicines')
-                ->onDelete('cascade');
-            $table->integer('med3_qty');
+                ->references('id')->on('medicines');
+            $table->integer('med3_qty')->nullable();
 
             $table->integer('medicine4_id')->unsigned()->nullable();
             $table->foreign('medicine4_id')
-                ->references('id')->on('medicines')
-                ->onDelete('cascade');
-            $table->integer('med4_qty');
+                ->references('id')->on('medicines');
+            $table->integer('med4_qty')->nullable();
 
             $table->integer('medicine5_id')->unsigned()->nullable();
             $table->foreign('medicine5_id')
-                ->references('id')->on('medicines')
-                ->onDelete('cascade');
-            $table->integer('med5_qty');
+                ->references('id')->on('medicines');
+            $table->integer('med5_qty')->nullable();
 
             $table->integer('medicine6_id')->unsigned()->nullable();
             $table->foreign('medicine6_id')
-                ->references('id')->on('medicines')
-                ->onDelete('cascade');
-            $table->integer('med6_qty');
+                ->references('id')->on('medicines');
+            $table->integer('med6_qty')->nullable();
 		});
 	}
 

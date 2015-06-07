@@ -26,7 +26,7 @@
                 <tr>
                     <td width="272"><label>Inventory Medicines:</label></td>
                     <td width="333" height="60">
-                    {{ Form::select('medicine1_id', ['default' => 'Select first medicine']+$medicine1, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    {{ Form::select('medicine1_id', [null => 'Select first medicine']+$medicine1, null, ['style' => 'width: 95%; height: 38px']) }}
                     </td>
                     <td width="150">
                     {{ Form::input('number', 'med1_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
@@ -35,7 +35,7 @@
                 <tr>
                     <td width="272"></td>
                     <td width="333" height="60">
-                    {{ Form::select('medicine2_id', array('default' => 'Select second medicine')+$medicine2, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    {{ Form::select('medicine2_id', array(null => 'Select second medicine')+$medicine2, null, ['style' => 'width: 95%; height: 38px']) }}
                     </td>
                     <td width="150">
                     {{ Form::input('number', 'med2_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
@@ -44,7 +44,7 @@
                 <tr>
                     <td width="272"></td>
                     <td width="333" height="60">
-                    {{ Form::select('medicine3_id', array('default' => 'Select third medicine')+$medicine3, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    {{ Form::select('medicine3_id', array(null => 'Select third medicine')+$medicine3, null, ['style' => 'width: 95%; height: 38px']) }}
                     </td>
                     <td width="150">
                     {{ Form::input('number', 'med3_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
@@ -53,7 +53,7 @@
                 <tr>
                     <td width="272"></td>
                     <td width="333" height="60">
-                    {{ Form::select('medicine4_id', array('default' => 'Select fourth medicine')+$medicine4, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    {{ Form::select('medicine4_id', array(null => 'Select fourth medicine')+$medicine4, null, ['style' => 'width: 95%; height: 38px']) }}
                     </td>
                     <td width="150">
                     {{ Form::input('number', 'med4_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
@@ -62,7 +62,7 @@
                 <tr>
                     <td width="272"></td>
                     <td width="333" height="60">
-                    {{ Form::select('medicine5_id', array('default' => 'Select fifth medicine')+$medicine5, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    {{ Form::select('medicine5_id', array(null => 'Select fifth medicine')+$medicine5, null, ['style' => 'width: 95%; height: 38px']) }}
                     </td>
                     <td width="150">
                     {{ Form::input('number', 'med5_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
@@ -71,7 +71,7 @@
                 <tr>
                     <td width="272"></td>
                     <td width="333" height="60">
-                    {{ Form::select('medicine6_id', array('default' => 'Select sixth medicine')+$medicine6, null, ['required' => 'true', 'style' => 'width: 95%; height: 38px']) }}
+                    {{ Form::select('medicine6_id', array(null => 'Select sixth medicine')+$medicine6, null, ['style' => 'width: 95%; height: 38px']) }}
                     </td>
                     <td width="150">
                     {{ Form::input('number', 'med6_qty', null, array('style' => 'width: 83%', 'placeholder' => 'Qty')) }}
@@ -89,7 +89,7 @@
 
                 <tr>
                 <td width="272"><label>Procedure</label></td>
-                <td width="333" colspan="2">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'required' => 'true', 'placeholder' => 'procedure', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
+                <td width="333" colspan="2">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'procedure', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
                 </tr>
 
                 <tr>
