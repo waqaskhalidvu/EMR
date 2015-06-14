@@ -84,12 +84,12 @@
 
                 <tr>
                     <td width="272"><label>Note:</label></td>
-                    <td width="333" colspan="2">{{ Form::textarea('note', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; resize: none; margin-top: 10px") ) }}</td>
+                    <td width="333" colspan="2">{{ Form::textarea('note', null, array('required' => 'true', 'rows' => '7', 'cols' => '20', 'placeholder' => 'note', "style" => "font-size: 1.2em; resize: none; margin-top: 10px") ) }}</td>
                 </tr>
 
                 <tr>
                 <td width="272"><label>Procedure</label></td>
-                <td width="333" colspan="2">{{ Form::textarea('procedure', null, array('rows' => '7', 'cols' => '20', 'placeholder' => 'procedure', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
+                <td width="333" colspan="2">{{ Form::textarea('procedure', null, array('required' => 'true', 'rows' => '7', 'cols' => '20', 'placeholder' => 'procedure', "style" => "font-size: 1.2em; margin-top: 2px; resize: none;") ) }}</td>
                 </tr>
 
                 <tr>

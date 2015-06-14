@@ -71,7 +71,7 @@ Vital Sign Details
                 <tr>
                 <td width="272" height="55"><label>Temprature</label> </td>
                 <td width="333">
-                    <label>{{{$vitalsign->temprature}}} ({{{$vitalsign->temprature_unit}}})</label>
+                    <label>{{{$vitalsign->temprature}}} (F)</label>
                 </td>
                 </tr>
                 <tr>

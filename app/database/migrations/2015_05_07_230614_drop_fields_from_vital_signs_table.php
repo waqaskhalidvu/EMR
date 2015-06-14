@@ -20,6 +20,7 @@ class DropFieldsFromVitalSignsTable extends Migration {
             $table->dropColumn('bp_diastolic_unit');
             $table->dropColumn('pulse_rate_unit');
             $table->dropColumn('respiration_rate_unit');
+            $table->dropColumn('temperature_unit');
 		});
 	}
 
@@ -38,6 +39,7 @@ class DropFieldsFromVitalSignsTable extends Migration {
             $table->string('bp_diastolic_unit');
             $table->string('pulse_rate_unit');
             $table->string('respiration_rate_unit');
+            $table->string('temperature_unit');
 		});
 	}
 

@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'emr2',
+			'database'  => 'emr',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

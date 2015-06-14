@@ -48,7 +48,7 @@ class="current"
                     Online creation and generation of patient's Bills anywhere, anytime.
                     
                 </p>
-                <a class="btn_2" href="#">read more</a></div>
+            </div>
         </div>
         <div class="grid_3">
             <div class="box_1">
@@ -57,7 +57,7 @@ class="current"
                 <p class="text_3 color_2 maxheight">
                     Now Appointment reservation also is just ahead of a Phone Call, by Receptionist.
                 </p>
-                <a class="btn_2" href="#">read more</a></div>
+            </div>
         </div>
         <div class="grid_3">
             <div class="box_1">
@@ -67,7 +67,7 @@ class="current"
                     Now Check your patients with much convinience by keeping medical records 
                     Online.
                 </p>
-                <a class="btn_2" href="#">read more</a></div>
+            </div>
         </div>
         <div class="grid_3">
             <div class="box_1">
@@ -76,7 +76,7 @@ class="current"
                 <p class="text_3 color_2 maxheight">
                     Now administrator could manage everything in the system using his full access rights.
                 </p>
-                <a class="btn_2" href="#">read more</a></div>
+            </div>
         </div>
     </div>
 </div>
@@ -122,7 +122,6 @@ class="current"
                             Our biggest goal is to save your time by making all relavent information online and easily accessable 
                             everywhere, anytime.                            
                         </p>
-                        <a href="#" class="btn_2">read more</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -141,7 +140,6 @@ class="current"
                                 Our goal is to retain all information regarding clinical practices online
                                 , so you can access your required information anytime around the clock.
                             </p>
-                            <a href="#" class="btn_2">read more</a>
                         </div>
                         <div class="clearfix"></div>
                     </div>

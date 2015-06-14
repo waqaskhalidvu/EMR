@@ -49,7 +49,7 @@ class="current"
                                         Now Administrator of the Clinic can manage all tasks with greater ease on a
                                         single click including Employees' Management and all of their functionalities.
                                     </p>
-                                    <a class="btn_2" href="#">read more</a></div>
+                                </div>
                             </div>
                         </div>
                         <div class="element-item grid_4 c2">
@@ -65,7 +65,7 @@ class="current"
                                         invoices for patients.
 
                                     </p>
-                                    <a class="btn_2" href="#">read more</a></div>
+                                </div>
 
                             </div>
                         </div>
@@ -80,7 +80,7 @@ class="current"
                                         With our Lab Test management service, Lab Assistants can maintain Test Reports
                                         of Patients Online. Lab Assistants can also generate printed Test Reports for patients.
                                     </p>
-                                    <a class="btn_2" href="#">read more</a></div>
+                                </div>
                             </div>
                         </div>
                         <div class="element-item grid_4 c2">
@@ -94,7 +94,7 @@ class="current"
                                         Now Receptionists can reserve appointments for patients with greater ease,
                                         without loosing any details regarding appointment using our Online Appointment Reservation service.
                                     </p>
-                                    <a class="btn_2" href="#">read more</a></div>
+                                </div>
                             </div>
                         </div>
                         <div class="element-item grid_4 c3">
@@ -108,21 +108,6 @@ class="current"
                                         The most important service provided by our application is to enhance analysis
                                         process of patients for doctors by maintining medical records of patients online. 
                                     </p>
-                                    <a class="btn_2" href="#">read more</a></div>
-                            </div>
-                        </div>
-                        <div class="element-item grid_4 c3">
-                            <div class="box_7">
-                                    <div class="img-wrap">
-                                        <img src="images/branches.jpg" alt="Image 2"/>
-                                    </div>
-                                    <div class="caption">
-                                        <h3 class="text_2 color_2"><a href="#">Patient Data across Branches</a></h3>
-                                        <p class="text_3" style="text-align: justify;">
-                                            Now you can share all of your patient's records across multiple branches of a
-                                            Clinic. Patient records will be available at all branches with most recent updates.
-                                        </p>
-                                        <a class="btn_2" href="#">read more</a>
                                 </div>
                             </div>
                         </div>

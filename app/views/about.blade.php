@@ -33,8 +33,6 @@ class="current"
                     daily tasks effectively and conviniently. By providing these services to each
                     User we try to overcome difficulty of your daily intensive tasks in Clinics.
                 </p>
-            </br>
-                <a href="#" class="btn_2">read more</a>
             </div>
         </div>
         <div class="grid_5">
