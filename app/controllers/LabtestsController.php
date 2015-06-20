@@ -10,18 +10,21 @@ class LabtestsController extends \BaseController {
 	public function index()
 	{
 		$appointment = Appointment::find(Input::get('id'));
+        $labtests = $appointment->labtests()->paginate(10);
 
 		if(Input::get('flag') != null){
             if(Input::get('flag') == 'print'){
                 $flag = Input::get('flag');
-                return View::make('labtests.index', compact('appointment', 'flag'));
+                return View::make('labtests.index', compact('appointment', 'flag', 'labtests'));
             }else{
                 $flag = Input::get('flag');
-                return View::make('labtests.index', compact('appointment', 'flag'));
+                return View::make('labtests.index', compact('appointment', 'flag', 'labtests'));
             }
 		}
-		
-        return View::make('labtests.index', compact('appointment'));
+
+
+
+        return View::make('labtests.index', compact('appointment', 'labtests'));
 	}
 
 	/**

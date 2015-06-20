@@ -51,6 +51,7 @@
                 @endif
                 </tbody>
             </table>
+            {{ $dutydays->links('partials.pagination') }}
             </center>
       
 @stop

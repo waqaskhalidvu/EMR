@@ -42,8 +42,8 @@
 
                 <tbody>
 
-                 @if(($patient->allergies) != null)
-                    @foreach($patient->allergies as $allergy)
+                 @if(($allergies) != null)
+                    @foreach($allergies as $allergy)
                         <tr>
                             <td>{{{ $allergy->allergy_name }}}</td>
                             <td>{{{ substr($allergy->allergy_note, 0, 50) }}}</td>
@@ -60,6 +60,7 @@
                 @endif
                 </tbody>
             </table>
+            {{ $allergies->appends(array('id' => $patient->id))->links('partials.pagination') }}
             </center>
 
      

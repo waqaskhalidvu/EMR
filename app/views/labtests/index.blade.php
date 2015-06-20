@@ -51,8 +51,8 @@
                 </thead>
 
                 <tbody>
-                @if(($appointment->labtests) != null)
-                    @foreach($appointment->labtests as $labtest)
+                @if(($labtests) != null)
+                    @foreach($labtests as $labtest)
                         <tr>
                             <td>{{{ $labtest->test_name }}}</td>                                                      
                             <td>{{{ ($labtest->total_fee != 0)? $labtest->total_fee . '-/Rs' : 'Unpaid' }}}</td>
@@ -87,6 +87,11 @@
                 @endif
                 </tbody>
             </table>
+            @if(isset($flag) && $flag == 'print')
+                {{ $labtests->appends(array('id' => $appointment->id, 'flag' => 'print'))->links('partials.pagination') }}
+            @else
+                {{ $labtests->appends(array('id' => $appointment->id))->links('partials.pagination') }}
+            @endif
             </center>
 
      

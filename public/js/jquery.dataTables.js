@@ -10046,7 +10046,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"bPaginate": true,
+		"bPaginate": false,
 
 	
 		/**

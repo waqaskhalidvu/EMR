@@ -18,6 +18,7 @@
     {{ HTML::style('/login_css/style.css') }}
     {{ HTML::style('/css/camera.css') }}
     {{ HTML::style('/css/owl.carousel.css') }}
+    {{ HTML::style('/css/pagination.css') }}
 
 <!--========================================================
                           JS
@@ -46,6 +47,7 @@
     {{ HTML::script('js/jquery.unveil.js') }}
     {{ HTML::script('js/script.js') }}
     {{ HTML::script('js/jquery_masks.js') }}
+    {{ HTML::script('js/modernizr.js') }}
 
     <!-- Data Table files -->
     {{ HTML::script('js/jquery.dataTables.js') }}

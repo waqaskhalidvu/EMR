@@ -77,6 +77,7 @@
 
                 </tbody>
             </table>
+            {{ $appointments->links('partials.pagination') }}
             </center>
 
 @stop

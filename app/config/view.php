@@ -26,6 +26,6 @@ return array(
 	|
 	*/
 
-	'pagination' => 'pagination::simple',
+	'pagination' => 'partials.pagination',
 
 );

@@ -212,25 +212,25 @@ Route::group(array('before' => 'auth'), function(){
 
     Route::get('app_vitals', function(){
         if(Auth::user()->role == 'Administrator' || Auth::user()->role == 'Receptionist'){
-            $appointments = Appointment::has('vitalsign', '=', 0)->where('clinic_id', Auth::user()->clinic_id)->get();
+            $appointments = Appointment::has('vitalsign', '=', 0)->where('clinic_id', Auth::user()->clinic_id)->paginate(10);
         }elseif(Auth::user()->role == 'Doctor'){
-            $appointments = Appointment::has('vitalsign')->where('employee_id', Auth::id())->get();
+            $appointments = Appointment::has('vitalsign')->where('employee_id', Auth::id())->paginate(10);
         }
         $flag = "vitals";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
     });
 
     Route::get('app_prescription', function(){
-        $appointments = Appointment::has('prescription', '=', 0)->where('clinic_id', Auth::user()->clinic_id)->get();
+        $appointments = Appointment::has('prescription', '=', 0)->where('clinic_id', Auth::user()->clinic_id)->paginate(10);
         $flag = "prescription";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
     });
 
     Route::get('app_tests', function(){
         if(Input::get('id') !== null){
-            $appointments = Appointment::where('patient_id', Input::get('id'))->get();
+            $appointments = Appointment::where('patient_id', Input::get('id'))->paginate(10);
         }else{
-            $appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)->get();
+            $appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)->paginate(10);
         }
         $flag = "test";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
@@ -272,7 +272,7 @@ Route::group(array('before' => 'auth'), function(){
 
     // Prints
     Route::get('app_pres_print', function(){
-        $appointments = Appointment::has('prescription')->where('clinic_id', Auth::user()->clinic_id)->get();
+        $appointments = Appointment::has('prescription')->where('clinic_id', Auth::user()->clinic_id)->paginate(10);
         $flag = "pres_print";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
     });
@@ -328,7 +328,7 @@ Route::group(array('before' => 'auth'), function(){
     });
 
     Route::get('app_test_print', function(){
-        $appointments = Appointment::has('labtests')->where('clinic_id', Auth::user()->clinic_id)->get();
+        $appointments = Appointment::has('labtests')->where('clinic_id', Auth::user()->clinic_id)->paginate(10);
         $flag = "test_print";
         return View::make('appointment_based_data.appointments', compact('appointments', 'flag'));
     });

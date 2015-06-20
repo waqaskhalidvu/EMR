@@ -61,7 +61,9 @@
 
                 </tbody>
             </table>
-                        {{--{{ $employees->links() }}--}}
+                        {{ $employees->links('partials.pagination') }}
+
+
             </center>
 
 @stop

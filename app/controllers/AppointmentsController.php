@@ -10,9 +10,9 @@ class AppointmentsController extends \BaseController {
 	public function index()
 	{
 		if(Auth::user()->role == 'Doctor'){
-			$appointments = Auth::user()->appointments()->get();
+			$appointments = Auth::user()->appointments()->paginate(10);
 		}else{
-			$appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)->get();
+			$appointments = Appointment::where('clinic_id', Auth::user()->clinic_id)->paginate(10);
 		}
 
 		return View::make('appointments.index', compact('appointments'));

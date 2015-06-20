@@ -9,7 +9,7 @@ class EmployeesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$employees = Employee::where('clinic_id', Auth::user()->clinic_id)->get();
+		$employees = Employee::where('clinic_id', Auth::user()->clinic_id)->paginate(10);
 
 		return View::make('employees.index', compact('employees'));
 	}

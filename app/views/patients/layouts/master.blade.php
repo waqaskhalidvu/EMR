@@ -18,6 +18,7 @@
     {{ HTML::style('/login_css/style.css') }}
     {{ HTML::style('/css/camera.css') }}
     {{ HTML::style('/css/owl.carousel.css') }}
+    {{ HTML::style('/css/pagination.css') }}
     <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
 
     <style>
@@ -60,6 +61,7 @@
     {{ HTML::script('js/jquery_masks.js') }}
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     {{ HTML::script('js/jquery.daterange.js') }}
+    {{ HTML::script('js/modernizr.js') }}
 
         <!-- Data Table files -->
 
