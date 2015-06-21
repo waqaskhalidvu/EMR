@@ -11,9 +11,9 @@ class VitalsignsController extends \BaseController {
 	{
 		$patient_id = Input::get('id');
         $patient = Patient::find($patient_id);
-        $appointments = $patient->appointments()->has('vitalsign')->get();
+        $appointments = $patient->appointments()->has('vitalsign')->paginate(1);
 
-		return View::make('vitalsigns.index', compact('appointments'));
+		return View::make('vitalsigns.index', compact('appointments', 'patient_id'));
 	}
 
 	/**

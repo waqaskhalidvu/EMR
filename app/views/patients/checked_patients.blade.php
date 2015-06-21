@@ -78,6 +78,9 @@
                 @endif
                 </tbody>
             </table>
+            @if(Request::is('patients_reporting'))
+                {{ $appointments->links('partials.pagination') }}
+            @endif
             </center>
 
     

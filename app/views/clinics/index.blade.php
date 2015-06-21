@@ -57,6 +57,7 @@
 
                 </tbody>
             </table>
+            {{ $clinics->links('partials.pagination') }}
             </center>
 
 

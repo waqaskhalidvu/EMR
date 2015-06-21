@@ -11,9 +11,9 @@ class CheckupfeesController extends \BaseController {
 	{
 		$patient_id = Input::get('id');
         $patient = Patient::find($patient_id);
-        $appointments = $patient->appointments()->has('checkupfee')->get();
+        $appointments = $patient->appointments()->has('checkupfee')->paginate(10);
 
-        return View::make('checkupfees.index', compact('appointments'));
+        return View::make('checkupfees.index', compact('appointments', 'patient'));
 	}
 
 	/**

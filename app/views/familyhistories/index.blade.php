@@ -31,7 +31,7 @@
                 <table id="example" style=" border: 1px solid black" class="display" cellspacing="0" width="80%">
                 <thead>
                     <tr>
-                        <th style="width: 20%">Family Member Name</th>
+                        <th style="width: 20%">Member Name</th>
                         <th>Relation</th>
                         <th>Age</th>
                         <th>Gender</th>
@@ -41,8 +41,8 @@
                 </thead>
 
                 <tbody>
-                @if(($patient->familyhistories) != null)
-                    @foreach($patient->familyhistories as $familyhistory)
+                @if(($familyhistories) != null)
+                    @foreach($familyhistories as $familyhistory)
                         <tr>
                             <td>{{{ $familyhistory->f_member_name }}}</td>
                             <td>{{{ $familyhistory->patient_relation }}}</td>
@@ -60,6 +60,7 @@
                 @endif
                 </tbody>
             </table>
+            {{ $familyhistories->appends(['id' => $patient->id])->links('partials.pagination') }}
             </center>
 
      

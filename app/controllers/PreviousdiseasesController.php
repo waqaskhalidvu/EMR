@@ -11,8 +11,9 @@ class PreviousdiseasesController extends \BaseController {
 	{
 		$patient_id = Input::get('id');
         $patient = Patient::find($patient_id);
+        $previousdiseases = $patient->previousdiseases()->paginate(1);
 
-		return View::make('previousdiseases.index', compact('patient'));
+		return View::make('previousdiseases.index', compact('patient', 'previousdiseases'));
 	}
 
 	/**

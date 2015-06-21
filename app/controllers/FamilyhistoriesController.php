@@ -11,8 +11,9 @@ class FamilyhistoriesController extends \BaseController {
 	{
         $patient_id = Input::get('id');
         $patient = Patient::find($patient_id);
+        $familyhistories = $patient->familyhistories()->paginate(10);
 
-		return View::make('familyhistories.index', compact('patient'));
+		return View::make('familyhistories.index', compact('patient', 'familyhistories'));
 	}
 
 	/**

@@ -21,9 +21,6 @@ class LabtestsController extends \BaseController {
                 return View::make('labtests.index', compact('appointment', 'flag', 'labtests'));
             }
 		}
-
-
-
         return View::make('labtests.index', compact('appointment', 'labtests'));
 	}
 

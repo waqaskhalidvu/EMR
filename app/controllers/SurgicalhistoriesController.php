@@ -11,8 +11,9 @@ class SurgicalhistoriesController extends \BaseController {
 	{
 		$patient_id = Input::get('id');
         $patient = Patient::find($patient_id);
+        $surgicalhistories = $patient->surgicalhistories()->paginate(10);
 
-		return View::make('surgicalhistories.index', compact('patient'));
+		return View::make('surgicalhistories.index', compact('patient', 'surgicalhistories'));
 	}
 
 	/**

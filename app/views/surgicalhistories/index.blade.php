@@ -40,8 +40,8 @@
 
                 <tbody>
 
-                @if(($patient->surgicalhistories) != null)
-                    @foreach($patient->surgicalhistories as $surgicalhistory)
+                @if(($surgicalhistories) != null)
+                    @foreach($surgicalhistories as $surgicalhistory)
                         <tr>
                             <td>{{{ $surgicalhistory->surgery_name }}}</td>
                             <td>{{{ date('j F, Y', strtotime($surgicalhistory->surgery_date)) }}}</td>
@@ -57,6 +57,7 @@
                 @endif
                 </tbody>
             </table>
+            {{ $surgicalhistories->appends(['id' => $patient->id])->links('partials.pagination') }}
             </center>
 
       

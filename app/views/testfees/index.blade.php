@@ -53,6 +53,7 @@
 
                 </tbody>
             </table>
+            {{ $testfees->links('partials.pagination') }}
             </center>
 
     

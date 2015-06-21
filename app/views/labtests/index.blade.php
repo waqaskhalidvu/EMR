@@ -89,6 +89,8 @@
             </table>
             @if(isset($flag) && $flag == 'print')
                 {{ $labtests->appends(array('id' => $appointment->id, 'flag' => 'print'))->links('partials.pagination') }}
+            @elseif(isset($flag) && $flag == 'test_fee')
+                {{ $labtests->appends(array('id' => $appointment->id, 'flag' => 'test_fee'))->links('partials.pagination') }}
             @else
                 {{ $labtests->appends(array('id' => $appointment->id))->links('partials.pagination') }}
             @endif

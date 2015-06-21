@@ -10,7 +10,7 @@ class ClinicsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$clinics = Clinic::all();
+		$clinics = Clinic::paginate(10);
         return View::make('clinics.index', compact('clinics'));
 	}
 

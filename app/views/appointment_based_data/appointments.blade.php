@@ -97,7 +97,11 @@
 
                 </tbody>
             </table>
-            {{ $appointments->links('partials.pagination') }}
+            @if($flag == 'pdf_record')
+                {{ $appointments->appends(['id' => $patient->id])->links('partials.pagination') }}
+            @else
+                {{ $appointments->links('partials.pagination') }}
+            @endif
             </center>
 
 @stop

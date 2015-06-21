@@ -9,7 +9,7 @@ class MedicinesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$medicines = Medicine::where('clinic_id', Auth::user()->clinic_id)->get();
+		$medicines = Medicine::where('clinic_id', Auth::user()->clinic_id)->paginate(10);
 
 		return View::make('medicines.index', compact('medicines'));
 	}

@@ -11,8 +11,8 @@ class DrugusagesController extends \BaseController {
 	{
 		$patient_id = Input::get('id');
         $patient = Patient::find($patient_id);
-
-		return View::make('drugusages.index', compact('patient'));
+        $drugusages = $patient->drugusages()->paginate(1);
+		return View::make('drugusages.index', compact('patient', 'drugusages'));
 	}
 
 	/**

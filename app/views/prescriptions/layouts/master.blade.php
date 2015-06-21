@@ -19,6 +19,7 @@
     {{ HTML::style('/css/camera.css') }}
     {{ HTML::style('/css/owl.carousel.css') }}
     {{ HTML::style('/css/select2.css') }}
+    {{ HTML::style('/css/pagination.css') }}
 
   
 <!--========================================================
@@ -48,6 +49,7 @@
     {{ HTML::script('js/jquery.unveil.js') }}
     {{ HTML::script('js/script.js') }}
     {{ HTML::script('js/select2.js') }}
+    {{ HTML::script('js/modernizr.js') }}
 
         <!-- Data Table files -->
 

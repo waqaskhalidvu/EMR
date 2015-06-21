@@ -52,6 +52,7 @@
 
                 </tbody>
             </table>
+                {{ $appointments->appends(['id' => $patient->id])->links('partials.pagination') }}
             </center>
 
     

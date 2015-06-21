@@ -43,8 +43,8 @@
 
                 <tbody>
 
-                @if(($patient->drugusages) != null)
-                    @foreach($patient->drugusages as $drugusage)
+                @if(($drugusages) != null)
+                    @foreach($drugusages as $drugusage)
                         <tr>
                             <td>{{{ $drugusage->drug_name }}}</td>
 
@@ -59,6 +59,7 @@
                 @endif
                 </tbody>
             </table>
+                {{ $drugusages->appends(['id' => $patient->id])->links('partials.pagination') }}
             </center>
 
      

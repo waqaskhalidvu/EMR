@@ -4,15 +4,26 @@
     $trans = $environment->getTranslator();
 ?>
 
-
 @if ($paginator->getLastPage() > 1)
- <nav role="navigation">
-	<ul class="cd-pagination no-space animated-buttons custom-icons">
-	<li><a href="{{ $paginator->getUrl(1) }}" class="{{ ($paginator->getCurrentPage() == 1) ? ' disabled' : '' }}"> Previous</a></li>
-	@for ($i = 1; $i <= $paginator->getLastPage(); $i++)
-	<a href="{{ $paginator->getUrl($i) }}" class="{{ ($paginator->getCurrentPage() == $i) ? 'current' : '' }}">{{ $i }}</a>
-	@endfor
-	<li><a href="{{ $paginator->getUrl($paginator->getCurrentPage()+1) }}" class="item{{ ($paginator->getCurrentPage() == $paginator->getLastPage()) ? ' disabled' : '' }}"> Next</a></li>
-	</ul>
-</nav>
+    <?php
+        $start = $paginator->getCurrentPage() - 3; // show 3 pagination links before current
+        $end = $paginator->getCurrentPage() + 3; // show 3 pagination links after current
+        if($start < 1) $start = 1; // reset start to 1
+        if($end >= $paginator->getLastPage() ) $end = $paginator->getLastPage(); // reset end to last page
+    ?>
+    <nav role="navigation">
+    	<ul class="cd-pagination no-space animated-buttons custom-icons">
+            <li><a style="text-decoration: none" class="{{ ($paginator->getCurrentPage() == 1) ? ' disabled' : '' }}" href="{{ $paginator->getUrl(1) }}">Prev</a></li>
+            @if($start>1)
+                <li><a style="text-decoration: none" href="{{ $paginator->getUrl(1) }}">{{1}}</a> <span>...</span> </li>
+            @endif
+            @for ($i = $start; $i <= $end; $i++)
+                <li><a style="text-decoration: none" class="{{ ($paginator->getCurrentPage() == $i) ? ' current' : '' }}" href="{{ $paginator->getUrl($i) }}">{{$i}}</a></li>
+            @endfor
+            @if($end<$paginator->getLastPage())
+               <li><span>...</span> <a style="text-decoration: none" href="{{ $paginator->getUrl($paginator->getLastPage()) }}">{{$paginator->getLastPage()}}</a></li>
+            @endif
+            <li><a style="text-decoration: none" class="{{ ($paginator->getCurrentPage() == $paginator->getLastPage()) ? ' disabled' : '' }}" href="{{ $paginator->getUrl($paginator->getCurrentPage()+1) }}"> Next </a></li>
+        </ul>
+    </nav>
 @endif

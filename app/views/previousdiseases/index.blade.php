@@ -41,8 +41,8 @@
 
                 <tbody>
 
-                @if(($patient->previousdiseases) != null)
-                    @foreach($patient->previousdiseases as $previousdisease)
+                @if(($previousdiseases) != null)
+                    @foreach($previousdiseases as $previousdisease)
                         <tr>
                             <td>{{{ $previousdisease->disease_name }}}</td>
 
@@ -59,6 +59,7 @@
                 @endif
                 </tbody>
             </table>
+            {{ $previousdiseases->appends(['id' => $patient->id])->links('partials.pagination') }}
             </center>
 
      
