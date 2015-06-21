@@ -53,8 +53,8 @@ class="current"
                                 </br>
                                     Electronic Medical Records. <br/>
                                     Lahore Pakistan, <br/>
-                                    Telephone: +1 800 603 6035 <br/>
-                                    FAX: +1 800 889 9898 <br/>
+                                    Telephone: +92 334 4050495 <br/>
+
                                     E-mail: <a href="#">emronline1@gmail.com</a>
                                 </p>
                             </address>
